@@ -1,0 +1,26 @@
+{
+    "name": "bgaze/html-faker",
+    "type": "library",
+    "description": "An utility using fzaninotto/faker to generate Lorem Ipsum HTML",
+    "keywords": [
+        "faker",
+        "html",
+        "php"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bgaze",
+            "email": "benjamin@bgaze.fr"
+        }
+    ],
+    "require": {
+        "php": "^5.3.3 || ^7.0",
+        "fzaninotto/faker": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bgaze\\HtmlFaker\\": "src"
+        }
+    }
+}

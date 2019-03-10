@@ -1,2 +1,2 @@
 # html-faker
-An utiilty using fzaninotto/Faker to generate Lorem Ipsum HTML
+An utility using fzaninotto/faker to generate Lorem Ipsum HTML
