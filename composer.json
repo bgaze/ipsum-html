@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^5.3.3 || ^7.0",
+        "ext-tidy": "*",
         "fzaninotto/faker": "^1.8"
     },
     "autoload": {
