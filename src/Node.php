@@ -15,18 +15,23 @@ class Node {
     const VOID_ELEMENTS = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'];
 
     /**
-     * The default configuration for Tidy
+     * The list of HTML void elements (self closing tags)
      */
-    const TIDY = [
-        'indent' => true,
-        'indent-spaces' => 4,
-        'new-inline-tags' => 'li, h1, h2',
-        'output-html' => true,
-        'show-body-only' => true,
-        'tidy-mark' => false,
-        'vertical-space' => true,
-        'wrap' => 120
+    const INLINE_ELEMENTS = [
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+        'span', 'button', 'label', 'legend', 'option',
+        'textarea', 'abbr', 'acronym', 'code', 'cite',
+        'del', 'em', 'b', 'i', 'a', 'u', 'kbd', 'mark', 'q', 'small',
+        'strong', 'sub', 'sup', 'tt', 'var', 'dd', 'dt', 'li',
+        'th', 'td', 'script', 'title', 'pre'
     ];
+
+    /**
+     * Do not add blank line after these elements during prettify
+     */
+    const NO_SPACE_AFTER = ['li', 'th', 'td', 'dt'];
+
+    ### PROPERTIES ###
 
     /**
      * The node tag
@@ -57,6 +62,13 @@ class Node {
     protected $void;
 
     /**
+     * Is the node an inlined element (printed on one line)
+     * 
+     * @var boolean 
+     */
+    protected $inline;
+
+    /**
      * Is the node a HTML comment
      * 
      * @var boolean 
@@ -71,8 +83,9 @@ class Node {
      * @param string $tag           The node tag
      * @param mixed $content        The node content
      */
-    public function __construct($tag = 'div', $content = null) {
+    public function __construct($tag, $content = null) {
         $this->void = in_array($tag, self::VOID_ELEMENTS);
+        $this->inline = in_array($tag, self::INLINE_ELEMENTS);
         $this->comment = ($tag === '!--');
         $this->tag = $tag;
         $this->content = [];
@@ -91,79 +104,11 @@ class Node {
      * 
      * @return \Bgaze\HtmlFaker\Node
      */
-    public static function make($tag = 'div', $content = null) {
+    public static function make($tag, $content = null) {
         return new Node($tag, $content);
     }
 
-    ### DISPLAY ###
-
-    /**
-     * Convert the node to a HTML string
-     * 
-     * @return string
-     */
-    public function __toString() {
-        if ($this->comment) {
-            $tmp = array_map(function($c) {
-                return ($c instanceof Node) ? $c->tidy() : $c;
-            }, $this->content);
-
-            $template = (count($this->content) > 1) ? "<!--\n%s\n-->" : "<!-- %s -->";
-
-            return sprintf($template, implode("\n", $tmp));
-        }
-
-        $attributes = '';
-        foreach ($this->attributes as $k => $v) {
-            $attributes .= ' ' . $k . '="' . str_replace('"', '\\"', $v) . '"';
-        }
-
-        if ($this->void) {
-            return sprintf('<%s%s/>', $this->tag, $attributes);
-        }
-
-        return sprintf('<%s%s>%s</%s>', $this->tag, $attributes, implode('', $this->content), $this->tag);
-    }
-
-    /**
-     * Convert the node to a beautified HTML string
-     * 
-     * @return string
-     */
-    public function tidy($config = []) {
-        if ($this->tag === 'html') {
-            $config['show-body-only'] = false;
-        }
-
-        $tidy = new \Tidy();
-        $tidy->parseString($this->__toString(), array_merge(self::TIDY, $config), 'utf8');
-        $tidy->cleanRepair();
-
-        return $tidy;
-    }
-
-    /**
-     * Convert the node to a beautified HTML string
-     * 
-     * The output of this function is prettier and more compact 
-     * than $this->tidy() result, but cannot be configured.
-     * 
-     * @return string
-     */
-    public function prettify() {
-        $transformers = [
-            '/(<h[1-6]>|<li>|<th>|<td>|<dd>|<dt>)\s+/' => '$1',
-            '/\s+(<\/h[1-6]>|<\/li>|<\/th>|<\/td>|<\/dd>|<\/dt>)/' => '$1',
-            '/(<\/li>|<\/dt>|<\/thead>|<\/tr>)\n+/' => "$1\n",
-            '/(-->)\n+/' => "$1\n\n",
-            '/\n+( +<!--)/' => "\n\n$1",
-            '/( +<img src="[^"]+">)/' => "\n$1\n",
-        ];
-
-        return preg_replace(array_keys($transformers), array_values($transformers), $this->tidy());
-    }
-
-    ### GETTERS & SETTERS ###
+    ### MISC GETTERS & SETTERS ###
 
     /**
      * Is the node a void element (self closing tag)
@@ -181,6 +126,24 @@ class Node {
      */
     public function isComment() {
         return $this->comment;
+    }
+
+    /**
+     * Is the node an inline element
+     * 
+     * @return type
+     */
+    public function isInline() {
+        return $this->inline;
+    }
+
+    /**
+     * Define if the node is an inline element
+     * 
+     * @param bool $inline
+     */
+    public function setInline(bool $inline) {
+        $this->inline = $inline;
     }
 
     /**
@@ -204,6 +167,8 @@ class Node {
         return $this;
     }
 
+    ### ATTRIBUTES MANAGEMENT ###
+
     /**
      * Get the node attributes
      * 
@@ -222,9 +187,30 @@ class Node {
      */
     public function setAttributes(array $attributes) {
         $this->attributes = [];
-        $this->attr($attributes);
+        return $this->addAttributes($attributes);
+    }
+
+    /**
+     * Set an attribute value
+     * 
+     * The $key argument can be an associative array of attributes.
+     * 
+     * @param mixed $key
+     * @param string $value
+     * 
+     * @return $this
+     * @throws \Exception
+     */
+    public function setAttribute($key, $value) {
+        if ($this->comment) {
+            throw new \Exception("Comments cannot have attributes.");
+        }
+
+        $this->attributes[$key] = $value;
         return $this;
     }
+
+    ### CONTENT MANAGEMENT ###
 
     /**
      * Get the node content
@@ -245,62 +231,6 @@ class Node {
     public function setContent(array $content) {
         $this->content = [];
         $this->append($content);
-        return $this;
-    }
-
-    ### NODE MANIPULATION ###
-
-    /**
-     * Add attribute(s) to the node
-     * 
-     * The $key argument can be an associative array of attributes.
-     * 
-     * @param mixed $key
-     * @param string $value
-     * 
-     * @return $this
-     */
-    public function attr($key, $value = null) {
-        if ($this->comment) {
-            throw new \Exception("Comments cannot have attributes.");
-        }
-
-        if (is_array($key)) {
-            foreach ($key as $k => $v) {
-                $this->attr($k, $v);
-            }
-            return $this;
-        }
-
-        if ($value === false) {
-            if (isset($this->attributes[$key])) {
-                unset($this->attributes[$key]);
-            }
-            return $this;
-        }
-
-        $this->attributes[$key] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Add a class attribute to the node.
-     * 
-     * @param string $class
-     * 
-     * @return $this
-     */
-    public function addClass($class) {
-        $attrs = $this->getAttributes();
-
-        if (isset($attrs['class'])) {
-            $classes = preg_split('/\s/', $attrs['class'], -1, PREG_SPLIT_NO_EMPTY);
-            $classes[] = $class;
-            $class = implode(' ', array_unique($classes));
-        }
-
-        $this->attr('class', $class);
         return $this;
     }
 
@@ -329,49 +259,6 @@ class Node {
     }
 
     /**
-     * Prepend child or children to the node
-     * 
-     * @param type $content
-     * 
-     * @return $this
-     * @throws \Exception
-     */
-    public function prepend($content) {
-        if ($this->void) {
-            throw new \Exception("Void elements cannot have children ({$this->tag}).");
-        }
-
-        if (is_array($content)) {
-            foreach ($content as $c) {
-                $this->prepend($c);
-            }
-            return $this;
-        }
-
-        array_unshift($this->content, $content);
-
-        return $this;
-    }
-
-    ### NODE CHILDREN MANIPULATION ###
-
-    /**
-     * Create a node, append it to current node, then return the child
-     * 
-     * @param string $tag           The node tag
-     * @param mixed $content        The node content
-     * 
-     * @return Bgaze\HtmlFaker\Node
-     */
-    public function child($tag = 'div', $content = null) {
-        $child = self::make($tag, $content);
-
-        $this->append($child);
-
-        return $child;
-    }
-
-    /**
      * Append current node to a node
      * 
      * @param \Bgaze\HtmlFaker\Node $node
@@ -384,54 +271,150 @@ class Node {
         return $this;
     }
 
-    /**
-     * Prepend current node to a node
-     * 
-     * @param \Bgaze\HtmlFaker\Node $node
-     * 
-     * @return $this
-     */
-    public function prependTo(Node $node) {
-        $node->prepend($node);
+    ### DISPLAY ###
 
-        return $this;
+    /**
+     * Compile node opening tag
+     * 
+     * @return string
+     */
+    public function compileOpeningTag() {
+        if ($this->comment) {
+            return "<!--";
+        }
+
+        $attributes = '';
+        foreach ($this->attributes as $k => $v) {
+            $attributes .= ' ' . $k . '="' . str_replace('"', '\\"', $v) . '"';
+        }
+
+        if ($this->void) {
+            return sprintf('<%s%s/>', $this->tag, $attributes);
+        }
+
+        return sprintf('<%s%s>', $this->tag, $attributes);
     }
 
     /**
-     * Find child or children of current node.
+     * Compile node closing tag
      * 
-     * @param mixed $tag        The node tag to find
-     *                          If ($tag === true) get all children that are an instance of Node
-     *                          If ($tag === false) get all children that are not an instance of Node (string)
-     * 
-     * @param integer $index    The optional index of the children to return
-     *                          If ommitted, all the results are returned
-     *                          If not founded, null is returned
-     * 
-     * @return mixed
+     * @return string
      */
-    public function find($tag, $index = null) {
-        $match = array_filter($this->content, function($v) use($tag) {
-            if ($tag === true) {
-                return ($v instanceof Node);
-            }
-
-            if ($tag === false) {
-                return !($v instanceof Node);
-            }
-
-            return ($v instanceof Node && $v->getTag() === $tag);
-        });
-
-        if (empty($index)) {
-            return $match;
+    public function compileClosingTag() {
+        if ($this->comment) {
+            return "-->";
         }
 
-        if (isset($match[$index])) {
-            return $match[$index];
+        if ($this->void) {
+            return '';
         }
 
-        return null;
+        return sprintf('</%s>', $this->tag);
+    }
+
+    public function compileContent($offset = 0, $size = 4) {
+        if ($this->void) {
+            return '';
+        }
+
+        $indent = str_repeat(' ', $offset * $size);
+        $content = '';
+
+        foreach ($this->content as $c) {
+            if ($c instanceof Node) {
+                $content .= $c->compile($offset, $size) . "\n";
+            } else {
+                $content .= $indent . wordwrap($c, 100, "\n" . $indent) . "\n";
+            }
+        }
+
+        return $content;
+    }
+
+    /**
+     * Convert the node to an indented HTML string
+     * 
+     * @return string
+     */
+    public function compile($offset = 0, $size = 4) {
+        $indent = str_repeat(' ', $offset * $size);
+
+        if ($this->void) {
+            return $indent . $this->compileOpeningTag();
+        }
+
+        if ($this->inline) {
+            return $indent . $this->minify();
+        }
+
+        $html = ($this->tag === 'html') ? "<!DOCTYPE html>\n" : "";
+        $html .= $indent . $this->compileOpeningTag() . "\n";
+        $html .= rtrim($this->compileContent($offset + 1, $size)) . "\n";
+        $html .= $indent . $this->compileClosingTag() . "\n";
+
+        return rtrim($html);
+    }
+
+    /**
+     * Convert the node to a HTML string
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->compile();
+    }
+
+    ############################################################################
+
+    public function minifyNodeContent() {
+        $content = '';
+
+        foreach ($this->content as $c) {
+            $content .= !($c instanceof Node) ? $c . ' ' : $c->minify();
+        }
+
+        return rtrim($content);
+    }
+
+    public function prettifyNodeContent($offset = 0, $size = 4) {
+        $content = '';
+
+
+        foreach ($this->content as $c) {
+            if ($c instanceof Node) {
+                $content .= $c->prettify($offset, $size);
+                $content .= in_array($c->tag, self::NO_SPACE_AFTER) ? "\n" : "\n\n";
+            } else {
+                $content .= str_repeat(' ', $offset * $size) . rtrim($c) . "\n";
+            }
+        }
+
+        return $content;
+    }
+
+    /**
+     * Convert the node to a minified HTML string
+     * 
+     * @return string
+     */
+    public function minify() {
+        if ($this->void) {
+            return $this->compileOpeningTag();
+        }
+
+        $open = $this->compileOpeningTag();
+        $content = $this->minifyNodeContent();
+        $close = $this->compileClosingTag();
+
+        if ($this->tag === 'html') {
+            return "<!DOCTYPE html>\n{$open}{$content}{$close}";
+        }
+
+        if ($this->comment) {
+            return "{$open} {$content} {$close}";
+        }
+
+        return "{$open}{$content}{$close}";
     }
 
 }

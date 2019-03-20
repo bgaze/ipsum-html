@@ -82,6 +82,11 @@ class Generator {
             }
 
             $s = Node::make(array_rand($decorations), $s);
+
+            if ($s->getTag() === 'a') {
+                $s->setAttribute('href', '#');
+            }
+
             $last = true;
         }
 
@@ -136,6 +141,7 @@ class Generator {
         for ($i = 0; $i < $count; $i++) {
             $dl->append($this->make('dt', $dt, $decorate));
             $dl->append($this->make('dd', $dd, $decorate));
+            $dl->append('');
         }
 
         return $dl;
@@ -187,18 +193,20 @@ class Generator {
     }
 
     public function img($width = 640, $height = 480, $category = null) {
-        return Node::make('img')->attr('src', $this->faker->imageUrl($width, $height, $category));
+        return Node::make('img')->setAttribute('src', $this->faker->imageUrl($width, $height, $category));
     }
 
     public function code() {
-        return Node::make('pre', str_replace(['>', '<'], ['&gt;', '&lt;'], $this->ul()->prettify()));
+        return Node::make('pre')->append(Node::make('code', str_replace(['>', '<'], ['&gt;', '&lt;'], $this->ul())));
     }
 
     public function comment($multiline = null) {
         $comment = Node::make('!--', $this->string());
 
         if ($multiline || ($multiline === null && rand(0, 1) === 1)) {
-            $comment->append($this->ul())->append($this->string());
+            $comment->append('')->append($this->ul())->append('')->append($this->string());
+        }else{
+            $comment->setInline(true);
         }
 
         return $comment;
@@ -211,11 +219,11 @@ class Generator {
     public function page($title = 'Fake Html', $rows = 50, $defaults = []) {
         return Node::make('html', [
                     Node::make('head', [
-                        Node::make('meta')->attr('charset', 'utf-8'),
+                        Node::make('meta')->setAttribute('charset', 'utf-8'),
                         Node::make('title', $title),
                     ]),
                     Node::make('body', $this->generate($rows, $defaults))
-                ])->attr('lang', 'en');
+                ])->setAttribute('lang', 'en');
     }
 
     public function generate($rows = 50, $defaults = []) {
@@ -227,6 +235,7 @@ class Generator {
 
         if (in_array('h', $elements)) {
             $doc[] = Node::make('h1', $this->string('sm'));
+            $doc[] = '';
             $last = 'h';
             $rows--;
         }
@@ -239,6 +248,11 @@ class Generator {
             }
 
             $doc[] = $this->element($type, $level);
+            
+            if (!in_array($type, ['li'])) {
+                $doc[] = '';
+            }
+            
             $last = $type;
             $rows--;
         } while ($rows > 0);
