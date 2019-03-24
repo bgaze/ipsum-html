@@ -81,7 +81,7 @@ class Lorem {
      * and trailing dot if requested.
      * 
      * @param integer $words    The number of words into the string
-     * @param type $dot         Wether to include a trailing dot.
+     * @param boolean $dot      Wether to include a trailing dot.
      * @return string
      */
     public static function sentence($words, $dot = true) {
@@ -95,7 +95,7 @@ class Lorem {
     }
 
     /**
-     * Generated a Lorem Ipsum text composed of distinct sentences.
+     * Generate a Lorem Ipsum text composed of distinct sentences.
      * 
      * @param integer $words    The number of words into the string
      * @param mixed $decorate   Wether to decorate the string with inline html tags
