@@ -9,20 +9,162 @@ use Bgaze\HtmlFaker\Nodes\Node;
 /**
  * This class offers static helpers to generate and use fluently PlainText, 
  * Comment and Node instance.
- * 
- * It also include helpers for all the HTML5 elements listed on:
+ *
+ * It offers completion for all the HTML5 elements listed on that are not obsoletes or experimentals:
  * https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5
  * 
- * Note:
- * I've originally achieved the same in a far more elegant way using __callStatic, 
- * but this breaks IDE intellisense.
- * As this utility is designed to be used fluently, I've choosed to generate and
- * include all the helpers methods.
- *
+ * NOTE:
+ * -----
+ * The phpDocumentor "method" tag is not well handled by many editors when using the "static" modifier.
+ * That why I've declared this class methods as non static.
+ * In Netbeans IDE, you can adjust your options by checking "Also Non-Static Methods after ::" 
+ * into "Tools > Options > Code Completion > PHP".
+ * 
  * @author bgaze <benjamin@bgaze.fr>
+ * 
+ * VOIDS ELEMENTS
+ * --------------
+ * @method \Bgaze\HtmlFaker\Nodes\Node area(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'area' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node base(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'base' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node br(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'br' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node col(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'col' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node embed(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'embed' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node hr(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'hr' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node img(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'img' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node input(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'input' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node link(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'link' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node meta(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'meta' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node param(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'param' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node source(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'source' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node track(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'track' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node wbr(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'wbr' HTML node.
+ * 
+ * STANDART ELEMENTS
+ * -----------------
+ * @method \Bgaze\HtmlFaker\Nodes\Node abbr(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'abbr' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node address(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'address' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node article(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'article' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node aside(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'aside' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node audio(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'audio' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node b(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'b' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node bdi(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'bdi' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node bdo(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'bdo' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node blockquote(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'blockquote' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node body(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'body' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node button(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'button' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node canvas(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'canvas' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node caption(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'caption' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node cite(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'cite' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node code(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'code' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node colgroup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'colgroup' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node data(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'data' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node datalist(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'datalist' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node dd(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dd' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node del(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'del' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node details(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'details' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node dfn(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dfn' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node div(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'div' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node dl(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dl' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node dt(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dt' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node em(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'em' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node fieldset(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'fieldset' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node figcaption(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'figcaption' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node figure(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'figure' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node footer(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'footer' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node form(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'form' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node h1(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h1' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node h2(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h2' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node h3(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h3' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node h4(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h4' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node h5(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h5' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node h6(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h6' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node head(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'head' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node header(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'header' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node hgroup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'hgroup' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node html(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'html' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node i(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'i' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node iframe(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'iframe' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node ins(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ins' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node kbd(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'kbd' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node label(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'label' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node legend(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'legend' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node li(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'li' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node map(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'map' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node mark(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'mark' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node meter(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'meter' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node nav(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'nav' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node noscript(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'noscript' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node object(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'object' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node ol(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ol' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node optgroup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'optgroup' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node option(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'option' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node output(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'output' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node p(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'p' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node pre(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'pre' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node progress(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'progress' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node q(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'q' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node rp(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'rp' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node rt(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'rt' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node ruby(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ruby' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node s(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 's' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node samp(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'samp' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node script(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'script' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node section(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'section' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node select(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'select' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node small(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'small' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node span(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'span' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node strong(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'strong' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node style(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'style' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node sub(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'sub' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node summary(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'summary' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node sup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'sup' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node svg(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'svg' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node table(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'table' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node tbody(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'tbody' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node td(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'td' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node textarea(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'textarea' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node tfoot(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'tfoot' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node th(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'th' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node thead(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'thead' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node time(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'time' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node title(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'title' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node tr(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'tr' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node u(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'u' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node ul(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ul' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node var(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'var' HTML node.
+ * @method \Bgaze\HtmlFaker\Nodes\Node video(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'video' HTML node.
  */
 class Html {
-    ### CORE ###
+    /**
+     * Generate a HTML node using his tag as function name.
+     * 
+     * Signature for void elements is : tag(array $attributes = [])
+     * Signature for other elements is : tag(mixed $content = null, array $attributes = [])
+     * 
+     * @param type $name
+     * @param type $arguments
+     * @return Bgaze\HtmlFaker\Nodes\Node
+     */
+    public static function __callStatic($name, $arguments) {
+        $node = new Node($name);
+
+        if ($node->isVoid()) {
+            if (isset($arguments[0]) && is_array($arguments[0])) {
+                $node->setAttributes($arguments[0]);
+            }
+            return $node;
+        }
+
+        if (isset($arguments[0])) {
+            $node->append($arguments[0]);
+        }
+
+        if (isset($arguments[1]) && is_array($arguments[1])) {
+            $node->setAttributes($arguments[1]);
+        }
+
+        return $node;
+    }
 
     /**
      * Create and returns a plain text node.
@@ -45,1228 +187,20 @@ class Html {
     }
 
     /**
-     * Create and returns a common HTML node.
-     * 
-     * @param string $tag
-     * @param mixed $content
-     * @param array $attributes
-     * 
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     * @throws \Exception
-     */
-    public static function node($tag, $content = null, array $attributes = []) {
-        if (!preg_match('/^[a-zA-Z]([a-zA-Z0-9])*$/', $tag)) {
-            throw new \Exception("{$tag} is not a valid tag.");
-        }
-
-        $node = new Node($tag);
-        $node->setAttributes($attributes);
-
-        if (!in_array($tag, Node::VOID_ELEMENTS)) {
-            $node->setContent($content);
-        }
-
-        return $node;
-    }
-
-    ### HELPERS ###
-
-    /**
-     * Create and returns an 'a' node.
+     * Create and returns a 'a' node.
+     * If href is not provided, set it to '#'.
      * 
      * @param mixed $content
      * @param array $attributes
      * @return Bgaze\HtmlFaker\Nodes\Node
      */
     public static function a($content = null, array $attributes = []) {
-        return self::node('a', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'abbr' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function abbr($content = null, array $attributes = []) {
-        return self::node('abbr', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'address' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function address($content = null, array $attributes = []) {
-        return self::node('address', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'area' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function area(array $attributes = []) {
-        return self::node('area', null, $attributes);
-    }
-
-    /**
-     * Create and returns an 'article' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function article($content = null, array $attributes = []) {
-        return self::node('article', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'aside' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function aside($content = null, array $attributes = []) {
-        return self::node('aside', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'audio' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function audio($content = null, array $attributes = []) {
-        return self::node('audio', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'b' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function b($content = null, array $attributes = []) {
-        return self::node('b', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'base' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function base(array $attributes = []) {
-        return self::node('base', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'bdi' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function bdi($content = null, array $attributes = []) {
-        return self::node('bdi', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'bdo' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function bdo($content = null, array $attributes = []) {
-        return self::node('bdo', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'blockquote' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function blockquote($content = null, array $attributes = []) {
-        return self::node('blockquote', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'body' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function body($content = null, array $attributes = []) {
-        return self::node('body', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'br' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function br(array $attributes = []) {
-        return self::node('br', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'button' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function button($content = null, array $attributes = []) {
-        return self::node('button', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'canvas' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function canvas($content = null, array $attributes = []) {
-        return self::node('canvas', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'caption' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function caption($content = null, array $attributes = []) {
-        return self::node('caption', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'cite' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function cite($content = null, array $attributes = []) {
-        return self::node('cite', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'code' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function code($content = null, array $attributes = []) {
-        return self::node('code', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'col' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function col(array $attributes = []) {
-        return self::node('col', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'colgroup' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function colgroup($content = null, array $attributes = []) {
-        return self::node('colgroup', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'command' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function command($content = null, array $attributes = []) {
-        return self::node('command', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'data' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function data($content = null, array $attributes = []) {
-        return self::node('data', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'datalist' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function datalist($content = null, array $attributes = []) {
-        return self::node('datalist', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'dd' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function dd($content = null, array $attributes = []) {
-        return self::node('dd', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'del' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function del($content = null, array $attributes = []) {
-        return self::node('del', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'details' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function details($content = null, array $attributes = []) {
-        return self::node('details', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'dfn' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function dfn($content = null, array $attributes = []) {
-        return self::node('dfn', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'div' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function div($content = null, array $attributes = []) {
-        return self::node('div', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'dl' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function dl($content = null, array $attributes = []) {
-        return self::node('dl', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'dt' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function dt($content = null, array $attributes = []) {
-        return self::node('dt', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'em' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function em($content = null, array $attributes = []) {
-        return self::node('em', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'fieldset' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function fieldset($content = null, array $attributes = []) {
-        return self::node('fieldset', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'figcaption' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function figcaption($content = null, array $attributes = []) {
-        return self::node('figcaption', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'figure' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function figure($content = null, array $attributes = []) {
-        return self::node('figure', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'footer' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function footer($content = null, array $attributes = []) {
-        return self::node('footer', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'form' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function form($content = null, array $attributes = []) {
-        return self::node('form', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'h1' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function h1($content = null, array $attributes = []) {
-        return self::node('h1', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'h2' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function h2($content = null, array $attributes = []) {
-        return self::node('h2', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'h3' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function h3($content = null, array $attributes = []) {
-        return self::node('h3', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'h4' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function h4($content = null, array $attributes = []) {
-        return self::node('h4', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'h5' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function h5($content = null, array $attributes = []) {
-        return self::node('h5', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'h6' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function h6($content = null, array $attributes = []) {
-        return self::node('h6', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'head' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function head($content = null, array $attributes = []) {
-        return self::node('head', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'header' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function header($content = null, array $attributes = []) {
-        return self::node('header', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'hgroup' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function hgroup($content = null, array $attributes = []) {
-        return self::node('hgroup', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'hr' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function hr(array $attributes = []) {
-        return self::node('hr', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'html' node.
-     * Note that the HTML5 doctype will be automatically included before that element.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function html($content = null, array $attributes = []) {
-        return self::node('html', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'i' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function i($content = null, array $attributes = []) {
-        return self::node('i', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'iframe' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function iframe($content = null, array $attributes = []) {
-        return self::node('iframe', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'img' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function img(array $attributes = []) {
-        return self::node('img', null, $attributes);
-    }
-
-    /**
-     * Create and returns an 'input' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function input(array $attributes = []) {
-        return self::node('input', null, $attributes);
-    }
-
-    /**
-     * Create and returns an 'ins' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function ins($content = null, array $attributes = []) {
-        return self::node('ins', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'kbd' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function kbd($content = null, array $attributes = []) {
-        return self::node('kbd', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'keygen' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function keygen($content = null, array $attributes = []) {
-        return self::node('keygen', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'label' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function label($content = null, array $attributes = []) {
-        return self::node('label', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'legend' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function legend($content = null, array $attributes = []) {
-        return self::node('legend', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'li' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function li($content = null, array $attributes = []) {
-        return self::node('li', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'link' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function link(array $attributes = []) {
-        return self::node('link', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'map' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function map($content = null, array $attributes = []) {
-        return self::node('map', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'mark' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function mark($content = null, array $attributes = []) {
-        return self::node('mark', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'math' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function math($content = null, array $attributes = []) {
-        return self::node('math', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'menu' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function menu($content = null, array $attributes = []) {
-        return self::node('menu', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'meta' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function meta(array $attributes = []) {
-        return self::node('meta', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'meter' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function meter($content = null, array $attributes = []) {
-        return self::node('meter', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'nav' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function nav($content = null, array $attributes = []) {
-        return self::node('nav', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'noscript' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function noscript($content = null, array $attributes = []) {
-        return self::node('noscript', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'object' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function object($content = null, array $attributes = []) {
-        return self::node('object', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'ol' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function ol($content = null, array $attributes = []) {
-        return self::node('ol', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'optgroup' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function optgroup($content = null, array $attributes = []) {
-        return self::node('optgroup', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'option' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function option($content = null, array $attributes = []) {
-        return self::node('option', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'output' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function output($content = null, array $attributes = []) {
-        return self::node('output', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'p' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function p($content = null, array $attributes = []) {
-        return self::node('p', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'param' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function param(array $attributes = []) {
-        return self::node('param', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'pre' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function pre($content = null, array $attributes = []) {
-        return self::node('pre', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'progress' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function progress($content = null, array $attributes = []) {
-        return self::node('progress', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'q' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function q($content = null, array $attributes = []) {
-        return self::node('q', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'rp' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function rp($content = null, array $attributes = []) {
-        return self::node('rp', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'rt' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function rt($content = null, array $attributes = []) {
-        return self::node('rt', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'ruby' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function ruby($content = null, array $attributes = []) {
-        return self::node('ruby', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 's' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function s($content = null, array $attributes = []) {
-        return self::node('s', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'samp' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function samp($content = null, array $attributes = []) {
-        return self::node('samp', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'script' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function script($content = null, array $attributes = []) {
-        return self::node('script', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'section' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function section($content = null, array $attributes = []) {
-        return self::node('section', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'select' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function select($content = null, array $attributes = []) {
-        return self::node('select', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'small' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function small($content = null, array $attributes = []) {
-        return self::node('small', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'source' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function source(array $attributes = []) {
-        return self::node('source', null, $attributes);
-    }
-
-    /**
-     * Create and returns a 'span' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function span($content = null, array $attributes = []) {
-        return self::node('span', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'strong' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function strong($content = null, array $attributes = []) {
-        return self::node('strong', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'style' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function style($content = null, array $attributes = []) {
-        return self::node('style', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'sub' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function sub($content = null, array $attributes = []) {
-        return self::node('sub', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'summary' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function summary($content = null, array $attributes = []) {
-        return self::node('summary', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'sup' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function sup($content = null, array $attributes = []) {
-        return self::node('sup', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'svg' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function svg($content = null, array $attributes = []) {
-        return self::node('svg', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'table' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function table($content = null, array $attributes = []) {
-        return self::node('table', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'tbody' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function tbody($content = null, array $attributes = []) {
-        return self::node('tbody', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'td' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function td($content = null, array $attributes = []) {
-        return self::node('td', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'textarea' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function textarea($content = null, array $attributes = []) {
-        return self::node('textarea', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'tfoot' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function tfoot($content = null, array $attributes = []) {
-        return self::node('tfoot', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'th' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function th($content = null, array $attributes = []) {
-        return self::node('th', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'thead' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function thead($content = null, array $attributes = []) {
-        return self::node('thead', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'time' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function time($content = null, array $attributes = []) {
-        return self::node('time', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'title' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function title($content = null, array $attributes = []) {
-        return self::node('title', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'tr' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function tr($content = null, array $attributes = []) {
-        return self::node('tr', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'track' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function track(array $attributes = []) {
-        return self::node('track', null, $attributes);
-    }
-
-    /**
-     * Create and returns an 'u' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function u($content = null, array $attributes = []) {
-        return self::node('u', $content, $attributes);
-    }
-
-    /**
-     * Create and returns an 'ul' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function ul($content = null, array $attributes = []) {
-        return self::node('ul', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'var' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function var($content = null, array $attributes = []) {
-        return self::node('var', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'video' node.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function video($content = null, array $attributes = []) {
-        return self::node('video', $content, $attributes);
-    }
-
-    /**
-     * Create and returns a 'wbr' node.
-     * 
-     * @param array $attributes
-     * @return Bgaze\HtmlFaker\Nodes\Node
-     */
-    public static function wbr(array $attributes = []) {
-        return self::node('wbr', null, $attributes);
+        $node = new Node('a', $content);
+        $node->setAttributes($attributes);
+        if (empty($node->getAttribute('href'))) {
+            $node->setAttribute('href', '#');
+        }
+        return $node;
     }
 
 }
