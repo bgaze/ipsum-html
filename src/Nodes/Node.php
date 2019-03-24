@@ -63,10 +63,10 @@ class Node extends Comment {
     public function __construct($tag, $content = null) {
         $this->void = in_array($tag, self::VOID_ELEMENTS);
         $this->inline = in_array($tag, self::INLINE_ELEMENTS);
-        $this->tag = $tag;
         $this->content = [];
         $this->attributes = [];
 
+        $this->setTag($tag);
         if ($content) {
             $this->append($content);
         }
@@ -96,9 +96,14 @@ class Node extends Comment {
      * @param string $tag
      * 
      * @return $this
+     * @throws \Exception
      */
     public function setTag($tag) {
-        $this->tag = $tag;
+        if (!preg_match('/^[a-zA-Z]([a-zA-Z0-9])*$/', $tag)) {
+            throw new \Exception("{$name} is not a valid tag.");
+        }
+
+        $this->tag = strtolower($tag);
         return $this;
     }
 
