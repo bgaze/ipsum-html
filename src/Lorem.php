@@ -58,7 +58,7 @@ class Lorem {
     /*
      * The default list of tags used to decorate string.
      */
-    const DECORATE = ['b', 'u', 'i', 'a', 'code', 'br'];
+    const DECORATE = ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br'];
 
     /**
      * Generate a simple string of Lorem Ipsum.
@@ -98,9 +98,15 @@ class Lorem {
      * Generated a Lorem Ipsum text composed of distinct sentences.
      * 
      * @param integer $words    The number of words into the string
+     * @param mixed $decorate   Wether to decorate the string with inline html tags
+     *                          Accepts boolean or tag array.
      * @return string
      */
-    public static function text($words) {
+    public static function text($words, $decorate = false) {
+        if ($decorate) {
+            return self::decoratedText($words, is_array($decorate) ? $decorate : []);
+        }
+
         $text = [];
         $count = 0;
 
@@ -144,7 +150,7 @@ class Lorem {
                 $br = true;
             }
             if (in_array($tag, Node::VOID_ELEMENTS)) {
-                unset($key);
+                unset($decorate[$key]);
             }
         }
         $decorations = array_flip($decorate);
@@ -152,7 +158,7 @@ class Lorem {
         // Generate text chunks to reach required length.
         while ($count < $words) {
             // Is this chunk decorated ?
-            $decorated = (!$decorated && rand(0, 4) < 2);
+            $decorated = (!$decorated && rand(0, 4) === 0);
 
             // Define chunk size.
             if ($words - $count < 5) {
@@ -167,11 +173,7 @@ class Lorem {
 
             // Decorate if needed.
             if ($decorated) {
-                $node = Html::node(array_rand($decorations), $chunk);
-                if ($node->getTag() === 'a') {
-                    $node->setAttribute('href', '#');
-                }
-                $chunk = $node->minify();
+                $chunk = call_user_func([Html::class, array_rand($decorations)], $chunk)->minify();
             }
 
             // Manage sentences end.
@@ -179,7 +181,7 @@ class Lorem {
             if ($dot) {
                 $chunk .= '.';
                 if ($br && rand(0, 4) === 0) {
-                    $chunk .= HTML::br();
+                    $chunk .= HTML::br() . "\n";
                 }
             }
 
@@ -187,7 +189,15 @@ class Lorem {
             $text[] = $chunk;
         }
 
-        return trim(implode(' ', $text), '.') . '.';
+        // Compile the text.
+        $text = implode(' ', $text);
+        if (substr($text, -5) === '<br/>') {
+            $text = substr($text, 0, strlen($text) - 5);
+        }
+        if (substr($text, -1) !== '.') {
+            $text .= '.';
+        }
+        return $text;
     }
 
 }
