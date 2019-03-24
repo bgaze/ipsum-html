@@ -147,6 +147,19 @@ class Node extends Comment {
     }
 
     /**
+     * Get an attribute value
+     * 
+     * @param string $key
+     * @return string|null
+     */
+    public function getAttribute($key) {
+        if (!isset($this->attributes[$key])) {
+            return null;
+        }
+        return $this->attributes[$key];
+    }
+
+    /**
      * Append child or children to the node
      * 
      * @param mixed $content
