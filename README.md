@@ -26,7 +26,9 @@ In Netbeans IDE, that I use, you can do that by checking "Also Non-Static Method
 
 Simply install the library using composer :
 
-    composer install bgaze/html-faker
+```
+composer install bgaze/html-faker
+```
 
 
 ## Basic usage
