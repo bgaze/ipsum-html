@@ -77,7 +77,7 @@ class PlainText {
      * @return string
      */
     public function minify() {
-        return trim(preg_replace('/\s+/', ' ', $this->content));
+        return trim(preg_replace('/ +/', ' ', $this->content));
     }
 
     /**
