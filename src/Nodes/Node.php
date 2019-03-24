@@ -15,22 +15,19 @@ class Node extends Comment {
      * The list of HTML void elements (self closing tags)
      */
     public const VOID_ELEMENTS = [
-        'area', 'embed', 'param', 'source', 'track',
-        'br', 'hr', 'wbr', 'col', 'img', 'input',
-        'base', 'link', 'meta',
-        ];
+        'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link',
+        'meta', 'param', 'source', 'track', 'wbr'
+    ];
 
     /**
      * The list of HTML void elements (self closing tags)
      */
     public const INLINE_ELEMENTS = [
-        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-        'b', 'i', 'u', 'sub', 'sup', 'del', 'em', 'strong',
-        'abbr', 'acronym', 'cite', 'q', 'kbd', 'mark', 'var',
-        'span', 'small', 'a', 'button',
-        'dd', 'dt', 'li', 'th', 'td',
-        'title', 'label', 'legend', 'option',
-        'code', 'pre', 'script',
+        'a', 'abbr', 'acronym', 'b', 'bdi', 'bdo', 'button', 'caption', 'cite',
+        'code', 'data', 'dd', 'del', 'dfn', 'dt', 'em', 'figcaption', 'h1',
+        'h2', 'h3', 'h4', 'h5', 'h6', 'i', 'kbd', 'label', 'legend', 'li',
+        'mark', 'option', 'pre', 'q', 'rp', 'rt', 's', 'samp', 'small', 'span',
+        'strong', 'sub', 'sup', 'td', 'th', 'time', 'title', 'u', 'var'
     ];
 
     /**
