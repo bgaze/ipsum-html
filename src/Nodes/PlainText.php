@@ -87,7 +87,8 @@ class PlainText {
      */
     public function prettify($offset = 0, $size = 4, $wrap = 100) {
         $indent = str_repeat(' ', $offset * $size);
-        return $indent . wordwrap($this->minify(), $wrap, "\n" . $indent);
+        $wrapped = wordwrap($this->minify(), $wrap, "\n");
+        return $indent . str_replace("\n", "\n" . $indent, $wrapped);
     }
 
     /**
