@@ -25,6 +25,7 @@ class Comment extends PlainText {
      */
     public function __construct($content = null) {
         $this->content = [];
+        $this->inline = true;
 
         if ($content) {
             $this->append($content);
@@ -47,6 +48,7 @@ class Comment extends PlainText {
      */
     public function setInline(bool $inline) {
         $this->inline = $inline;
+        return $this;
     }
 
     /**
@@ -143,6 +145,10 @@ class Comment extends PlainText {
      * @return string
      */
     public function prettify($offset = 0, $size = 4, $wrap = 100) {
+        if ($this->isInline()) {
+            return $this->minify();
+        }
+
         $indent = str_repeat(' ', $offset * $size);
         $content = $this->prettifyContent($offset + 1, $size, $wrap);
         return sprintf("%s<!--\n%s\n%s-->", $indent, $content, $indent);
