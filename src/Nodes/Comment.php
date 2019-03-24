@@ -130,7 +130,7 @@ class Comment extends PlainText {
             $html[] = $c->prettify($offset, $size, $wrap);
         }
 
-        return implode("\n", $html);
+        return rtrim(implode("\n", $html));
     }
 
     /**

@@ -18,7 +18,7 @@ class Node extends Comment {
         'area', 'embed', 'param', 'source', 'track',
         'br', 'hr', 'wbr', 'col', 'img', 'input',
         'base', 'link', 'meta',
-    ];
+        ];
 
     /**
      * The list of HTML void elements (self closing tags)
@@ -226,7 +226,7 @@ class Node extends Comment {
         $html .= $this->prettifyContent($offset + 1, $size, $wrap);
         $html .= sprintf("\n%s</%s>", $indent, $this->tag);
 
-        return $html;
+        return rtrim($html);
     }
 
 }
