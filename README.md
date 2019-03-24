@@ -19,7 +19,7 @@ Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when u
 
 A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
 then to configure the IDE to allow non-static methos after `::`.  
-In Netbeans IDE, that I use, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
+In Netbeans IDE, that I use, you can do that by checking "Also Non-Static Methods after ::" into "Tools > Options > Code Completion > PHP".
 
 
 ## Installation
