@@ -11,6 +11,7 @@ It ships three main classes that are detailed in following documentation:
 
 All this classes methods are statics. 
 
+
 ## Note about code completion
 
 HtmlFaker does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
@@ -20,11 +21,13 @@ A workaround, used in this lib, is to declared static methods as non-static into
 then to configure the IDE to allow non-static methos after `::`.  
 In Netbeans IDE, that I use, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
 
+
 ## Installation
 
 Simply install the library using composer :
 
     composer install bgaze/html-faker
+
 
 ## Basic usage
 
@@ -42,6 +45,7 @@ echo LoremHtml::webpage(100);
 // Generate and display a HTML table with 4 colums and 10 rows, then print it minified.
 echo LoremHtml::table(4, 10)->minify();
 ```
+
 
 ## Bgaze\HtmlFaker\Lorem
 
