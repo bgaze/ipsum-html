@@ -394,8 +394,9 @@ class IpsumHtml {
         if (!$cols) {
             $cols = rand(3, 5);
         }
+        
         if (!$rows) {
-            $rows = rand(4, 10);
+            $rows = rand(3, 6);
         }
 
         $tbody = Html::tbody();
