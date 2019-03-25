@@ -21,7 +21,7 @@ All this classes methods are statics.
 
 ## Installation
 
-Simply install the library using composer :
+Simply install the library using composer:
 
 ```
 composer require bgaze/ipsum-html
@@ -59,7 +59,7 @@ Completion is provided for most of common HTML content tags.
 All of these methods accept into the `$tag` argument the list of tags that will be used whan generating HTML content.  
 The key is the tag name and the value its weight (probability to appear).
 
-The default tag list is :
+The default tag list is:
 
 ```php
 [
@@ -924,7 +924,7 @@ Node instance has attributes, content is an array of nodes except for void eleme
 Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
 Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
 
-There is two types of methods which signature is different :
+There is two types of methods which signature is different:
 
 + **Void elements:** `Html::tagName(array $attributes = [])`  
 Void elements are: area, base, br, col, embed, hr, img, input, link, meta, param, source, track, wbr.
@@ -980,34 +980,65 @@ echo $node->prettify(1, 2, 50);
 
 ## Bgaze\IpsumHtml\Ipsum
 
-This class generates the Lorem Ipsum text. It offers three main methods :
+This class generates the Lorem Ipsum text. It offers three main methods:
 
-+ **str:** generates a simple string of Lorem Ipsum.
-+ **sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
-+ **text:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.  
-Pass a boolean to enable/disable decoration, or an array of tags to define which decorations to use.  
-The default tag list is : `['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']`
+**str:**
+
+```php
+/**
+ * Generate a simple string of Lorem Ipsum.
+ * 
+ * @param integer $words    The number of words into the string
+ * @return string
+ */
+public static function str($words)
+```
+
+**sentence:**
+
+```php
+/**
+ * Generate a simple string of Lorem Ipsum with first letter capitalized
+ * and trailing dot if requested.
+ * 
+ * @param integer $words    The number of words into the string
+ * @param boolean $dot      Wether to include a trailing dot.
+ * @return string
+ */
+public static function sentence($words, $dot = true)
+```
+
+**text:**
+
+```php
+/**
+ * Generate a Lorem Ipsum text composed of distinct sentences.
+ * 
+ * @param integer $words    The number of words into the string
+ * @param mixed $decorate   Wether to decorate the string with inline html tags
+ *                          Accepts boolean or tag array
+ *                          Default tags: ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']
+ * @return string
+ */
+public static function text($words, $decorate = false)
+```
 
 **Examples:**
 
 ```php
 use Bgaze\IpsumHtml\Ipsum;
 
-echo Ipsum::str(5) . "<br/><br/>";
-
-echo Ipsum::sentence(5) . "<br/><br/>";
-
-echo Ipsum::sentence(4, false) . "<br/><br/>";
-
-echo Ipsum::text(50) . "<br/><br/>";
-
-echo Ipsum::text(50, true) . "<br/><br/>";
-
-echo Ipsum::text(50, ['a', 'strong']);
+echo implode('<br/><br/>', [
+    Ipsum::str(5),
+    Ipsum::sentence(5),
+    Ipsum::sentence(4, false),
+    Ipsum::text(50),
+    Ipsum::text(50, true),
+    Ipsum::text(50, ['a', 'strong'])
+]);
 ```
 
-**Results:**
-
+This code will generate following texts:
 
 > voluptatem sunt magnam commodi laborum
 > 
