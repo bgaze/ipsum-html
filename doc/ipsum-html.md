@@ -36,7 +36,7 @@ The default tag list is:
 public static function random($count, $tags = null)
 ```
 
-<details><summary>See results of <code>echo implode("\n\n", IpsumHtml::random(10));</code></summary><p>
+<details><summary>Example: <code>echo implode("\n\n", IpsumHtml::random(10));</code></summary><p>
 
 ```html
 <p>
@@ -151,7 +151,7 @@ public static function random($count, $tags = null)
 public static function document($count, $tags = null)
 ```
 
-<details><summary>See results of <code>echo implode("\n\n", IpsumHtml::document(20));</code></summary><p>
+<details><summary>Example: <code>echo implode("\n\n", IpsumHtml::document(20));</code></summary><p>
 
 ```html
 <h1>Eaque magni ipsum vel iure esse nam cumque. Deleniti.</h1>
@@ -325,7 +325,7 @@ public static function document($count, $tags = null)
 public static function webpage($count, $tags = null, $lang = 'en')
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::webpage(10);</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::webpage(10);</code></summary><p>
 
 ```html
 <!DOCTYPE html>
@@ -434,7 +434,7 @@ IpsumHtml also provide helpers to generate common complex HTML structures:
 public static function dl($count = null, $dtWords = null, $ddWords = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::dl();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::dl();</code></summary><p>
 
 ```html
 <dl>
@@ -467,7 +467,7 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 public static function ul($count = null, $words = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::ul();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::ul();</code></summary><p>
 
 ```html
 <ul>
@@ -493,7 +493,7 @@ public static function ul($count = null, $words = null)
 public static function ol($count = null, $words = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::ol();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::ol();</code></summary><p>
 
 ```html
 <ol>
@@ -519,7 +519,7 @@ public static function ol($count = null, $words = null)
 public static function tr($cols = null, $th = false, $words = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::tr();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::tr();</code></summary><p>
 
 ```html
 <tr>
@@ -546,7 +546,7 @@ public static function tr($cols = null, $th = false, $words = null)
 public static function thead($cols = null, $words = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::thead();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::thead();</code></summary><p>
 
 ```html
 <thead>
@@ -575,7 +575,7 @@ public static function thead($cols = null, $words = null)
 public static function tbody($cols = null, $rows = null, $words = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::tbody();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::tbody();</code></summary><p>
 
 ```html
 <tbody>
@@ -616,7 +616,7 @@ public static function tbody($cols = null, $rows = null, $words = null)
 public static function table($cols = null, $rows = null, $words = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::table();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::table();</code></summary><p>
 
 ```html
 <table>
@@ -663,7 +663,7 @@ public static function table($cols = null, $rows = null, $words = null)
 public static function img($width = 640, $height = 480, $grayscale = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::img();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::img();</code></summary><p>
 
 ```html
 <img src="https://picsum.photos/640/480/?image=467" alt="sequi tempora nisi iusto animi fuga porro"/>
@@ -685,7 +685,7 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 public static function figure($width = 640, $height = 480, $grayscale = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::figure();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::figure();</code></summary><p>
 
 ```html
 <figure>
@@ -708,7 +708,7 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 public static function code($count = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::code();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::code();</code></summary><p>
 
 ```html
 <pre><code>&lt;bq&gt;
@@ -735,7 +735,7 @@ public static function code($count = null)
 public static function comment($inline = null)
 ```
 
-<details><summary>See results of <code>echo IpsumHtml::comment();</code></summary><p>
+<details><summary>Example: <code>echo IpsumHtml::comment();</code></summary><p>
 
 ```html
 <!--
