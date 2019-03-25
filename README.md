@@ -56,7 +56,9 @@ Completion is provided for most of common HTML content tags.
 
 `IpsumHtml` class provides three "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
 
-**random($count, $tags = null)**: generates randomly an array of Lorem Ipsum HTML nodes.
+#### random($count, $tags = null)
+
+Generates randomly an array of Lorem Ipsum HTML nodes.
 
 ```php
 echo implode("\n\n", IpsumHtml::random(20));
