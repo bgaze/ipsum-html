@@ -1,3 +1,5 @@
+[< Back](../README.md)
+
 ## Bgaze\IpsumHtml\Ipsum
 
 This class generates the Lorem Ipsum text. It offers three main methods:
