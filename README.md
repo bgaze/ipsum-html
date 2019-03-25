@@ -80,8 +80,31 @@ The default tag list is :
 public static function random($count, $tags = null)
 ```
 
+```php
+/**
+ * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
+ * 
+ * @param integer $count    The number of nodes to generate
+ * @param null|array $tags  An optional array to define the tags to use
+ * @return array
+ */
+public static function document($count, $tags = null)
+```
+
+```php
+/**
+* Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
+* 
+* @param integer $count    The number of nodes to generate
+* @param null|array $tags  An optional array to define the tags to use
+* @param string $lang      The lang attribute of the "html" node.
+* @return Bgaze\IpsumHtml\Nodes\Node
+*/
+public static function webpage($count, $tags = null, $lang = 'en')
+```
+
 <details>
-<summary>See results of `echo implode("\n\n", IpsumHtml::random(10));`</summary>
+<summary>See results of <code>echo implode("\n\n", IpsumHtml::random(10));</code></summary>
 <p>
 
 ```html
@@ -185,19 +208,8 @@ public static function random($count, $tags = null)
 </p>
 </details> 
 
-```php
-/**
- * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
- * 
- * @param integer $count    The number of nodes to generate
- * @param null|array $tags  An optional array to define the tags to use
- * @return array
- */
-public static function document($count, $tags = null)
-```
-
 <details>
-<summary>See results of `echo implode("\n\n", IpsumHtml::document(20));`</summary>
+<summary>See results of <code>echo implode("\n\n", IpsumHtml::document(20));</code></summary>
 <p>
 
 ```html
@@ -359,20 +371,8 @@ public static function document($count, $tags = null)
 </p>
 </details> 
 
-```php
-/**
-* Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
-* 
-* @param integer $count    The number of nodes to generate
-* @param null|array $tags  An optional array to define the tags to use
-* @param string $lang      The lang attribute of the "html" node.
-* @return Bgaze\IpsumHtml\Nodes\Node
-*/
-public static function webpage($count, $tags = null, $lang = 'en')
-```
-
 <details>
-<summary>See results of `echo IpsumHtml::webpage(10);`</summary>
+<summary>See results of <code>echo IpsumHtml::webpage(10);</code></summary>
 <p>
 
 ```html
