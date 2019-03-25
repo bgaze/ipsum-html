@@ -7,8 +7,8 @@ You can manipulate them fluently, and print minified or prettyfied.
 
 `IpsumHtml` class provides three "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
 
-All of these methods accept into the `$tag` argument the list of tags that will be used whan generating HTML content.  
-The key is the tag name and the value its weight (probability to appear).
+All of these methods accept as `$tag` argument an array of tags to use when generating HTML content.  
+The key is the **tag name** and the value its **weight** (probability to appear).
 
 The default tag list is:
 
@@ -22,10 +22,10 @@ The default tag list is:
 
 ### IpsumHtml::random
 
+Generates randomly an array of Lorem Ipsum HTML nodes.
+
 ```php
 /**
- * Generate randomly an array of Lorem Ipsum HTML nodes.
- * 
  * @param integer $count    The number of nodes to generate
  * @param null|array $tags  An optional array to define the tags to use
  * @return array
@@ -137,11 +137,9 @@ public static function random($count, $tags = null)
 
 ### IpsumHtml::document
 
+Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
 ```php
 /**
- * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised 
- * with headers (h1-h6 nodes).
- * 
  * @param integer $count    The number of nodes to generate
  * @param null|array $tags  An optional array to define the tags to use
  * @return array
@@ -311,10 +309,10 @@ public static function document($count, $tags = null)
 
 ### IpsumHtml::webpage
 
+Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
+
 ```php
 /**
-* Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
-* 
 * @param integer $count    The number of nodes to generate
 * @param null|array $tags  An optional array to define the tags to use
 * @param string $lang      The lang attribute of the "html" node.
@@ -420,10 +418,10 @@ IpsumHtml also provide helpers to generate common complex HTML structures:
 
 ### IpsumHtml::dl
 
+Generate a Lorem Ipsum "dl" node.
+
 ```php
 /**
- * Generate a Lorem Ipsum "dl" node.
- * 
  * @param null|integer $count       The number of dt/dd pairs it contains (2-4 if null)
  * @param null|integer $dtWords     The number of words into dt elements (2-4 if null)
  * @param null|integer $ddWords     The number of words into dd elements (6-10 if null)
@@ -454,10 +452,10 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 
 ### IpsumHtml::ul
 
+Generate a Lorem Ipsum "ul" node.
+
 ```php
 /**
- * Generate a Lorem Ipsum "ul" node.
- * 
  * @param null|integer $count   The number of items it contains (2-4 if null)
  * @param null|integer $words   The number of words into items (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
@@ -480,10 +478,10 @@ public static function ul($count = null, $words = null)
 
 ### IpsumHtml::ol
 
+Generate a Lorem Ipsum "ol" node.
+
 ```php
 /**
- * Generate a Lorem Ipsum "ol" node.
- * 
  * @param null|integer $count   The number of items it contains (2-4 if null)
  * @param null|integer $words   The number of words into items (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
@@ -505,10 +503,10 @@ public static function ol($count = null, $words = null)
 
 ### IpsumHtml::tr
 
+Generate a Lorem Ipsum "tr" node.
+
 ```php
 /**
- * Generate a Lorem Ipsum "tr" node.
- * 
  * @param null|integer $cols    The number of columns (3-5 if null)
  * @param boolean $th           Use "th" for cells instead of "td"?
  * @param null|integer $words   The number of words into cells (2-4 if null)
@@ -533,10 +531,10 @@ public static function tr($cols = null, $th = false, $words = null)
 
 ### IpsumHtml::thead
 
+Generate a Lorem Ipsum "thead" node containing a heading row.
+
 ```php
 /**
- * Generate a Lorem Ipsum "thead" node containing a heading row.
- * 
  * @param null|integer $cols    The number of columns (3-5 if null)
  * @param null|integer $words   The number of words into cells (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
@@ -561,10 +559,10 @@ public static function thead($cols = null, $words = null)
 
 ### IpsumHtml::tbody
 
+Generate a Lorem Ipsum "tbody" node containing several rows.
+
 ```php
 /**
- * Generate a Lorem Ipsum "tbody" node containing several rows.
- * 
  * @param null|integer $cols    The number of columns (3-5 if null)
  * @param null|integer $rows    The number of rows (4-10 if null)
  * @param null|integer $words   The number of words into cells (2-4 if null)
@@ -602,10 +600,10 @@ public static function tbody($cols = null, $rows = null, $words = null)
 
 ### IpsumHtml::table
 
+Generate a Lorem Ipsum "table" node with header and content.
+
 ```php
 /**
- * Generate a Lorem Ipsum "table" node with header and content.
- * 
  * @param null|integer $cols    The number of columns (3-5 if null)
  * @param null|integer $rows    The number of rows (4-10 if null)
  * @param null|integer $words   The number of words into cells (2-4 if null)
@@ -649,10 +647,10 @@ public static function table($cols = null, $rows = null, $words = null)
 
 ### IpsumHtml::img
 
+Generate a Lorem Ipsum "img" node thanks to [https://picsum.photos/]()
+
 ```php
 /**
- * Generate a Lorem Ipsum "img" node thanks to https://picsum.photos/
- * 
  * @param integer $width            The width of the image in pixels
  * @param integer $height           The height of the image in pixels
  * @param null|boolean $grayscale   Get a grayscale image (random if null)
@@ -671,10 +669,10 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 
 ### IpsumHtml::figure
 
+Generate a Lorem Ipsum "figure" node thanks to [https://picsum.photos/]()
+
 ```php
 /**
- * Generate a Lorem Ipsum "figure" node thanks to https://picsum.photos/
- * 
  * @param integer $width            The width of the image in pixels
  * @param integer $height           The height of the image in pixels
  * @param null|boolean $grayscale   Get a grayscale image (random if null)
@@ -696,10 +694,10 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 
 ### IpsumHtml::code
 
+Generate a Lorem Ipsum code block ("pre > code").
+
 ```php
 /**
- * Generate a Lorem Ipsum code block ("pre > code").
- * 
  * @param null|integer $count   The number of code samples into d=the block (1-3 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
@@ -723,10 +721,10 @@ public static function code($count = null)
 
 ### IpsumHtml::comment
 
+Generate a Lorem Ipsum "comment" node.
+
 ```php
 /**
- * Generate a Lorem Ipsum "comment" node.
- * 
  * @param boolean $inline   Is the comment an inline comment (random if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
