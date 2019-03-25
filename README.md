@@ -56,6 +56,13 @@ Completion is provided for most of common HTML content tags.
 
 `IpsumHtml` class provides thre "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
 
+```php
+echo implode("\n\n", IpsumHtml::random(20));
+```
+
+<details>
+<summary>See results</summary>
+<p>
 ```html
 <p>
     Perferendis in nihil excepturi quo labore expedita quo temporibus. Suscipit dignissimos atque
@@ -203,20 +210,6 @@ Completion is provided for most of common HTML content tags.
     <li>Velit veniam excepturi provident fuga eligendi fugiat nulla saepe repellat.</li>
     <li>Consequatur quae ipsum veniam ipsam officia dolorum cum.</li>
 </ol>
-\```
-
-<details>
-<summary>See results</summary>
-<p>
-
-```php
-public class Order
-{
-    public int OrderId { get; set; }
-    public int CustomerId { get; set; }
-
-    public List<int> Products { get; set; }
-}
 \```
 
 </p>
