@@ -14,8 +14,8 @@ It is usefull to generate fake HTML content, for instance when building a CMS ap
 It ships three main classes that are detailed in following documentation:
 
 + [Bgaze\IpsumHtml\IpsumHtml](#bgazeipsumhtmlipsumhtml): creates HTML structures randomly populated with Lorem Ipsum text.
-+ [Bgaze\IpsumHtml\Ipsum](#bgazeipsumhtmlipsum): generates random Ipsum Ipsum text.
 + [Bgaze\IpsumHtml\Html](#bgazeipsumhtmlhtml): creates HTML structures. They can be manipulated fluently, minified and prettyfied.
++ [Bgaze\IpsumHtml\Ipsum](#bgazeipsumhtmlipsum): generates random Ipsum Ipsum text.
 
 All this classes methods are statics. 
 
@@ -843,38 +843,6 @@ public static function comment($inline = null)
 </p>
 </details> 
 
-## Bgaze\IpsumHtml\Ipsum
-
-This class generates the Lorem Ipsum text. It offers three main methods :
-
-+ **str:** generates a simple string of Lorem Ipsum.
-+ **sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
-+ **text:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.  
-Pass a boolean to enable/disable decoration, or an array of tags to define which decorations to use.
-
-```php
-use Bgaze\IpsumHtml\Ipsum;
-
-$str = Ipsum::str(5);
-// => eius totam possimus at necessitatibus
-
-$str = Ipsum::sentence(5);
-// => Ab odit exercitationem id doloribus.
-
-$str = Ipsum::sentence(4, false);
-// => Quos omnis optio repellendus
-
-$str = Ipsum::text(20);
-// => Alias vitae amet non nemo quas perspiciatis laborum officiis eveniet delectus. Sit neque suscipit autem id vero. Corrupti assumenda accusamus.
-
-$str = Ipsum::text(20, true);
-// The default tag list is : ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']
-// => Aut illo ullam esse itaque.<br/> <sup>Accusantium saepe</sup> eius veniam iusto reiciendis consequuntur dolorem minima <i>harum libero</i> officiis velit tempora totam.
-
-$str = Ipsum::text(20, ['a', 'strong']);
-// => Et quasi odit ut nulla <a href="#">explicabo rem culpa facere</a> doloremque sequi nihil accusamus delectus <strong>ullam voluptatum</strong> id harum delectus aliquid.
-```
-
 ## Bgaze\IpsumHtml\Html
 
 This class offers statics methods to create HTML nodes that you can manipulate fluently, and print minified or prettyfied.
@@ -1009,3 +977,48 @@ echo $node->prettify(1, 2, 50);
   <input id="input" type="text"/>
 */
 ```
+
+## Bgaze\IpsumHtml\Ipsum
+
+This class generates the Lorem Ipsum text. It offers three main methods :
+
++ **str:** generates a simple string of Lorem Ipsum.
++ **sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
++ **text:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.  
+Pass a boolean to enable/disable decoration, or an array of tags to define which decorations to use.  
+The default tag list is : `['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']`
+
+**Examples:**
+
+```php
+use Bgaze\IpsumHtml\Ipsum;
+
+echo Ipsum::str(5) . "<br/><br/>";
+
+echo Ipsum::sentence(5) . "<br/><br/>";
+
+echo Ipsum::sentence(4, false) . "<br/><br/>";
+
+echo Ipsum::text(50) . "<br/><br/>";
+
+echo Ipsum::text(50, true) . "<br/><br/>";
+
+echo Ipsum::text(50, ['a', 'strong']);
+```
+
+**Results:**
+
+
+> voluptatem sunt magnam commodi laborum
+> 
+> Veniam voluptatum repellendus a delectus.
+>
+> Perferendis explicabo atque possimus
+>
+> Fugit dolor quis eum nihil atque est dolorum expedita cum illum a. Ipsa quae quia qui sequi tempora laboriosam molestias est placeat temporibus voluptates. Quasi dicta fugit eos tempora minima corporis rem excepturi cupiditate fuga libero cum placeat repellat. Consectetur minima rem quos iste impedit quod repellendus accusamus voluptates hic.
+>
+> <b>Eos sequi laboriosam</b> alias nostrum autem porro at repudiandae <abbr>quia incidunt</abbr> odit numquam enim quo quibusdam amet iure deleniti perspiciatis placeat asperiores fugit odio molestias tempore placeat voluptates <sup>vitae fugit dolorem aliquam</sup>. Quae dicta sequi fugiat consequatur dicta nemo est maxime at ut nam libero quisquam assumenda pariatur. Beatae optio.
+>
+> <a href="#">Omnis similique nam</a> dolore aliquam odio voluptatum animi. <strong>Veritatis sed culpa</strong> ullam ex occaecati pariatur eaque dignissimos deserunt quod temporibus itaque aut modi atque illum repudiandae. <strong>Molestiae laudantium</strong> ab modi officia porro consequuntur error tempore necessitatibus tenetur illo voluptate excepturi saepe sunt dolorem amet quod temporibus asperiores. Aut reprehenderit eligendi.
+
+
