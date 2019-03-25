@@ -3,6 +3,30 @@
 This class offers statics methods to create HTML nodes populated with Lorem Ipsum text.  
 You can manipulate them fluently, and print minified or prettyfied.
 
+* [Bgaze\IpsumHtml\IpsumHtml](#bgazeipsumhtmlipsumhtml)
+   * [Generators](#generators)
+      * [IpsumHtml::random](#ipsumhtmlrandom)
+      * [IpsumHtml::document](#ipsumhtmldocument)
+      * [IpsumHtml::webpage](#ipsumhtmlwebpage)
+   * [Complex HTML structures](#complex-html-structures)
+      * [IpsumHtml::dl](#ipsumhtmldl)
+      * [IpsumHtml::ul](#ipsumhtmlul)
+      * [IpsumHtml::ol](#ipsumhtmlol)
+      * [IpsumHtml::tr](#ipsumhtmltr)
+      * [IpsumHtml::thead](#ipsumhtmlthead)
+      * [IpsumHtml::tbody](#ipsumhtmltbody)
+      * [IpsumHtml::table](#ipsumhtmltable)
+      * [IpsumHtml::img](#ipsumhtmlimg)
+      * [IpsumHtml::figure](#ipsumhtmlfigure)
+      * [IpsumHtml::code](#ipsumhtmlcode)
+      * [IpsumHtml::comment](#ipsumhtmlcomment)
+   * [Magically defined methods](#magically-defined-methods)
+      * [1 word elements](#1-word-elements)
+      * [Lowercased small text elements](#lowercased-small-text-elements)
+      * [Capitalized small text elements](#capitalized-small-text-elements)
+      * [Medium text elements](#medium-text-elements)
+      * [Large text elements](#large-text-elements)
+
 ## Generators
 
 `IpsumHtml` class provides three "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
@@ -137,7 +161,7 @@ public static function random($count, $tags = null)
 
 ### IpsumHtml::document
 
-Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
+Generates randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
 ```php
 /**
  * @param integer $count    The number of nodes to generate
@@ -309,7 +333,7 @@ public static function document($count, $tags = null)
 
 ### IpsumHtml::webpage
 
-Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
+Generates a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
 
 ```php
 /**
@@ -418,7 +442,7 @@ IpsumHtml also provide helpers to generate common complex HTML structures:
 
 ### IpsumHtml::dl
 
-Generate a Lorem Ipsum "dl" node.
+Generates a Lorem Ipsum "dl" node.
 
 ```php
 /**
@@ -452,7 +476,7 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 
 ### IpsumHtml::ul
 
-Generate a Lorem Ipsum "ul" node.
+Generates a Lorem Ipsum "ul" node.
 
 ```php
 /**
@@ -478,7 +502,7 @@ public static function ul($count = null, $words = null)
 
 ### IpsumHtml::ol
 
-Generate a Lorem Ipsum "ol" node.
+Generates a Lorem Ipsum "ol" node.
 
 ```php
 /**
@@ -503,7 +527,7 @@ public static function ol($count = null, $words = null)
 
 ### IpsumHtml::tr
 
-Generate a Lorem Ipsum "tr" node.
+Generates a Lorem Ipsum "tr" node.
 
 ```php
 /**
@@ -531,7 +555,7 @@ public static function tr($cols = null, $th = false, $words = null)
 
 ### IpsumHtml::thead
 
-Generate a Lorem Ipsum "thead" node containing a heading row.
+Generates a Lorem Ipsum "thead" node containing a heading row.
 
 ```php
 /**
@@ -559,7 +583,7 @@ public static function thead($cols = null, $words = null)
 
 ### IpsumHtml::tbody
 
-Generate a Lorem Ipsum "tbody" node containing several rows.
+Generates a Lorem Ipsum "tbody" node containing several rows.
 
 ```php
 /**
@@ -600,7 +624,7 @@ public static function tbody($cols = null, $rows = null, $words = null)
 
 ### IpsumHtml::table
 
-Generate a Lorem Ipsum "table" node with header and content.
+Generates a Lorem Ipsum "table" node with header and content.
 
 ```php
 /**
@@ -647,7 +671,7 @@ public static function table($cols = null, $rows = null, $words = null)
 
 ### IpsumHtml::img
 
-Generate a Lorem Ipsum "img" node thanks to [https://picsum.photos/]()
+Generates a Lorem Ipsum "img" node thanks to [https://picsum.photos/]()
 
 ```php
 /**
@@ -669,7 +693,7 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 
 ### IpsumHtml::figure
 
-Generate a Lorem Ipsum "figure" node thanks to [https://picsum.photos/]()
+Generates a Lorem Ipsum "figure" node thanks to [https://picsum.photos/]()
 
 ```php
 /**
@@ -694,7 +718,7 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 
 ### IpsumHtml::code
 
-Generate a Lorem Ipsum code block ("pre > code").
+Generates a Lorem Ipsum code block ("pre > code").
 
 ```php
 /**
@@ -721,7 +745,7 @@ public static function code($count = null)
 
 ### IpsumHtml::comment
 
-Generate a Lorem Ipsum "comment" node.
+Generates a Lorem Ipsum "comment" node.
 
 ```php
 /**
