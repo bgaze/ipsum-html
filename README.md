@@ -69,16 +69,19 @@ The default tag list is :
 ]
 ```
 
-#### IpsumHtml::random($count, $tags = null)
-
-Generates randomly an array of Lorem Ipsum HTML nodes.
-
 ```php
-echo implode("\n\n", IpsumHtml::random(10));
+/**
+ * Generate randomly an array of Lorem Ipsum HTML nodes.
+ * 
+ * @param integer $count    The number of nodes to generate
+ * @param null|array $tags  An optional array to define the tags to use
+ * @return array
+ */
+public static function random($count, $tags = null)
 ```
 
 <details>
-<summary>See results</summary>
+<summary>See results of `echo implode("\n\n", IpsumHtml::random(10));`</summary>
 <p>
 
 ```html
@@ -182,16 +185,19 @@ echo implode("\n\n", IpsumHtml::random(10));
 </p>
 </details> 
 
-#### IpsumHtml::document($count, $tags = null)
-
-Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
-
 ```php
-echo implode("\n\n", IpsumHtml::document(20));
+/**
+ * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
+ * 
+ * @param integer $count    The number of nodes to generate
+ * @param null|array $tags  An optional array to define the tags to use
+ * @return array
+ */
+public static function document($count, $tags = null)
 ```
 
 <details>
-<summary>See results</summary>
+<summary>See results of `echo implode("\n\n", IpsumHtml::document(20));`</summary>
 <p>
 
 ```html
@@ -353,16 +359,20 @@ echo implode("\n\n", IpsumHtml::document(20));
 </p>
 </details> 
 
-#### IpsumHtml::webpage($count, $tags = null, $lang = 'en')
-
-Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
-
 ```php
-echo IpsumHtml::webpage(10);
+/**
+* Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
+* 
+* @param integer $count    The number of nodes to generate
+* @param null|array $tags  An optional array to define the tags to use
+* @param string $lang      The lang attribute of the "html" node.
+* @return Bgaze\IpsumHtml\Nodes\Node
+*/
+public static function webpage($count, $tags = null, $lang = 'en')
 ```
 
 <details>
-<summary>See results</summary>
+<summary>See results of `echo IpsumHtml::webpage(10);`</summary>
 <p>
 
 ```html
@@ -468,7 +478,7 @@ IpsumHtml also provide helpers to generate common complex HTML structures:
  * @param null|integer $ddWords     The number of words into dd elements (6-10 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function dl($count = null, $dtWords = null, $ddWords = null);
+public static function dl($count = null, $dtWords = null, $ddWords = null)
 ```
 
 ```php
@@ -479,7 +489,7 @@ public static function dl($count = null, $dtWords = null, $ddWords = null);
  * @param null|integer $words   The number of words into items (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function ul($count = null, $words = null);
+public static function ul($count = null, $words = null)
 ```
 
 ```php
@@ -490,7 +500,7 @@ public static function ul($count = null, $words = null);
  * @param null|integer $words   The number of words into items (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function ol($count = null, $words = null);
+public static function ol($count = null, $words = null)
 ```
 
 ```php
@@ -502,7 +512,7 @@ public static function ol($count = null, $words = null);
  * @param null|integer $words   The number of words into cells (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function tr($cols = null, $th = false, $words = null);
+public static function tr($cols = null, $th = false, $words = null)
 ```
 
 ```php
@@ -513,7 +523,7 @@ public static function tr($cols = null, $th = false, $words = null);
  * @param null|integer $words   The number of words into cells (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function thead($cols = null, $words = null);
+public static function thead($cols = null, $words = null)
 ```
 
 ```php
@@ -525,7 +535,7 @@ public static function thead($cols = null, $words = null);
  * @param null|integer $words   The number of words into cells (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function tbody($cols = null, $rows = null, $words = null);
+public static function tbody($cols = null, $rows = null, $words = null)
 ```
 
 ```php
@@ -537,7 +547,7 @@ public static function tbody($cols = null, $rows = null, $words = null);
  * @param null|integer $words   The number of words into cells (2-4 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function table($cols = null, $rows = null, $words = null);
+public static function table($cols = null, $rows = null, $words = null)
 ```
 
 ```php
@@ -549,7 +559,7 @@ public static function table($cols = null, $rows = null, $words = null);
  * @param null|boolean $grayscale   Get a grayscale image (random if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function img($width = 640, $height = 480, $grayscale = null);
+public static function img($width = 640, $height = 480, $grayscale = null)
 ```
 
 ```php
@@ -561,7 +571,7 @@ public static function img($width = 640, $height = 480, $grayscale = null);
  * @param null|boolean $grayscale   Get a grayscale image (random if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function figure($width = 640, $height = 480, $grayscale = null);
+public static function figure($width = 640, $height = 480, $grayscale = null)
 ```
 
 ```php
@@ -571,7 +581,7 @@ public static function figure($width = 640, $height = 480, $grayscale = null);
  * @param null|integer $count   The number of code samples into d=the block (1-3 if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function code($count = null);
+public static function code($count = null)
 ```
 
 ```php
@@ -581,7 +591,7 @@ public static function code($count = null);
  * @param boolean $inline   Is the comment an inline comment (random if null)
  * @return Bgaze\IpsumHtml\Nodes\Node
  */
-public static function comment($inline = null);
+public static function comment($inline = null)
 ```
 
 ## Bgaze\IpsumHtml\Ipsum
