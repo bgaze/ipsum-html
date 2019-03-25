@@ -754,3 +754,87 @@ public static function comment($inline = null)
 ```
 
 </p></details> 
+
+## Magically defined methods
+
+Some HTML tag methods are predefined on `IpsumHtml` class using `__callStatic`.  
+Any undefined tag will be considered as a "large text element".
+
+#### 1 word elements
+
+Apply to following tags: **var**, **abbr**, **sub**, **sup**.
+
+Method signature is :
+
+```php
+/**
+ * @param integer $words    The number of words into the node text
+ * @param boolean $ucfirst  The node text begins with an uppercased letter
+ * @param boolean $dot      The node text ends witch a dot
+ * @return Bgaze\IpsumHtml\Nodes\Node
+ */
+public static function tagName($words = 1, $ucfirst = false, boolean $dot = false)
+```
+
+#### Lowercased small text elements
+
+Apply to following tags: **a**, **em**, **strong**, **small**, **s**, **q**, **i**, **b**, **u**, **mark**, **span**.
+
+Method signature is :
+
+```php
+/**
+ * @param integer $words    The number of words into the node text [null => 2-4 words]
+ * @param boolean $ucfirst  The node text begins with an uppercased letter
+ * @param boolean $dot      The node text ends witch a dot
+ * @return Bgaze\IpsumHtml\Nodes\Node
+ */
+public static function tagName($words = null, $ucfirst = false, boolean $dot = false)
+```
+
+#### Capitalized small text elements
+
+Apply to following tags: **title**, **dt**, **caption**, **td**, **th**, **legend**, **label**.
+
+Method signature is :
+
+```php
+/**
+ * @param integer $words    The number of words into the node text [null => 2-4 words]
+ * @param boolean $ucfirst  The node text begins with an uppercased letter
+ * @param boolean $dot      The node text ends witch a dot
+ * @return Bgaze\IpsumHtml\Nodes\Node
+ */
+public static function tagName($words = null, $ucfirst = true, boolean $dot = false)
+```
+
+#### Medium text elements
+
+Apply to following tags: **h1**, **h2**, **h3**, **h4**, **h5**, **h6**, **li**, **dd**, **figcaption**, **cite**, **dfn**, **samp**.
+
+Method signature is :
+
+```php
+/**
+ * @param integer $words        The number of words into the node text [null => 6-10 words]
+ * @param array|bool $decorate  Decorate the node text with inline HTML tags
+ * @return Bgaze\IpsumHtml\Nodes\Node
+ */
+public static function tagName($words = null, $decorate = false)
+```
+
+#### Large text elements
+
+Apply to any tag not listed before will be considered as a "large text element".
+Completion is provided for following tags : **p**, **bq**.
+
+Method signature is :
+
+```php
+/**
+ * @param integer $words        The number of words into the node text [null => 15-80 words]
+ * @param array|bool $decorate  Decorate the node text with inline HTML tags
+ * @return Bgaze\IpsumHtml\Nodes\Node
+ */
+public static function tagName($words = null, $decorate = true)
+```
