@@ -419,7 +419,7 @@ class IpsumHtml {
         }
 
         if (!$rows) {
-            $rows = rand(4, 10);
+            $rows = rand(3, 6);
         }
 
         return Html::table([
