@@ -1,4 +1,4 @@
-## Bgaze\IpsumHtml\IpsumHtml
+# Bgaze\IpsumHtml\IpsumHtml
 
 This class offers statics methods to create HTML nodes populated with Lorem Ipsum text.
 You can manipulate them fluently, and print minified or prettyfied.
@@ -6,7 +6,7 @@ You can manipulate them fluently, and print minified or prettyfied.
 Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
 Completion is provided for most of common HTML content tags.
 
-### Generators
+## Generators
 
 `IpsumHtml` class provides three "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
 
@@ -23,7 +23,7 @@ The default tag list is:
 ]
 ```
 
-**random:**
+#### IpsumHtml::random
 
 ```php
 /**
@@ -138,7 +138,7 @@ public static function random($count, $tags = null)
 
 </p></details> 
 
-**document:**
+#### IpsumHtml::document
 
 ```php
 /**
@@ -311,7 +311,7 @@ public static function document($count, $tags = null)
 
 </p></details> 
 
-**webpage:**
+#### IpsumHtml::webpage
 
 ```php
 /**
@@ -416,11 +416,11 @@ public static function webpage($count, $tags = null, $lang = 'en')
 
 </p></details> 
 
-### Complexe HTML structures
+## Complex HTML structures
 
 IpsumHtml also provide helpers to generate common complex HTML structures:
 
-**dl:**
+#### IpsumHtml::dl
 
 ```php
 /**
@@ -454,7 +454,7 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 
 </p></details> 
 
-**ul:**
+#### IpsumHtml::ul
 
 ```php
 /**
@@ -480,7 +480,7 @@ public static function ul($count = null, $words = null)
 
 </p></details> 
 
-**ol:**
+#### IpsumHtml::ol
 
 ```php
 /**
@@ -505,7 +505,7 @@ public static function ol($count = null, $words = null)
 
 </p></details> 
 
-**tr:**
+#### IpsumHtml::tr
 
 ```php
 /**
@@ -533,7 +533,7 @@ public static function tr($cols = null, $th = false, $words = null)
 
 </p></details> 
 
-**thead:**
+#### IpsumHtml::thead
 
 ```php
 /**
@@ -561,7 +561,7 @@ public static function thead($cols = null, $words = null)
 
 </p></details> 
 
-**tbody:**
+#### IpsumHtml::tbody
 
 ```php
 /**
@@ -602,7 +602,7 @@ public static function tbody($cols = null, $rows = null, $words = null)
 
 </p></details> 
 
-**table:**
+#### IpsumHtml::table
 
 ```php
 /**
@@ -649,7 +649,7 @@ public static function table($cols = null, $rows = null, $words = null)
 
 </p></details> 
 
-**img:**
+#### IpsumHtml::img
 
 ```php
 /**
@@ -671,7 +671,7 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 
 </p></details> 
 
-**figure:**
+#### IpsumHtml::figure
 
 ```php
 /**
@@ -696,7 +696,7 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 
 </p></details> 
 
-**code:**
+#### IpsumHtml::code
 
 ```php
 /**
@@ -723,7 +723,7 @@ public static function code($count = null)
 
 </p></details> 
 
-**comment:**
+#### IpsumHtml::comment
 
 ```php
 /**
