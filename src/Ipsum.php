@@ -6,11 +6,11 @@ use Bgaze\HtmlFaker\Html;
 use Bgaze\HtmlFaker\Nodes\Node;
 
 /**
- * Description of Lorem
+ * Description of Ipsum
  *
  * @author bgaze
  */
-class Lorem {
+class Ipsum {
 
     /**
      * The list of words used to generate Lorem Ipsum.

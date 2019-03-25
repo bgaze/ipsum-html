@@ -5,9 +5,9 @@ It is usefull to generate fake HTML content, for instance when building a CMS ap
 
 It ships three main classes that are detailed in following documentation:
 
-+ **Bgaze\HtmlFaker\Lorem:** generates random Lorem Ipsum text.
++ **Bgaze\HtmlFaker\Ipsum:** generates random Ipsum Ipsum text.
 + **Bgaze\HtmlFaker\Html:** creates HTML structures. They can be manipulated fluently, minified and prettyfied.
-+ **Bgaze\HtmlFaker\LoremHtml:** creates HTML structures randomly populated with Lorem Ipsum text.
++ **Bgaze\HtmlFaker\IpsumHtml:** creates HTML structures randomly populated with Lorem Ipsum text.
 
 All this classes methods are statics. 
 
@@ -30,22 +30,22 @@ composer install bgaze/html-faker
 
 ## Basic usage
 
-Import the `LoremHtml` class into your script, then use it statics methods to generate what you need.
+Import the `IpsumHtml` class into your script, then use it statics methods to generate what you need.
 
 ```php
-use Bgaze\HtmlFaker\LoremHtml;
+use Bgaze\HtmlFaker\IpsumHtml;
 
 // Generate 50 random html blocks then display them prettyfied.
-$array = LoremHtml::random(50);
+$array = IpsumHtml::random(50);
 
 // Generate a full webpage containing 100 random html blocks and print it prettyfied.
-echo LoremHtml::webpage(100);
+echo IpsumHtml::webpage(100);
 
 // Generate and display a HTML table with 4 colums and 10 rows, then print it minified.
-echo LoremHtml::table(4, 10)->minify();
+echo IpsumHtml::table(4, 10)->minify();
 ```
 
-## Bgaze\HtmlFaker\Lorem
+## Bgaze\HtmlFaker\Ipsum
 
 
 This class generates the Lorem Ipsum text.  
@@ -56,25 +56,25 @@ It offers three main methods :
 + **str:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.
 
 ```php
-use Bgaze\HtmlFaker\Lorem;
+use Bgaze\HtmlFaker\Ipsum;
 
-$str = Lorem::str(5);
+$str = Ipsum::str(5);
 // => eius totam possimus at necessitatibus
 
-$str = Lorem::sentence(5);
+$str = Ipsum::sentence(5);
 // => Ab odit exercitationem id doloribus.
 
-$str = Lorem::sentence(4, false);
+$str = Ipsum::sentence(4, false);
 // => Quos omnis optio repellendus
 
-$str = Lorem::text(20);
+$str = Ipsum::text(20);
 // => Alias vitae amet non nemo quas perspiciatis laborum officiis eveniet delectus. Sit neque suscipit autem id vero. Corrupti assumenda accusamus.
 
-$str = Lorem::text(20, true);
+$str = Ipsum::text(20, true);
 // The default tag list is : ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']
 // => Aut illo ullam esse itaque.<br/> <sup>Accusantium saepe</sup> eius veniam iusto reiciendis consequuntur dolorem minima <i>harum libero</i> officiis velit tempora totam.
 
-$str = Lorem::text(20, ['a', 'strong']);
+$str = Ipsum::text(20, ['a', 'strong']);
 // => Et quasi odit ut nulla <a href="#">explicabo rem culpa facere</a> doloremque sequi nihil accusamus delectus <strong>ullam voluptatum</strong> id harum delectus aliquid.
 ```
 

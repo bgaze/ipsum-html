@@ -4,7 +4,7 @@ namespace Bgaze\HtmlFaker;
 
 use Bgaze\HtmlFaker\Nodes;
 use Bgaze\HtmlFaker\Html;
-use Bgaze\HtmlFaker\Lorem;
+use Bgaze\HtmlFaker\Ipsum;
 
 /**
  * This class offers static helpers to generate and use fluently HTML node 
@@ -71,7 +71,7 @@ use Bgaze\HtmlFaker\Lorem;
  * @method \Bgaze\HtmlFaker\Nodes\Node p(integer $words = null The number of words into the node text [null => 15-80 words], array|bool $decorate = true Decorate the node text with inline HTML tags) Create a "p" HTML node populated with Lorem Ipsum text.
  * @method \Bgaze\HtmlFaker\Nodes\Node bq(integer $words = null The number of words into the node text [null => 15-80 words], array|bool $decorate = true Decorate the node text with inline HTML tags) Create a "bq" HTML node populated with Lorem Ipsum text.
  */
-class LoremHtml {
+class IpsumHtml {
     ### BASE ELEMENTS ###
 
     /**
@@ -131,7 +131,7 @@ class LoremHtml {
             }
 
             // Create HTML node.
-            return Html::{$name}(Lorem::text($words, $decorate));
+            return Html::{$name}(Ipsum::text($words, $decorate));
         }
 
         // Create the string, randomize words number if undefined.
@@ -139,7 +139,7 @@ class LoremHtml {
             $words = $word ? 1 : rand(2, 4);
         }
 
-        $str = Lorem::str($words);
+        $str = Ipsum::str($words);
 
         // Manage first letter case.
         $ucfirst = $small;
@@ -285,7 +285,7 @@ class LoremHtml {
 
         $head = Html::head([
                     Html::meta(['charset' => 'utf-8']),
-                    LoremHtml::title()
+                    IpsumHtml::title()
         ]);
 
         return Html::html([$head, $body], ['lang' => $lang]);
@@ -446,7 +446,7 @@ class LoremHtml {
         }
         $src .= $width . '/' . $height . '/?random';
 
-        return Html::img(['src' => $src])->setAttribute('alt', Lorem::str(rand(6, 10)));
+        return Html::img(['src' => $src])->setAttribute('alt', Ipsum::str(rand(6, 10)));
     }
 
     /**
@@ -501,14 +501,14 @@ class LoremHtml {
         $comment = Html::comment()->setInline($inline);
 
         if ($inline) {
-            $comment->append(Lorem::str(rand(6, 10)));
+            $comment->append(Ipsum::str(rand(6, 10)));
         } else {
             $comment->append([
-                Lorem::str(rand(6, 30)),
+                Ipsum::str(rand(6, 30)),
                 '',
                 self::random(1, ['ul' => 1, 'ol' => 1, 'p' => 1, 'bq' => 1, 'figure' => 1, 'img' => 1,]),
                 '',
-                Lorem::str(rand(6, 30))
+                Ipsum::str(rand(6, 30))
             ]);
         }
 
