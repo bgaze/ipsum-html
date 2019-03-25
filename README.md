@@ -1,4 +1,4 @@
-# bgaze/html-ipsum
+# IpsumHtml
 
 A PHP utility that allows to generate Lorem Ipsum HTML.  
 It is usefull to generate fake HTML content, for instance when building a CMS app.
