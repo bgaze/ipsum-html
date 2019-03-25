@@ -100,6 +100,7 @@ class Ipsum {
      * @param integer $words    The number of words into the string
      * @param mixed $decorate   Wether to decorate the string with inline html tags
      *                          Accepts boolean or tag array.
+     *                          Default tags: ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']
      * @return string
      */
     public static function text($words, $decorate = false) {
@@ -158,7 +159,7 @@ class Ipsum {
         // Generate text chunks to reach required length.
         while ($count < $words) {
             // Is this chunk decorated ?
-            $decorated = (!$decorated && rand(0, 4) === 0);
+            $decorated = (!$decorated && rand(0, 2) === 0);
 
             // Define chunk size.
             if ($words - $count < 5) {
