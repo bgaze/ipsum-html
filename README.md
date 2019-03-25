@@ -160,7 +160,7 @@ Completion is provided for all non obsoletes and non experimentals tags listed o
 There is two types of methods which signature is different :
 
 + **Void elements:** `Html::tagName(array $attributes = [])`  
-Void elements are: ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']
+Void elements are: area, base, br, col, embed, hr, img, input, link, meta, param, source, track, wbr.
 + **Other elements:** `Html::tagName($content = null, array $attributes = [])`  
 The `$content` can be a string, a node or an array of strings and nodes.
 
