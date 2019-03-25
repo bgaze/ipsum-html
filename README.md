@@ -1,6 +1,5 @@
 # HtmlFaker
 
-
 A PHP utility that allows to generate Lorem Ipsum HTML.  
 It is usefull to generate fake HTML content, for instance when building a CMS app.
 
@@ -12,9 +11,7 @@ It ships three main classes that are detailed in following documentation:
 
 All this classes methods are statics. 
 
-
 ## Note about code completion
-
 
 HtmlFaker does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
 Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
@@ -23,9 +20,7 @@ A workaround, used in this lib, is to declared static methods as non-static into
 then to configure the IDE to allow non-static methos after `::`.  
 In Netbeans IDE, that I use, you can do that by checking "Also Non-Static Methods after ::" into "Tools > Options > Code Completion > PHP".
 
-
 ## Installation
-
 
 Simply install the library using composer :
 
@@ -33,9 +28,7 @@ Simply install the library using composer :
 composer install bgaze/html-faker
 ```
 
-
 ## Basic usage
-
 
 Import the `LoremHtml` class into your script, then use it statics methods to generate what you need.
 
@@ -52,56 +45,27 @@ echo LoremHtml::webpage(100);
 echo LoremHtml::table(4, 10)->minify();
 ```
 
-
 ## Bgaze\HtmlFaker\Lorem
 
 
 This class generates the Lorem Ipsum text.  
 It offers three main methods :
 
-**str:** generates a simple string of Lorem Ipsum.
++ **str:** generates a simple string of Lorem Ipsum.
++ **sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
++ **str:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.
 
 ```php
-/**
- * @param integer $words    The number of words into the string
- * @return string
- */
-
 use Bgaze\HtmlFaker\Lorem;
 
 $str = Lorem::str(5);
 // => eius totam possimus at necessitatibus
-```
-
-**sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
-
-```php
-/**
- * @param integer $words    The number of words into the string
- * @param boolean $dot      Wether to include a trailing dot.
- * @return string
- */
-
-use Bgaze\HtmlFaker\Lorem;
 
 $str = Lorem::sentence(5);
 // => Ab odit exercitationem id doloribus.
 
 $str = Lorem::sentence(4, false);
 // => Quos omnis optio repellendus
-```
-
-**str:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.
-
-```php
-/**
- * @param integer $words            The number of words into the string
- * @param boolean|array $decorate   Wether to decorate the string with inline html tags
- *                                  Accepts boolean or tags array. 
- * @return string
- */
-
-use Bgaze\HtmlFaker\Lorem;
 
 $str = Lorem::text(20);
 // => Alias vitae amet non nemo quas perspiciatis laborum officiis eveniet delectus. Sit neque suscipit autem id vero. Corrupti assumenda accusamus.
