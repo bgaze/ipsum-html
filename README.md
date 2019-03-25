@@ -63,25 +63,18 @@ The default tag list is :
 
 ```php
 [
-    'p' => 10,
-    'ul' => 1,
-    'ol' => 1,
-    'dl' => 1,
-    'bq' => 1,
-    'table' => 1,
-    'code' => 1,
-    'img' => 1,
-    'figure' => 1,
-    'comment' => 1,
+    'p' => 10, 'ul' => 1, 'ol' => 1, 'dl' => 1,
+    'bq' => 1, 'table' => 1, 'code' => 1,
+    'img' => 1, 'figure' => 1, 'comment' => 1,
 ]
 ```
 
-#### random($count, $tags = null)
+#### IpsumHtml::random($count, $tags = null)
 
 Generates randomly an array of Lorem Ipsum HTML nodes.
 
 ```php
-echo implode("\n\n", IpsumHtml::random(20));
+echo implode("\n\n", IpsumHtml::random(10));
 ```
 
 <details>
@@ -90,157 +83,106 @@ echo implode("\n\n", IpsumHtml::random(20));
 
 ```html
 <p>
-    Perferendis in nihil excepturi quo labore expedita quo temporibus. Suscipit dignissimos atque
-    accusamus sit sed consequuntur minima harum earum doloremque sequi labore nostrum praesentium
-    officia eos consectetur deserunt officiis repudiandae <b>esse a</b> aliquid eum officia porro.
-    Veritatis sed modi unde dolorum. <a href="#">Dicta ipsam in porro</a> explicabo dolorem aliquid
-    cupiditate soluta.
+    Quia iste vero accusamus. <sub>Adipisci illum</sub>. Ab neque molestias deserunt distinctio repellat
+    voluptas dignissimos mollitia soluta quisquam inventore odit neque ad similique illum doloremque
+    illo numquam corporis quisquam illo sunt iusto necessitatibus maiores inventore dicta quaerat
+    molestiae soluta recusandae quidem possimus.
 </p>
 
-<pre><code>&lt;ol&gt;
- &lt;li&gt;Alias nemo autem molestias sint tenetur maiores. Voluptates.&lt;/li&gt;
- &lt;li&gt;Eos iure cupiditate officia deserunt animi officiis. Laboriosam cumque assumenda.&lt;/li&gt;
- &lt;li&gt;Qui quos nobis possimus delectus voluptatibus. Eum corrupti.&lt;/li&gt;
-&lt;/ol&gt;
+<figure>
+    <img src="https://picsum.photos/640/480/?image=475" alt="sit doloremque architecto eius natus similique id voluptatibus"/>
+    <figcaption>sit doloremque architecto eius natus similique id voluptatibus</figcaption>
+</figure>
 
-&lt;img src=&quot;https://picsum.photos/640/480/?image=906&quot; alt=&quot;inventore neque consectetur adipisci ea nihil cumque earum asperiores&quot;/&gt;</code></pre>
-
-<ol>
-    <li>Dolorem adipisci numquam veniam id quo minus. Ex ea.</li>
-    <li>Sed quia dolore harum libero porro assumenda repellendus recusandae.</li>
-</ol>
-
-<p>
-    Reprehenderit occaecati cumque a. <a href="#">Vel natus maxime delectus</a> eaque architecto dolore
-    veniam expedita a quam molestiae iusto fuga nam temporibus quae aspernatur dolores reprehenderit
-    quidem repudiandae dolore exercitationem distinctio vero debitis veritatis iusto necessitatibus
-    voluptates.
-</p>
-
-<img src="https://picsum.photos/g/640/480/?image=22" alt="veritatis et quia dolor non laboriosam voluptate quidem tempore"/>
+<bq>
+    Ab eos totam est <b>ab consectetur corporis quos</b>.<br/>
+     Sit quia praesentium maiores consectetur ex molestiae illum debitis doloremque odit modi harum
+    itaque voluptatibus <em>quia incidunt facilis minus</em> fugit consectetur exercitationem suscipit
+    quos dolorem cupiditate cum quisquam sit quae numquam soluta quo saepe doloremque sed culpa saepe.
+    Inventore qui id cumque pariatur hic aut sed blanditiis.<br/>
+    .
+</bq>
 
 <p>
-    Ipsum voluptate dignissimos soluta nobis impedit ipsum laboriosam occaecati officia animi nam.
-    Architecto ut dolore iure rem eveniet. Vitae quia neque fuga nulla. Nostrum reprehenderit excepturi
-    soluta saepe earum <s>quae magnam rerum vero</s>. Sit dolorem fuga cumque ad nemo error mollitia
-    <strong>voluptatem qui consectetur porro</strong> modi perspiciatis id impedit quibusdam accusamus
-    <abbr>magni dolorem corrupti</abbr> ipsa odit veniam in voluptate voluptates quasi nesciunt eum
-    animi quibusdam exercitationem deleniti quo.
-</p>
-
-<!--
-    doloremque dicta odit quia ratione ut magnam aliquam ipsam ex eum perspiciatis omnis iste cum nobis
-    impedit minus possimus assumenda debitis saepe a
-    
-    <bq>
-        Illo quaerat in iusto maxime temporibus doloremque eaque esse minus nostrum corporis nihil animi
-        tenetur perferendis officia distinctio quibusdam at voluptatem dicta iste quod placeat eveniet
-        perferendis illo ut molestiae molestias cumque dicta explicabo voluptatum corrupti perspiciatis
-        repudiandae labore nostrum quam sint similique quia rem omnis minus quod numquam tempora iure
-        similique. Nemo eum corrupti quisquam possimus. Alias vel laborum assumenda asperiores accusantium
-        eaque labore nemo quasi adipisci natus libero impedit voluptatibus.
-    </bq>
-    
-    alias dicta aspernatur nesciunt neque eius eum voluptate nihil sint occaecati cupiditate natus animi
-    soluta porro possimus quibusdam illum officiis doloribus
--->
-
-<p>
-    Illo ipsum perspiciatis tempore amet minima aliquid debitis sunt nesciunt commodi temporibus tenetur
-    architecto quam facilis earum.<br/>
-     Qui neque adipisci atque delectus <a href="#">deserunt recusandae</a>.<br/>
-     Ab dolor consectetur iste harum et velit reprehenderit quam reiciendis corporis blanditiis
-    voluptatum atque optio voluptatibus explicabo sed commodi sapiente fugit assumenda temporibus
-    fugiat. Odio molestias harum rerum optio cupiditate facilis distinctio eligendi <b>quis voluptate
-    cupiditate vero</b> consequatur quaerat similique rerum libero facere fugit odio corrupti quos
-    <s>iure assumenda</s>. Accusantium eaque ex nihil iste soluta.
-</p>
-
-<!-- ipsa explicabo neque dolor nostrum suscipit commodi totam nam reiciendis -->
-
-<p>
-    Consectetur suscipit iste distinctio <strong>sed consequuntur nisi</strong> qui consectetur autem
-    totam eaque veritatis dolore exercitationem voluptatum doloribus aut aliquam impedit tenetur sunt ad
-    esse dolorum libero voluptates illo vitae dolore excepturi voluptatibus ipsum minima distinctio
-    tempore quo saepe aspernatur magnam quidem cumque perferendis quia dolor dolore quidem debitis.
-    <abbr>Quaerat pariatur</abbr> praesentium placeat at debitis earum. <i>Molestiae sint</i> deleniti
-    perspiciatis illum fugiat earum. Quia ea dignissimos facilis perferendis labore nemo ex doloribus
-    eius ullam deleniti mollitia laborum nulla.
+    <sub>Consequuntur veniam in reiciendis</sub> sunt unde impedit eveniet reiciendis <sup>dolores animi
+    expedita</sup> aut accusantium enim doloribus.<br/>
+     Facilis nulla vero repudiandae asperiores architecto neque ex.
 </p>
 
 <dl>
-    <dt>Voluptatem nihil id eveniet</dt>
-    <dd>Dolorem incidunt in corrupti quibusdam doloribus. Autem quam nobis.</dd>
+    <dt>Voluptas fuga</dt>
+    <dd>Aperiam nihil quas libero assumenda debitis. Ipsa sed id harum.</dd>
     
-    <dt>Accusantium ipsa incidunt quos</dt>
-    <dd>Inventore minima quas excepturi quod itaque. Ipsum sint.</dd>
+    <dt>Numquam ullam corporis provident</dt>
+    <dd>Quasi labore ipsam provident perspiciatis harum.</dd>
     
-    <dt>Quaerat sint soluta</dt>
-    <dd>Perferendis illo qui ad error repudiandae.</dd>
+    <dt>Consequuntur eius dolore culpa</dt>
+    <dd>Labore aliquam vel maxime temporibus necessitatibus repellat. Ut.</dd>
     
-    <dt>Accusantium amet eum asperiores</dt>
-    <dd>Modi nostrum cupiditate quidem tempore possimus. Sit eos qui exercitationem.</dd>
-</dl>
-
-<bq>
-    Explicabo dolores corrupti soluta earum quia exercitationem soluta earum consequatur accusantium
-    aliquam temporibus accusamus explicabo dolore ullam sint accusamus explicabo laudantium tempore
-    itaque repellat.<br/>
-     Sed cupiditate similique.
-</bq>
-
-<pre><code>&lt;ul&gt;
- &lt;li&gt;Accusantium ipsa ab sed ipsum provident doloribus. Saepe asperiores.&lt;/li&gt;
- &lt;li&gt;Aspernatur ullam commodi iusto ducimus repellendus. Nisi.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;img src=&quot;https://picsum.photos/g/640/480/?image=703&quot; alt=&quot;ab inventore ullam natus deserunt mollitia repudiandae maiores&quot;/&gt;</code></pre>
-
-<dl>
-    <dt>Architecto natus laborum necessitatibus</dt>
-    <dd>Vitae ullam expedita assumenda pariatur maiores. Ea.</dd>
-    
-    <dt>Voluptatem ipsa</dt>
-    <dd>Doloremque quaerat nostrum ipsam autem est cumque earum. Incidunt reiciendis.</dd>
+    <dt>Consequatur fuga recusandae</dt>
+    <dd>Inventore quasi blanditiis natus repellendus illum itaque. Nesciunt.</dd>
 </dl>
 
 <p>
-    Dolorem veniam error rerum soluta numquam sapiente delectus asperiores.<br/>
-     Corporis voluptas vel molestiae corrupti iste <small>quia dolore enim est</small>. Alias sed labore
-    enim molestiae. Dolore magnam cum maxime. Iusto excepturi optio maiores.
+    Doloremque amet perspiciatis itaque <a href="#">quos placeat</a> consequatur quae vitae consequuntur
+    natus perferendis numquam sint quod temporibus saepe explicabo non aliquid expedita quo earum.
 </p>
 
-<img src="https://picsum.photos/g/640/480?image=187" alt="quasi consequuntur ut eum voluptatum provident"/>
+<img src="https://picsum.photos/640/480/?image=389" alt="amet consectetur aliquid praesentium natus expedita quibusdam illum"/>
 
 <p>
-    Quae nihil excepturi occaecati est <mark>voluptatem omnis</mark> dicta ex iure totam facere
-    accusamus dolor laboriosam occaecati eligendi. <small>Dolorem esse ducimus libero</small> et nisi
-    praesentium iste cumque nulla qui modi eligendi assumenda temporibus maiores magnam ex quas
-    cupiditate maiores velit reprehenderit cupiditate earum aspernatur commodi totam cum optio
-    repudiandae voluptate praesentium totam rem distinctio ab consequuntur vero asperiores.
+    Magnam enim exercitationem vel officia pariatur nesciunt ipsum eum reprehenderit cupiditate maiores
+    quae ad molestiae odio blanditiis repellendus aut numquam natus distinctio <a href="#">beatae
+    explicabo fugit ullam</a> aliquid quos cum placeat recusandae voluptatem explicabo quia ipsam iure
+    <var>tempora asperiores</var> quia excepturi mollitia harum voluptates repudiandae quasi aspernatur
+    nemo ipsam nam temporibus.
 </p>
 
-<!-- nesciunt ut magnam nemo unde rerum -->
-
 <bq>
-    Consequatur explicabo rem atque <abbr>cupiditate est</abbr> magni eos reprehenderit at cum quod
-    temporibus tenetur <em>exercitationem rerum</em> eum corrupti soluta cumque quo maiores sequi
-    incidunt expedita nam inventore ea id optio ea commodi in deleniti nulla necessitatibus.<br/>
-     Aspernatur ex atque fuga <em>alias culpa accusamus</em>.
+    Quasi sint libero quo doloribus aut laboriosam autem deleniti fugiat accusamus <sup>beatae a
+    doloribus</sup>.<br/>
+     Sed ducimus quas excepturi cupiditate expedita consectetur iusto optio reiciendis odit tempora
+    magnam suscipit repudiandae voluptatem dicta corrupti culpa delectus. Eos ratione consectetur quos
+    tenetur. Odit sequi eius magnam sunt sed magnam perspiciatis mollitia pariatur ut veniam ex odio
+    quas cupiditate <sup>voluptatem corporis esse quo</sup>.
 </bq>
 
-<ol>
-    <li>Aut velit tempora labore voluptas deserunt minus possimus accusamus.</li>
-    <li>Sit aliquam ducimus laudantium quos nam.</li>
-    <li>Velit veniam excepturi provident fuga eligendi fugiat nulla saepe repellat.</li>
-    <li>Consequatur quae ipsum veniam ipsam officia dolorum cum.</li>
-</ol>
+<table>
+    <thead>
+        <tr>
+            <th>Modi veniam ipsam omnis</th>
+            <th>Dolorem a</th>
+            <th>Ab nesciunt neque at</th>
+            <th>Alias consequuntur ut veniam</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Inventore enim doloribus</td>
+            <td>Consequuntur voluptas earum</td>
+            <td>Dicta sint nobis</td>
+            <td>Culpa optio</td>
+        </tr>
+        <tr>
+            <td>Voluptatem eveniet doloribus</td>
+            <td>Dicta ipsum excepturi id</td>
+            <td>Corrupti laborum tempore illum</td>
+            <td>Debitis hic</td>
+        </tr>
+        <tr>
+            <td>Laudantium eveniet</td>
+            <td>Consequatur neque iusto</td>
+            <td>Beatae non voluptatum</td>
+            <td>Dicta nam optio</td>
+        </tr>
+    </tbody>
+</table>
 ```
 
 </p>
 </details> 
 
-#### document($count, $tags = null)
+#### IpsumHtml::document($count, $tags = null)
 
 Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
 
@@ -253,220 +195,170 @@ echo implode("\n\n", IpsumHtml::document(20));
 <p>
 
 ```html
-<h1>Alias quae quis ipsam minus voluptates.</h1>
+<h1>Eaque magni ipsum vel iure esse nam cumque. Deleniti.</h1>
 
-<h2>Aspernatur minima quis laboriosam blanditiis rem voluptatum perspiciatis harum.</h2>
+<ol>
+    <li>Amet deleniti animi libero quod repellat.</li>
+    <li>Sit ipsa veritatis voluptate corrupti molestias sapiente voluptatibus.</li>
+    <li>Perferendis nesciunt incidunt nihil quidem soluta hic. Dicta.</li>
+    <li>Consequatur inventore ratione dolore aliquam iusto error officia libero nulla.</li>
+</ol>
 
-<h3>Aspernatur quia neque tempora sint dolorum eligendi. Aperiam beatae quaerat.</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Ipsa vel voluptate omnis</th>
+            <th>Ab impedit pariatur</th>
+            <th>Nemo ea molestias</th>
+            <th>Aut incidunt enim placeat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Consequatur illo inventore suscipit</td>
+            <td>Aperiam nisi at</td>
+            <td>Quia laudantium natus</td>
+            <td>Nesciunt unde</td>
+        </tr>
+        <tr>
+            <td>Deleniti natus pariatur at</td>
+            <td>Eos laudantium</td>
+            <td>Voluptatum natus officia fugiat</td>
+            <td>Velit nisi cupiditate omnis</td>
+        </tr>
+        <tr>
+            <td>Velit laborum</td>
+            <td>Ipsa laboriosam iusto</td>
+            <td>Eum quisquam</td>
+            <td>Enim dignissimos nulla</td>
+        </tr>
+        <tr>
+            <td>Sint expedita</td>
+            <td>Iusto unde laborum doloribus</td>
+            <td>Odit tempora</td>
+            <td>Ea libero assumenda</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Magni ullam voluptate praesentium quo voluptates. Ipsum labore.</h1>
 
 <ul>
-    <li>Magnam nostrum autem quas sint maxime.</li>
-    <li>Ipsa sed dolores nesciunt unde mollitia animi nobis optio temporibus.</li>
-    <li>Exercitationem ea dignissimos fuga harum saepe maiores. Dolore officia.</li>
-    <li>Aperiam eaque numquam quaerat provident itaque. Totam officia.</li>
+    <li>Amet nisi iste culpa distinctio nam. Inventore expedita.</li>
+    <li>Ipsa blanditiis unde rerum necessitatibus saepe doloribus. Ad.</li>
+    <li>Dicta sunt numquam in voluptatum est quidem earum. Veniam omnis.</li>
+    <li>Eaque nisi reprehenderit esse voluptatum deserunt soluta repudiandae. Numquam.</li>
 </ul>
 
-<p>
-    <abbr>Veritatis dicta</abbr> quae enim voluptatum facere odit qui animi harum cum. Perferendis
-    inventore aspernatur amet quos hic aut consequuntur occaecati cupiditate fuga eveniet eius ducimus
-    omnis deserunt placeat earum quis voluptatum quibusdam necessitatibus. <var>Et sequi ipsam
-    placeat</var> amet commodi quam at reiciendis enim sint unde facere assumenda doloribus cupiditate
-    deserunt nobis accusamus hic consequatur laboriosam iste similique quo <sup>eum soluta
-    officiis</sup> molestiae id cumque necessitatibus aliquam id eligendi quo doloribus. <s>Dicta odit
-    possimus</s> alias exercitationem provident officia eveniet delectus.
-</p>
-
 <dl>
-    <dt>Sit dolor minima</dt>
-    <dd>Quaerat suscipit deleniti eligendi quisquam debitis earum. Aspernatur labore.</dd>
+    <dt>Alias eaque quia nobis</dt>
+    <dd>Alias aperiam beatae modi ut voluptate atque. Aperiam optio placeat.</dd>
     
-    <dt>Ex est rerum hic</dt>
-    <dd>Perferendis exercitationem ullam voluptas in quam quos excepturi nulla vero.</dd>
+    <dt>Modi magnam quaerat corporis</dt>
+    <dd>Veritatis quam error soluta possimus recusandae.</dd>
     
-    <dt>Dolore soluta debitis</dt>
-    <dd>Consequuntur minima veniam officia maxime possimus. Sit.</dd>
+    <dt>Dolorum quibusdam voluptates</dt>
+    <dd>Sit sequi ipsum ut corrupti quos possimus.</dd>
     
-    <dt>Odio necessitatibus</dt>
-    <dd>Eaque beatae non modi dignissimos laudantium reiciendis. Aperiam quo.</dd>
+    <dt>Minima aliquid</dt>
+    <dd>Inventore fugit sed dolores modi minus.</dd>
 </dl>
 
 <p>
-    Aliquam eum excepturi deserunt optio necessitatibus.<br/>
-     Ab sunt laboriosam omnis libero a illo et nemo debitis tempora nisi natus error culpa fugiat.
-    Dolorem voluptas quam corrupti illum dolores id maxime assumenda repellendus voluptatem et amet
-    excepturi fuga maxime et tempora possimus repellendus sapiente doloribus accusantium eaque autem nam
-    accusamus itaque.<br/>
-     Beatae explicabo ipsum similique impedit inventore neque in deserunt doloremque perspiciatis
-    deserunt nobis sit ut quos quidem. Beatae adipisci velit accusamus.
+    Doloremque sed libero tempore accusamus quae ab commodi harum vero quia modi laudantium error id vel
+    esse cupiditate hic vitae voluptas laboriosam molestias accusamus earum molestiae praesentium optio
+    porro incidunt corporis totam occaecati perspiciatis natus sunt voluptate iste id quidem
+    voluptatibus <u>ut autem asperiores</u>. Autem voluptate provident facere.
 </p>
 
-<pre><code>&lt;img src=&quot;https://picsum.photos/g/640/480/?image=865&quot; alt=&quot;inventore quia eos modi aliquam ducimus nam voluptates earum&quot;/&gt;
+<pre><code>&lt;img src=&quot;https://picsum.photos/g/640/480/?image=984&quot; alt=&quot;beatae qui quaerat quos sint cum placeat nulla officiis repellat&quot;/&gt;
+
+&lt;ul&gt;
+ &lt;li&gt;Odit dolor totam est eligendi minus temporibus maiores. Consectetur.&lt;/li&gt;
+ &lt;li&gt;Perferendis sit iusto rem quos molestias.&lt;/li&gt;
+ &lt;li&gt;Architecto sequi dolorem tempora nisi eum in quidem nam illum.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;bq&gt;
- &lt;i&gt;In recusandae&lt;/i&gt; alias aliquam rerum facilis eligendi eveniet. Quis ipsam voluptate deleniti
- repellat perferendis ab velit excepturi iste maiores voluptatem nesciunt amet laudantium cupiditate
- similique ipsa nostrum deleniti fuga.
-&lt;/bq&gt;
+ Aspernatur excepturi deserunt fuga sit doloremque odio natus tenetur sapiente explicabo eius
+ occaecati quisquam recusandae illo et cupiditate impedit sit eos est assumenda repellat
+ &lt;small&gt;aperiam quae laudantium placeat&lt;/small&gt; deleniti quas rerum porro doloribus architecto vitae
+ omnis expedita recusandae. Sunt aspernatur iure eveniet perferendis voluptatem commodi iste eos
+ adipisci vel eveniet.
+&lt;/bq&gt;</code></pre>
 
-&lt;figure&gt;
- &lt;img src=&quot;https://picsum.photos/g/640/480/?image=299&quot; alt=&quot;explicabo nesciunt ipsum reprehenderit iste pariatur&quot;/&gt;
- &lt;figcaption&gt;explicabo nesciunt ipsum reprehenderit iste pariatur&lt;/figcaption&gt;
-&lt;/figure&gt;</code></pre>
+<p>
+    Eius in mollitia at ab inventore numquam aliquid a. Aut voluptatem tempore illum modi nisi ea
+    voluptatum quisquam voluptates quia eos ipsum occaecati accusamus hic quasi consectetur dolore nisi
+    quaerat blanditiis unde impedit minus aliquid commodi voluptate iste quidem suscipit vel est
+    pariatur voluptates beatae explicabo corporis facilis doloribus. Ullam ducimus excepturi laborum
+    voluptatibus sequi adipisci quis laborum itaque doloribus.<br/>
+     Architecto veniam quam harum vero. Enim voluptates asperiores.
+</p>
 
-<!-- dolores non ad commodi ducimus quas officiis -->
+<ol>
+    <li>Voluptatem dicta tempora laboriosam nihil quos unde quisquam necessitatibus. Tempore.</li>
+    <li>Inventore natus culpa fuga porro sapiente. Sed.</li>
+    <li>Aut accusantium beatae velit reprehenderit molestias id fuga asperiores. Exercitationem.</li>
+    <li>Sit eos natus dolorum repellendus voluptatibus. Tempore.</li>
+</ol>
 
-<table>
-    <thead>
-        <tr>
-            <th>Sit officiis a</th>
-            <th>Ipsum corporis officiis</th>
-            <th>Fugiat hic</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Nostrum harum pariatur vero</td>
-            <td>Modi fuga repudiandae</td>
-            <td>Perferendis beatae consequuntur quidem</td>
-        </tr>
-        <tr>
-            <td>Nesciunt eius voluptatum expedita</td>
-            <td>Quasi voluptas laboriosam laudantium</td>
-            <td>Vitae modi possimus</td>
-        </tr>
-        <tr>
-            <td>Maxime tenetur</td>
-            <td>Amet minima perspiciatis</td>
-            <td>Dicta non itaque</td>
-        </tr>
-        <tr>
-            <td>Nesciunt nemo in expedita</td>
-            <td>Rem optio</td>
-            <td>Incidunt quas omnis quod</td>
-        </tr>
-        <tr>
-            <td>Fugit sint cum</td>
-            <td>Esse accusamus</td>
-            <td>Suscipit iste error expedita</td>
-        </tr>
-        <tr>
-            <td>Labore similique</td>
-            <td>Architecto modi autem quam</td>
-            <td>Nostrum tenetur</td>
-        </tr>
-    </tbody>
-</table>
+<h1>In rem cupiditate quo quod delectus.</h1>
 
 <bq>
-    Illo velit commodi necessitatibus earum repellat <s>error laborum</s> sunt aliquam cupiditate animi
-    quibusdam perferendis fugit dignissimos id eos sequi exercitationem voluptas <b>quas est</b> aut et
-    tempora iusto. Laboriosam natus rerum voluptatibus doloremque fugit laudantium deserunt quod.
-    <mark>Modi vel deleniti</mark> qui eius dolore voluptatum vero quae fugit aliquid vel maxime.
-    <b>Rerum libero repudiandae tenetur</b> eos vel natus facere.
+    Incidunt quaerat laboriosam dignissimos quas <strong>consectetur velit temporibus accusamus</strong>
+    ad iusto accusamus debitis dolores numquam quam temporibus. <abbr>Libero officiis</abbr>. Odit
+    reprehenderit deleniti eligendi at. Eius ut praesentium omnis iste <a href="#">tempora quam
+    odio</a>.
 </bq>
 
-<h2>Aperiam omnis libero impedit saepe doloribus.</h2>
+<h2>Aspernatur ipsum non labore soluta fugiat. Eos tempora.</h2>
+
+<bq>
+    Neque cupiditate iste libero illum fugiat dolores quaerat praesentium mollitia sed nostrum ducimus
+    placeat nulla <em>at earum maiores</em> quae labore reprehenderit odio maxime. <u>Iusto accusamus a
+    maiores</u>.
+</bq>
 
 <ul>
-    <li>Dolor incidunt quis iure officia soluta quisquam. Perferendis laborum.</li>
-    <li>Ab magnam nemo eum ducimus quos fuga expedita debitis.</li>
-    <li>Consectetur nisi quam similique quibusdam itaque.</li>
+    <li>Nesciunt neque adipisci assumenda illum pariatur asperiores.</li>
+    <li>Voluptas totam sint perspiciatis nobis maiores.</li>
+    <li>Doloremque ex iusto perspiciatis fuga fugiat.</li>
+    <li>Eos qui aliquam iste possimus recusandae. Quam iusto culpa expedita.</li>
 </ul>
 
-<h1>Alias sit fuga temporibus fugiat itaque. Voluptas.</h1>
-
-<!-- quae adipisci exercitationem ipsam voluptas nihil totam occaecati fuga illum -->
+<h3>Voluptatem quae eum molestiae corrupti natus. Quidem placeat repellendus.</h3>
 
 <p>
-    Magnam odio est optio quibusdam doloremque magni dolores adipisci. Amet veniam iure cupiditate harum
-    tenetur. Ipsa amet labore veniam fuga accusamus. <b>Adipisci esse</b>.
+    <em>Dolorem amet commodi</em> alias nostrum quo at accusamus doloribus <em>ipsa velit</em> esse
+    culpa facere assumenda repellendus perferendis vitae ducimus tempore sunt aspernatur quaerat esse
+    sint a et nostrum assumenda debitis earum quaerat rem est optio quisquam voluptatem iusto corrupti
+    deserunt voluptates voluptatibus commodi in culpa repudiandae recusandae vitae exercitationem
+    laborum expedita a corporis quam soluta.
 </p>
 
-<table>
-    <thead>
-        <tr>
-            <th>Eos esse mollitia quod</th>
-            <th>Aliquid molestias</th>
-            <th>Odit dignissimos quod</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Quae esse saepe</td>
-            <td>Enim nam eligendi</td>
-            <td>Sed possimus</td>
-        </tr>
-        <tr>
-            <td>Quas libero at necessitatibus</td>
-            <td>Qui nisi</td>
-            <td>Alias numquam error</td>
-        </tr>
-        <tr>
-            <td>Accusantium corporis natus fuga</td>
-            <td>Ipsa illum officiis</td>
-            <td>Et cum</td>
-        </tr>
-        <tr>
-            <td>Odit laudantium animi</td>
-            <td>Laudantium rem similique</td>
-            <td>Incidunt natus distinctio</td>
-        </tr>
-        <tr>
-            <td>Ipsum vel</td>
-            <td>Ad occaecati fugiat</td>
-            <td>Alias aut quis earum</td>
-        </tr>
-        <tr>
-            <td>Ducimus nulla</td>
-            <td>Praesentium voluptatum</td>
-            <td>Officia repellat</td>
-        </tr>
-        <tr>
-            <td>Veniam suscipit voluptate nihil</td>
-            <td>Consequatur beatae expedita nobis</td>
-            <td>Explicabo impedit quo</td>
-        </tr>
-        <tr>
-            <td>Aliquid totam necessitatibus maiores</td>
-            <td>Quia porro</td>
-            <td>Illo labore ea quidem</td>
-        </tr>
-        <tr>
-            <td>Blanditiis perspiciatis</td>
-            <td>Incidunt temporibus</td>
-            <td>Dolore reprehenderit sint</td>
-        </tr>
-    </tbody>
-</table>
-
-<h2>Inventore exercitationem aliquid id possimus officiis. In.</h2>
-
-<dl>
-    <dt>Ullam autem rerum repudiandae</dt>
-    <dd>Quae dolores in dignissimos blanditiis quos possimus.</dd>
-    
-    <dt>Occaecati quisquam</dt>
-    <dd>Ad nihil deleniti impedit necessitatibus hic maiores repellat. Enim.</dd>
-</dl>
+<h3>Voluptatem inventore beatae dolorem iusto saepe.</h3>
 
 <p>
-    Iusto facere at eveniet voluptates et consequuntur sequi laudantium repudiandae <sub>nesciunt
-    minus</sub> occaecati error facilis delectus ullam nemo quos est nulla. Ab dolor nemo voluptas at
-    reiciendis aperiam illo vitae dolores incidunt asperiores eaque sunt ex harum rerum eligendi <em>ad
-    reiciendis</em> magni voluptate blanditiis quisquam ratione ex cum impedit eveniet velit ducimus
-    occaecati nam assumenda saepe.
+    Qui dolor enim ullam corporis quibusdam. Explicabo minima perspiciatis impedit saepe voluptatem
+    accusantium velit nisi nihil.
 </p>
+
+<ol>
+    <li>Neque tempora corporis odio libero assumenda.</li>
+    <li>Modi quaerat occaecati laborum quibusdam necessitatibus. Quis eum.</li>
+</ol>
 ```
 
 </p>
 </details> 
 
-#### webpage($count, $tags = null, $lang = 'en')
+#### IpsumHtml::webpage($count, $tags = null, $lang = 'en')
 
 Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
 
 ```php
-echo IpsumHtml::webpage(20);
+echo IpsumHtml::webpage(10);
 ```
 
 <details>
@@ -478,234 +370,94 @@ echo IpsumHtml::webpage(20);
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>Tempora possimus</title>
+        <title>Perferendis nulla</title>
     </head>
     <body>
-        <h1>Voluptatem sed magni quis corrupti saepe.</h1>
+        <h1>Ipsa ab sunt fugit quia esse at. Aut.</h1>
         
-        <p>
-            Consectetur ad in repellendus repudiandae <sup>neque sint natus pariatur</sup> tempora facilis optio
-            vero officiis sapiente aliquam nisi quas dolorum eaque nemo cupiditate pariatur.<br/>
-             Neque exercitationem omnis rerum repellat veritatis harum soluta illum. Odit numquam at tenetur sed
-            corporis rem quas officiis repudiandae dolore quis eum nulla et exercitationem distinctio optio
-            porro tenetur <u>voluptatem iusto cupiditate</u>.
-        </p>
+        <ol>
+            <li>Eos incidunt aliquam minima corporis id laborum optio.</li>
+            <li>Dolor consectetur commodi unde eligendi tenetur maiores. Exercitationem.</li>
+            <li>Eaque consectetur in iusto excepturi saepe. Molestias.</li>
+        </ol>
         
-        <h2>Dicta explicabo amet dolorum temporibus saepe. Fugiat.</h2>
+        <h2>Accusantium magnam minima rem voluptatum sint.</h2>
         
-        <h2>Inventore odit ratione dolorem molestiae quibusdam. Dolor.</h2>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Amet non ullam quisquam</th>
-                    <th>Qui nisi autem hic</th>
-                    <th>Suscipit aliquid mollitia debitis</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Praesentium possimus</td>
-                    <td>Blanditiis corrupti</td>
-                    <td>Aliquam commodi</td>
-                </tr>
-                <tr>
-                    <td>Ipsa quis</td>
-                    <td>Beatae ex molestiae</td>
-                    <td>Laboriosam molestiae officiis</td>
-                </tr>
-                <tr>
-                    <td>Unde soluta maxime</td>
-                    <td>Ea expedita eveniet</td>
-                    <td>Beatae iure impedit</td>
-                </tr>
-                <tr>
-                    <td>Quidem maiores</td>
-                    <td>Aspernatur quis dolorum</td>
-                    <td>Odio molestias hic</td>
-                </tr>
-                <tr>
-                    <td>Alias eius quaerat omnis</td>
-                    <td>Quas cum</td>
-                    <td>Ipsa quas quisquam sapiente</td>
-                </tr>
-                <tr>
-                    <td>Eum nobis</td>
-                    <td>Alias consectetur eum</td>
-                    <td>Aspernatur quaerat earum repellat</td>
-                </tr>
-                <tr>
-                    <td>Sequi autem praesentium</td>
-                    <td>Dicta quod officiis tenetur</td>
-                    <td>Illo facere</td>
-                </tr>
-                <tr>
-                    <td>Ad autem illum</td>
-                    <td>Velit corporis reprehenderit nulla</td>
-                    <td>Magni autem unde tempore</td>
-                </tr>
-                <tr>
-                    <td>Veritatis expedita maxime</td>
-                    <td>Iste repellendus</td>
-                    <td>Aut vitae</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <p>
-            Ipsam atque officia animi tempore repudiandae qui veniam nostrum aliquid provident perspiciatis
-            voluptatem doloremque totam natus id. Aut dicta laboriosam blanditiis praesentium atque. <b>Ipsum
-            nihil error</b> aperiam atque mollitia est debitis asperiores inventore adipisci ullam eum quos
-            omnis <abbr>ex similique nam</abbr>. Sit modi ex libero maiores. Aut vitae veniam eum iusto maxime
-            <em>voluptas quas repudiandae doloribus</em> quasi voluptas provident nam assumenda tempora
-            voluptate voluptates a laudantium.
-        </p>
+        <figure>
+            <img src="https://picsum.photos/640/480/?image=140" alt="sunt consequuntur reprehenderit iusto expedita facere"/>
+            <figcaption>sunt consequuntur reprehenderit iusto expedita facere</figcaption>
+        </figure>
         
         <table>
             <thead>
                 <tr>
-                    <th>Veritatis nulla</th>
-                    <th>Velit laudantium cupiditate doloribus</th>
-                    <th>Ullam ex facilis accusamus</th>
-                    <th>Ducimus asperiores</th>
+                    <th>Ex accusamus</th>
+                    <th>Nisi quisquam</th>
+                    <th>Iusto saepe voluptates</th>
+                    <th>Eius animi</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Perspiciatis tenetur</td>
-                    <td>Quia facere</td>
-                    <td>Sit voluptas iure fugiat</td>
-                    <td>Praesentium quos cupiditate</td>
+                    <td>Aut occaecati soluta repellendus</td>
+                    <td>Alias provident</td>
+                    <td>Sit fugit maxime temporibus</td>
+                    <td>Dicta id rerum a</td>
                 </tr>
                 <tr>
-                    <td>Vel animi</td>
-                    <td>Ipsa iste tenetur</td>
-                    <td>Adipisci velit ut</td>
-                    <td>Amet temporibus repudiandae delectus</td>
+                    <td>Amet provident</td>
+                    <td>Magni culpa tempore</td>
+                    <td>Accusantium aspernatur eligendi</td>
+                    <td>Dolores exercitationem possimus</td>
                 </tr>
                 <tr>
-                    <td>Veritatis debitis</td>
-                    <td>Animi repellendus</td>
-                    <td>Optio pariatur</td>
-                    <td>Voluptatem officiis</td>
-                </tr>
-                <tr>
-                    <td>Fugit dolore rem</td>
-                    <td>Dolor ut dolore voluptatibus</td>
-                    <td>Corporis quam</td>
-                    <td>Dignissimos laudantium cupiditate</td>
-                </tr>
-                <tr>
-                    <td>Voluptate laborum illum</td>
-                    <td>Perferendis dolor expedita quo</td>
-                    <td>Accusantium esse necessitatibus repudiandae</td>
-                    <td>Quam est</td>
-                </tr>
-                <tr>
-                    <td>Dolorum eligendi quod</td>
-                    <td>Eos unde</td>
-                    <td>Nemo ipsam deserunt nam</td>
-                    <td>Alias quasi facere</td>
-                </tr>
-                <tr>
-                    <td>Dignissimos doloribus</td>
-                    <td>Magni eius provident</td>
-                    <td>Illo quia vel blanditiis</td>
-                    <td>Magni non illum sapiente</td>
-                </tr>
-                <tr>
-                    <td>Consequatur omnis accusamus</td>
-                    <td>Perferendis dolores quis sapiente</td>
-                    <td>Ab nisi quos</td>
-                    <td>Provident mollitia</td>
-                </tr>
-                <tr>
-                    <td>Quaerat ex maxime</td>
-                    <td>Dolorem ex harum necessitatibus</td>
-                    <td>Voluptatem molestiae facere temporibus</td>
-                    <td>Alias aliquam vero</td>
+                    <td>Quaerat laudantium cum repellendus</td>
+                    <td>Id expedita repellendus</td>
+                    <td>Perferendis ut totam</td>
+                    <td>Labore laboriosam tempore impedit</td>
                 </tr>
             </tbody>
         </table>
         
-        <h3>Vitae commodi distinctio eligendi cumque itaque. Labore.</h3>
+        <figure>
+            <img src="https://picsum.photos/g/640/480/?image=981" alt="dolor ullam aliquid tempore repudiandae itaque doloribus"/>
+            <figcaption>dolor ullam aliquid tempore repudiandae itaque doloribus</figcaption>
+        </figure>
         
-        <h3>Eum dignissimos praesentium totam similique rerum nam. Quae.</h3>
-        
-        <p>
-            <u>Dolor molestiae soluta officiis</u>. Sequi autem ducimus distinctio accusamus aspernatur sequi ut
-            quis minus ipsa inventore ad aliquid blanditiis reiciendis. Eaque quia commodi harum numquam
-            reprehenderit esse deserunt quidem repellat perferendis ab quos dolorum sapiente eos dolorem autem
-            praesentium quas voluptates esse.
-        </p>
-        
-        <h4>Sunt magni enim ex iure occaecati necessitatibus. Quae.</h4>
-        
-        <p>
-            Accusantium dicta dolor numquam occaecati assumenda sequi enim eum totam in nihil praesentium
-            corrupti reiciendis accusantium quasi occaecati facilis consequuntur nisi quam corrupti quas
-            ducimus.
-        </p>
-        
-        <pre><code>&lt;bq&gt;
- Dolorem autem id voluptates. &lt;a href=&quot;#&quot;&gt;Officia facere&lt;/a&gt; et ut ipsam blanditiis voluptatem veniam
- molestiae assumenda &lt;sup&gt;eos sint animi quisquam&lt;/sup&gt; ad facere at itaque corporis ea unde quidem
- accusamus dolor odio sapiente.
-&lt;/bq&gt;
-
-&lt;ul&gt;
- &lt;li&gt;Numquam quaerat ea eum laborum placeat. Nisi earum voluptatibus.&lt;/li&gt;
- &lt;li&gt;Voluptatem minima suscipit autem fuga voluptates reiciendis. Dolore esse facilis.&lt;/li&gt;
- &lt;li&gt;Quasi commodi molestiae mollitia cumque repellendus. Ad quidem.&lt;/li&gt;
- &lt;li&gt;Quae suscipit blanditiis tempore maxime vero. Excepturi dolorum quod.&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-        
-        <p>
-            Aut dolores eum corrupti officiis <small>tempora tempore</small>. Dignissimos nobis quisquam vero
-            <sup>aut fuga fugiat</sup>.<br/>
-             Alias iusto at officiis repellat.<br/>
-             Ab omnis saepe voluptates itaque architecto exercitationem nulla repudiandae. Modi occaecati culpa
-            nobis cumque delectus. Odit numquam illum necessitatibus asperiores. Quasi velit ullam in sint iste
-            aut sequi velit distinctio soluta accusantium non corporis porro <sub>magnam harum hic</sub> aliquid
-            vel eum iusto exercitationem laudantium molestias possimus saepe ut voluptas animi assumenda
-            repudiandae reiciendis ab.
-        </p>
+        <h1>Consequatur dolorem amet corporis autem dolorum. Consequatur recusandae.</h1>
         
         <ul>
-            <li>Voluptatem quia incidunt voluptate nihil quidem fugiat reiciendis. Ab.</li>
-            <li>Error maxime pariatur doloribus asperiores repellat.</li>
+            <li>Dolores blanditiis dolorum expedita at accusamus voluptatibus.</li>
+            <li>Eaque magni ad error quibusdam illum. Aspernatur ipsum minus.</li>
+            <li>Sit sequi tempora corporis voluptate provident laborum placeat.</li>
+            <li>Voluptate quam nobis repudiandae hic reiciendis. Tempora officia.</li>
         </ul>
         
         <p>
-            Fugit voluptas laboriosam aliquid excepturi repudiandae <small>quia iure natus</small> dolores
-            magnam iste mollitia soluta recusandae dolore nisi excepturi cupiditate dolorum amet consectetur ut
-            laboriosam aut quasi amet adipisci aliquam consequatur aut occaecati perspiciatis veritatis eos
-            consectetur nostrum esse facilis <mark>modi fuga tempore optio</mark> non cum pariatur reiciendis
-            eos ipsum fuga maiores molestias sint tempore.
+            Consectetur magnam rem accusamus sunt suscipit quos est <sub>voluptates asperiores</sub> veritatis
+            sunt modi nemo dignissimos iste quis vel unde quo possimus pariatur. Sit.
         </p>
         
-        <h5>Ad provident dolorum accusamus officiis repellat.</h5>
-        
-        <p>
-            <abbr>Modi corporis nemo est</abbr> et mollitia harum a accusantium eum fuga voluptates repellat
-            perferendis magnam molestias fugiat ab incidunt porro repellendus.
-        </p>
-        
-        <figure>
-            <img src="https://picsum.photos/640/480/?image=985" alt="quasi dicta ut corporis autem vel reprehenderit provident soluta earum"/>
-            <figcaption>quasi dicta ut corporis autem vel reprehenderit provident soluta earum</figcaption>
-        </figure>
-        
-        <ol>
-            <li>Beatae sunt nesciunt adipisci laboriosam vel occaecati deserunt quibusdam accusamus.</li>
-            <li>Sed qui enim nemo vel blanditiis voluptatum deserunt soluta.</li>
-        </ol>
+        <dl>
+            <dt>Eos voluptas</dt>
+            <dd>Aspernatur quia velit non dignissimos iste maxime possimus.</dd>
+            
+            <dt>Atque assumenda voluptatibus</dt>
+            <dd>Ea iste fuga optio officiis asperiores. Enim exercitationem nulla repellat.</dd>
+            
+            <dt>Totam excepturi libero illum</dt>
+            <dd>Sunt amet veniam occaecati quidem voluptates asperiores. Aliquam ipsam.</dd>
+        </dl>
     </body>
 </html>
 ```
 
 </p>
 </details> 
+
+### Complexe HTML structures
+
+
 
 ## Bgaze\IpsumHtml\Ipsum
 
