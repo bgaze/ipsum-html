@@ -36,9 +36,7 @@ PlainTexts node can be created using the `Html::txt` method:
 public static function txt($content = null)
 ```
 
-<details>
-<summary>Example</code></summary>
-<p>
+<details><summary>Example</code></summary><p>
 
 ```php
 $txt = Html::txt('Ab illo aspernatur magnam cum at.')
@@ -62,8 +60,7 @@ aspernatur magnam cum at.
   fugiat aspernatur magnam cum at.
 ```
 
-</p>
-</details> 
+</p></details> 
 
 ### Comment nodes
 
@@ -79,9 +76,7 @@ Comment nodes can be created using the `Html::comment` method:
 public static function comment($content = null)
 ```
 
-<details>
-<summary>Example</code></summary>
-<p>
+<details><summary>Example</code></summary><p>
 
 ```php
 $comment = Html::comment('Ab illo aspernatur magnam cum at.')
@@ -115,8 +110,7 @@ Result:
   -->
 ```
 
-</p>
-</details> 
+</p></details> 
 
 ### Bgaze\IpsumHtml\Nodes\Node
 
