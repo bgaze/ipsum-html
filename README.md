@@ -1,7 +1,5 @@
 # IpsumHtml
 
-## Table of content
-
 * [Introdution](#introdution)
 * [Installation](#installation)
 * [Basic usage](#basic-usage)
@@ -31,6 +29,14 @@ They can be manipulated fluently, and printed minified or prettyfied.
 * **Bgaze\IpsumHtml\Nodes\Comment:** used to handle the special HTML comment tag.
 * **Bgaze\IpsumHtml\Nodes\Node:** used to handle any other HTML tag.  
 
+> **Note about code completion**  
+> IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.
+> Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
+> 
+> A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
+> then to configure the IDE to allow non-static methods after `::`.  
+> In Netbeans IDE, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
+
 ## Installation
 
 Simply install the library using composer:
@@ -56,22 +62,3 @@ echo IpsumHtml::webpage(100);
 // Generate and display a HTML table with 4 colums and 10 rows, then print it minified.
 echo IpsumHtml::table(4, 10)->minify();
 ```
-
-## Documentation
-
-> **Note about code completion**  
-> IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.
-> Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
-> 
-> A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
-> then to configure the IDE to allow non-static methods after `::`.  
-> In Netbeans IDE, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
-
-You can find documentation for each class in a dedicated page:
-
-+ [Bgaze\IpsumHtml\IpsumHtml](doc/ipsum-html.md)
-+ [Bgaze\IpsumHtml\Html](doc/html.md)
-+ [Bgaze\IpsumHtml\Ipsum](doc/ipsum.md)
-+ [Bgaze\IpsumHtml\Nodes\PlainText](doc/plain-text-node.md)
-+ [Bgaze\IpsumHtml\Nodes\Comment](doc/comment-node.md)
-+ [Bgaze\IpsumHtml\Nodes\Node](doc/standart-node.md)
