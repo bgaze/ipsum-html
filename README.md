@@ -84,9 +84,10 @@ The node `__toString` method is an alias to the `prettify` method.
 
 There are three types of nodes, handled by a dedicated class:
 
-**Bgaze\IpsumHtml\Nodes\PlainText:** no attributes, content is a string.
+### Bgaze\IpsumHtml\Nodes\PlainText
 
-Any sting added to a node will be turned into a PlainText node.
+PlainText node has no attributes, content is a string.  
+Any element added to a node that is not ans instance of a node class will be turned into a PlainText node.
 
 You can create PlainTexts node with the `Html::txt` method:
 
@@ -111,7 +112,9 @@ aspernatur magnam cum at.
 */
 ```
 
-**Bgaze\IpsumHtml\Nodes\Comment:** no attributes, content is an array of nodes.
+### Bgaze\IpsumHtml\Nodes\Comment
+
+Comment node has no attributes, content is an array of nodes.
 
 You can create a Comment node with the `Html::comment` method:
 
@@ -147,7 +150,9 @@ echo $comment->prettify(1, 2, 50);
  */
 ```
 
-**Bgaze\IpsumHtml\Nodes\Node:** has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.
+### Bgaze\IpsumHtml\Nodes\Node
+
+Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.
 
 Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
 Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
