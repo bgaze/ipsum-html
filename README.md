@@ -1,19 +1,19 @@
-# HtmlFaker
+# bgaze/html-ipsum
 
 A PHP utility that allows to generate Lorem Ipsum HTML.  
 It is usefull to generate fake HTML content, for instance when building a CMS app.
 
 It ships three main classes that are detailed in following documentation:
 
-+ **Bgaze\HtmlFaker\Ipsum:** generates random Ipsum Ipsum text.
-+ **Bgaze\HtmlFaker\Html:** creates HTML structures. They can be manipulated fluently, minified and prettyfied.
-+ **Bgaze\HtmlFaker\IpsumHtml:** creates HTML structures randomly populated with Lorem Ipsum text.
++ **Bgaze\IpsumHtml\Ipsum:** generates random Ipsum Ipsum text.
++ **Bgaze\IpsumHtml\Html:** creates HTML structures. They can be manipulated fluently, minified and prettyfied.
++ **Bgaze\IpsumHtml\IpsumHtml:** creates HTML structures randomly populated with Lorem Ipsum text.
 
 All this classes methods are statics. 
 
 ## Note about code completion
 
-HtmlFaker does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
+IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
 Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
 
 A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
@@ -33,7 +33,7 @@ composer install bgaze/html-faker
 Import the `IpsumHtml` class into your script, then use it statics methods to generate what you need.
 
 ```php
-use Bgaze\HtmlFaker\IpsumHtml;
+use Bgaze\IpsumHtml\IpsumHtml;
 
 // Generate 50 random html blocks then display them prettyfied.
 $array = IpsumHtml::random(50);
@@ -45,7 +45,7 @@ echo IpsumHtml::webpage(100);
 echo IpsumHtml::table(4, 10)->minify();
 ```
 
-## Bgaze\HtmlFaker\Ipsum
+## Bgaze\IpsumHtml\Ipsum
 
 
 This class generates the Lorem Ipsum text.  
@@ -56,7 +56,7 @@ It offers three main methods :
 + **str:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.
 
 ```php
-use Bgaze\HtmlFaker\Ipsum;
+use Bgaze\IpsumHtml\Ipsum;
 
 $str = Ipsum::str(5);
 // => eius totam possimus at necessitatibus

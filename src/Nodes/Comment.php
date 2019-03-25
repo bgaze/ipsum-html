@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgaze\HtmlFaker\Nodes;
+namespace Bgaze\IpsumHtml\Nodes;
 
-use Bgaze\HtmlFaker\Nodes\PlainText;
+use Bgaze\IpsumHtml\Nodes\PlainText;
 
 /**
  * A HTML comment node.

@@ -1,9 +1,9 @@
 <?php
 
-namespace Bgaze\HtmlFaker;
+namespace Bgaze\IpsumHtml;
 
-use Bgaze\HtmlFaker\Html;
-use Bgaze\HtmlFaker\Nodes\Node;
+use Bgaze\IpsumHtml\Html;
+use Bgaze\IpsumHtml\Nodes\Node;
 
 /**
  * Description of Ipsum

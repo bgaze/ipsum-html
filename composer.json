@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bgaze\\HtmlFaker\\": "src"
+            "Bgaze\\IpsumHtml\\": "src"
         }
     }
 }

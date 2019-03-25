@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgaze\HtmlFaker\Nodes;
+namespace Bgaze\IpsumHtml\Nodes;
 
 /**
  * A plain text node.

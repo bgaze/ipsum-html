@@ -1,10 +1,10 @@
 <?php
 
-namespace Bgaze\HtmlFaker;
+namespace Bgaze\IpsumHtml;
 
-use Bgaze\HtmlFaker\Nodes;
-use Bgaze\HtmlFaker\Html;
-use Bgaze\HtmlFaker\Ipsum;
+use Bgaze\IpsumHtml\Nodes;
+use Bgaze\IpsumHtml\Html;
+use Bgaze\IpsumHtml\Ipsum;
 
 /**
  * This class offers static helpers to generate and use fluently HTML node 
@@ -21,55 +21,55 @@ use Bgaze\HtmlFaker\Ipsum;
  * 
  * 1 WORD ELEMENTS
  * ---------------
- * @method \Bgaze\HtmlFaker\Nodes\Node var(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "var" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node abbr(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "abbr" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node sub(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "sub" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node sup(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "sup" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node var(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "var" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node abbr(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "abbr" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node sub(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "sub" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node sup(integer $words = 1 The number of words into the node text, boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "sup" HTML node populated with Lorem Ipsum text.
  * 
  * SMALL TEXT ELEMENTS 
  * -------------------------------
  * 
  * LOWERCASE
- * @method \Bgaze\HtmlFaker\Nodes\Node a(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "a" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node em(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "em" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node strong(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "strong" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node small(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "small" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node s(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "s" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node q(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "q" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node i(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "i" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node b(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "b" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node u(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "u" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node mark(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "mark" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node span(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "span" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node a(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "a" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node em(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "em" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node strong(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "strong" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node small(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "small" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node s(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "s" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node q(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "q" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node i(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "i" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node b(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "b" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node u(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "u" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node mark(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "mark" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node span(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = false The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "span" HTML node populated with Lorem Ipsum text.
  * 
  * CAPITALIZED
- * @method \Bgaze\HtmlFaker\Nodes\Node title(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "title" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node dt(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "dt" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node caption(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "caption" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node td(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "td" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node th(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "th" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node legend(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "legend" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node label(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "label" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node title(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "title" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node dt(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "dt" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node caption(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "caption" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node td(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "td" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node th(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "th" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node legend(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "legend" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node label(integer $words = null The number of words into the node text [null => 2-4 words], boolean $ucfirst = true The node text begins with an uppercased letter, boolean $dot = false The node text ends witch a dot) Create a "label" HTML node populated with Lorem Ipsum text.
  * 
  * MEDIUM TEXT ELEMENTS
  * --------------------
- * @method \Bgaze\HtmlFaker\Nodes\Node h1(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h1" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node h2(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h2" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node h3(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h3" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node h4(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h4" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node h5(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h5" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node h6(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h6" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node li(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "li" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node dd(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "dd" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node figcaption(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "figcaption" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node cite(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "cite" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node dfn(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "dfn" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node samp(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "samp" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node h1(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h1" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node h2(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h2" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node h3(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h3" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node h4(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h4" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node h5(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h5" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node h6(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "h6" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node li(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "li" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node dd(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "dd" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node figcaption(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "figcaption" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node cite(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "cite" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node dfn(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "dfn" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node samp(integer $words = null The number of words into the node text [null => 6-10 words], array|bool $decorate = false Decorate the node text with inline HTML tags) Create a "samp" HTML node populated with Lorem Ipsum text.
 
  * LARGE TEXT ELEMENTS
  * -------------------
- * @method \Bgaze\HtmlFaker\Nodes\Node p(integer $words = null The number of words into the node text [null => 15-80 words], array|bool $decorate = true Decorate the node text with inline HTML tags) Create a "p" HTML node populated with Lorem Ipsum text.
- * @method \Bgaze\HtmlFaker\Nodes\Node bq(integer $words = null The number of words into the node text [null => 15-80 words], array|bool $decorate = true Decorate the node text with inline HTML tags) Create a "bq" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node p(integer $words = null The number of words into the node text [null => 15-80 words], array|bool $decorate = true Decorate the node text with inline HTML tags) Create a "p" HTML node populated with Lorem Ipsum text.
+ * @method \Bgaze\IpsumHtml\Nodes\Node bq(integer $words = null The number of words into the node text [null => 15-80 words], array|bool $decorate = true Decorate the node text with inline HTML tags) Create a "bq" HTML node populated with Lorem Ipsum text.
  */
 class IpsumHtml {
     ### BASE ELEMENTS ###
@@ -102,7 +102,7 @@ class IpsumHtml {
      * 
      * @param string $name
      * @param array $arguments
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function __callStatic($name, $arguments) {
         // Check if tag in categorie.
@@ -275,7 +275,7 @@ class IpsumHtml {
      *                          It must be an associative array with tags names 
      *                          as keys and weight as value
      * @param string $lang      The lang attribute of the "html" node.
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function webpage($count, $tags = null, $lang = 'en') {
         $body = Html::body();
@@ -299,7 +299,7 @@ class IpsumHtml {
      * @param null|integer $count       The number of dt/dd pairs it contains (2-4 if null)
      * @param null|integer $dtWords     The number of words into dt elements (2-4 if null)
      * @param null|integer $ddWords     The number of words into dd elements (6-10 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function dl($count = null, $dtWords = null, $ddWords = null) {
         if ($count === null) {
@@ -319,7 +319,7 @@ class IpsumHtml {
      * 
      * @param null|integer $count   The number of items it contains (2-4 if null)
      * @param null|integer $words   The number of words into items (2-4 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function ul($count = null, $words = null) {
         if ($count === null) {
@@ -339,7 +339,7 @@ class IpsumHtml {
      * 
      * @param null|integer $count   The number of items it contains (2-4 if null)
      * @param null|integer $words   The number of words into items (2-4 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function ol($count = null, $words = null) {
         return self::ul($count, $words)->setTag('ol');
@@ -351,7 +351,7 @@ class IpsumHtml {
      * @param null|integer $cols    The number of columns (3-5 if null)
      * @param boolean $th           Use "th" for cells instead of "td"?
      * @param null|integer $words   The number of words into cells (2-4 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function tr($cols = null, $th = false, $words = null) {
         if (!$cols) {
@@ -372,7 +372,7 @@ class IpsumHtml {
      * 
      * @param null|integer $cols    The number of columns (3-5 if null)
      * @param null|integer $words   The number of words into cells (2-4 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function thead($cols = null, $words = null) {
         if (!$cols) {
@@ -387,7 +387,7 @@ class IpsumHtml {
      * @param null|integer $cols    The number of columns (3-5 if null)
      * @param null|integer $rows    The number of rows (4-10 if null)
      * @param null|integer $words   The number of words into cells (2-4 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function tbody($cols = null, $rows = null, $words = null) {
         if (!$cols) {
@@ -410,7 +410,7 @@ class IpsumHtml {
      * @param null|integer $cols    The number of columns (3-5 if null)
      * @param null|integer $rows    The number of rows (4-10 if null)
      * @param null|integer $words   The number of words into cells (2-4 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function table($cols = null, $rows = null, $words = null) {
         if (!$cols) {
@@ -433,7 +433,7 @@ class IpsumHtml {
      * @param integer $width            The width of the image in pixels
      * @param integer $height           The height of the image in pixels
      * @param null|boolean $grayscale   Get a grayscale image (random if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function img($width = 640, $height = 480, $grayscale = null) {
         if ($grayscale === null) {
@@ -455,7 +455,7 @@ class IpsumHtml {
      * @param integer $width            The width of the image in pixels
      * @param integer $height           The height of the image in pixels
      * @param null|boolean $grayscale   Get a grayscale image (random if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function figure($width = 640, $height = 480, $grayscale = null) {
         $img = self::img($width = 640, $height = 480, $grayscale = null);
@@ -467,7 +467,7 @@ class IpsumHtml {
      * Generate a Lorem Ipsum code block ("pre > code").
      * 
      * @param null|integer $count   The number of code samples into d=the block (1-3 if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function code($count = null) {
         if ($count === null) {
@@ -491,7 +491,7 @@ class IpsumHtml {
      * Generate a Lorem Ipsum "comment" node.
      * 
      * @param boolean $inline   Is the comment an inline comment (random if null)
-     * @return Bgaze\HtmlFaker\Nodes\Node
+     * @return Bgaze\IpsumHtml\Nodes\Node
      */
     public static function comment($inline = null) {
         if ($inline === null) {
