@@ -845,11 +845,20 @@ public static function comment($inline = null)
 
 ## Bgaze\IpsumHtml\Html
 
-This class offers statics methods to create HTML nodes that you can manipulate fluently, and print minified or prettyfied.
-
+This class offers statics methods to create HTML nodes that you can manipulate fluently, and print minified or prettyfied.  
 The node `__toString` method is an alias to the `prettify` method.  
 
 There are three types of nodes, handled by a dedicated class:
+
++ **Bgaze\IpsumHtml\Nodes\PlainText**  
+PlainText node has no attributes, content is a string.  
+Any element added to a node that is not ans instance of a node class will be turned into a PlainText node.  
++ **Bgaze\IpsumHtml\Nodes\Comment**  
+Comment node has no attributes, content is an array of nodes.
++ **Bgaze\IpsumHtml\Nodes\Node**  
+Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.  
+Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
+Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
 
 ### Bgaze\IpsumHtml\Nodes\PlainText
 
