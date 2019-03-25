@@ -1,20 +1,35 @@
 # IpsumHtml
 
+## Table of content
+
+* [Introdution](#introdution)
+* [Installation](#installation)
+* [Basic usage](#basic-usage)
+* Documentation:
+    * [Bgaze\IpsumHtml\IpsumHtml](doc/ipsum-html.md)
+    * [Bgaze\IpsumHtml\Html](doc/html.md)
+    * [Bgaze\IpsumHtml\Ipsum](doc/ipsum.md)
+    * [Bgaze\IpsumHtml\Nodes\PlainText](doc/plain-text-node.md)
+    * [Bgaze\IpsumHtml\Nodes\Comment](doc/comment-node.md)
+    * [Bgaze\IpsumHtml\Nodes\Node](doc/standart-node.md)
+
+## Introdution
+
 A PHP utility that allows to generate Lorem Ipsum HTML.  
 It is usefull to generate fake HTML content, for instance when building a CMS app.
 
 It ships three main classes which all methods are statics:
 
-+ **Bgaze\IpsumHtml\IpsumHtml:** creates HTML nodes randomly populated with Lorem Ipsum text.
-+ **Bgaze\IpsumHtml\Html:** creates HTML nodes. They can be manipulated fluently, minified and prettyfied.
-+ **Bgaze\IpsumHtml\Ipsum:** generates random Ipsum Ipsum text.
+* **Bgaze\IpsumHtml\IpsumHtml:** creates HTML nodes randomly populated with Lorem Ipsum text.
+* **Bgaze\IpsumHtml\Html:** creates HTML nodes. They can be manipulated fluently, minified and prettyfied.
+* **Bgaze\IpsumHtml\Ipsum:** generates random Ipsum Ipsum text.
 
 There are three types of HTML nodes, handled by a dedicated class.  
 They can be manipulated fluently, and printed minified or prettyfied.  
 
-+ **Bgaze\IpsumHtml\Nodes\PlainText:** used to handle plain text sections of HTML structures.  
-+ **Bgaze\IpsumHtml\Nodes\Comment:** used to handle the special HTML comment tag.
-+ **Bgaze\IpsumHtml\Nodes\Node:** used to handle any other HTML tag.  
+* **Bgaze\IpsumHtml\Nodes\PlainText:** used to handle plain text sections of HTML structures.  
+* **Bgaze\IpsumHtml\Nodes\Comment:** used to handle the special HTML comment tag.
+* **Bgaze\IpsumHtml\Nodes\Node:** used to handle any other HTML tag.  
 
 ## Installation
 
