@@ -25,7 +25,7 @@ class Comment extends PlainText {
      */
     public function __construct($content = null) {
         $this->content = [];
-        $this->inline = true;
+        $this->inline = false;
 
         if ($content) {
             $this->append($content);

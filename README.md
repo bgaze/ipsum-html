@@ -17,8 +17,8 @@ IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocument
 Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
 
 A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
-then to configure the IDE to allow non-static methos after `::`.  
-In Netbeans IDE, that I use, you can do that by checking "Also Non-Static Methods after ::" into "Tools > Options > Code Completion > PHP".
+then to configure the IDE to allow non-static methods after `::`.  
+In Netbeans IDE, that I use, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
 
 ## Installation
 
@@ -47,9 +47,7 @@ echo IpsumHtml::table(4, 10)->minify();
 
 ## Bgaze\IpsumHtml\Ipsum
 
-
-This class generates the Lorem Ipsum text.  
-It offers three main methods :
+This class generates the Lorem Ipsum text. It offers three main methods :
 
 + **str:** generates a simple string of Lorem Ipsum.
 + **sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
@@ -78,3 +76,130 @@ $str = Ipsum::text(20, ['a', 'strong']);
 // => Et quasi odit ut nulla <a href="#">explicabo rem culpa facere</a> doloremque sequi nihil accusamus delectus <strong>ullam voluptatum</strong> id harum delectus aliquid.
 ```
 
+## Bgaze\IpsumHtml\Html
+
+This class offers statics methods to create HTML nodes that you can manipulate fluently, and print minified or prettyfied.
+
+The node `__toString` method is an alias to the `prettify` method.  
+
+There are three types of nodes, handled by a dedicated class:
+
+**Bgaze\IpsumHtml\Nodes\PlainText:** no attributes, content is a string.
+
+Any sting added to a node will be turned into a PlainText node.
+
+You can create PlainTexts node with the `Html::txt` method:
+
+```php
+$txt = Html::txt('Ab illo aspernatur magnam cum at.')->append(' Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.');
+
+echo $txt->minify();
+echo "\n\n";
+echo $txt;
+echo "\n\n";
+echo $txt->prettify(1, 2, 50);
+
+/*
+Ab illo aspernatur magnam cum at. Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.
+
+Ab illo aspernatur magnam cum at.Sunt consequuntur numquam nisi reprehenderit distinctio fugiat
+aspernatur magnam cum at.
+
+  Ab illo aspernatur magnam cum at. Sunt
+  consequuntur numquam nisi reprehenderit distinctio
+  fugiat aspernatur magnam cum at.
+*/
+```
+
+**Bgaze\IpsumHtml\Nodes\Comment:** no attributes, content is an array of nodes.
+
+You can create a Comment node with the `Html::comment` method:
+
+```php
+$comment = Html::comment('Ab illo aspernatur magnam cum at.')
+        ->append(Html::p('Sunt consequuntur numquam nisi reprehenderit'))
+        ->append('Distinctio fugiat aspernatur magnam cum at.');
+
+echo $comment->minify();
+echo "\n\n";
+echo $comment;
+echo "\n\n";
+echo $comment->prettify(1, 2, 50);
+
+/*
+<!-- Ab illo aspernatur magnam cum at.<p>Sunt consequuntur numquam nisi reprehenderit</p>Distinctio fugiat aspernatur magnam cum at. -->
+
+<!--
+    Ab illo aspernatur magnam cum at.
+    <p>
+        Sunt consequuntur numquam nisi reprehenderit
+    </p>
+    Distinctio fugiat aspernatur magnam cum at.
+-->
+
+  <!--
+    Ab illo aspernatur magnam cum at.
+    <p>
+      Sunt consequuntur numquam nisi reprehenderit
+    </p>
+    Distinctio fugiat aspernatur magnam cum at.
+  -->
+ */
+```
+
+**Bgaze\IpsumHtml\Nodes\Node:** has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.
+
+Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.
+
+There is two types of methods which signature is different :
+
++ **Void elements:** `Html::tagName(array $attributes = [])`
++ **Other elements:** `Html::tagName($content = null, array $attributes = [])`  
+The `$content` can be a string, a node or an array of strings and nodes.
+
+```php
+$node = Html::ul([
+    Html::li('One')->setAttribute('class', 'one'),
+    Html::li('Two')->setAttribute('class', 'two'),
+    Html::li('Three')->setAttribute('class', 'three'),
+], ['id' => 'ul', 'class' => 'ul']);
+
+echo $node->minify();
+echo "\n\n";
+echo $node;
+echo "\n\n";
+echo $node->prettify(1, 2, 50);
+
+/*
+<ul id="ul" class="ul"><li class="one">One</li><li class="two">Two</li><li class="three">Three</li></ul>
+
+<ul id="ul" class="ul">
+    <li class="one">One</li>
+    <li class="two">Two</li>
+    <li class="three">Three</li>
+</ul>
+
+  <ul id="ul" class="ul">
+    <li class="one">One</li>
+    <li class="two">Two</li>
+    <li class="three">Three</li>
+  </ul>
+*/
+
+$node = Html::input(['id' => 'input', 'type' => 'text']);
+echo $node->minify();
+echo "\n\n";
+echo $node;
+echo "\n\n";
+echo $node->prettify(1, 2, 50);
+
+/*
+<input id="input" type="text"/>
+
+<input id="input" type="text"/>
+
+  <input id="input" type="text"/>
+*/
+```
+
+Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
