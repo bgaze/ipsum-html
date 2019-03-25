@@ -5,20 +5,19 @@ It is usefull to generate fake HTML content, for instance when building a CMS ap
 
 It ships three main classes that are detailed in following documentation:
 
-+ **Bgaze\IpsumHtml\Ipsum:** generates random Ipsum Ipsum text.
-+ **Bgaze\IpsumHtml\Html:** creates HTML structures. They can be manipulated fluently, minified and prettyfied.
-+ **Bgaze\IpsumHtml\IpsumHtml:** creates HTML structures randomly populated with Lorem Ipsum text.
++ [Bgaze\IpsumHtml\IpsumHtml](#bgazeipsumhtmlipsumhtml): creates HTML structures randomly populated with Lorem Ipsum text.
++ [Bgaze\IpsumHtml\Ipsum](#bgazeipsumhtmlipsum): generates random Ipsum Ipsum text.
++ [Bgaze\IpsumHtml\Html](#bgazeipsumhtmlhtml): creates HTML structures. They can be manipulated fluently, minified and prettyfied.
 
 All this classes methods are statics. 
 
-## Note about code completion
-
-IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
-Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
-
-A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
-then to configure the IDE to allow non-static methods after `::`.  
-In Netbeans IDE, that I use, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
+> **Note about code completion**
+> IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
+> Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
+> 
+> A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
+> then to configure the IDE to allow non-static methods after `::`.  
+> In Netbeans IDE, that I use, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
 
 ## Installation
 
@@ -44,6 +43,10 @@ echo IpsumHtml::webpage(100);
 // Generate and display a HTML table with 4 colums and 10 rows, then print it minified.
 echo IpsumHtml::table(4, 10)->minify();
 ```
+
+## Bgaze\IpsumHtml\IpsumHtml
+
+TODO
 
 ## Bgaze\IpsumHtml\Ipsum
 
@@ -210,4 +213,3 @@ echo $node->prettify(1, 2, 50);
   <input id="input" type="text"/>
 */
 ```
-
