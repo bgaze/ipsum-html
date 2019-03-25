@@ -63,6 +63,7 @@ echo implode("\n\n", IpsumHtml::random(20));
 <details>
 <summary>See results</summary>
 <p>
+
 ```html
 \<p>
     Perferendis in nihil excepturi quo labore expedita quo temporibus. Suscipit dignissimos atque
@@ -211,6 +212,7 @@ echo implode("\n\n", IpsumHtml::random(20));
     \<li>Consequatur quae ipsum veniam ipsam officia dolorum cum.\</li>
 \</ol>
 \```
+
 </p>
 </details> 
 
