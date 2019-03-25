@@ -38,9 +38,16 @@ The default tag list is:
 
 ```php
 [
-    'p' => 10, 'ul' => 1, 'ol' => 1, 'dl' => 1,
-    'bq' => 1, 'table' => 1, 'code' => 1,
-    'img' => 1, 'figure' => 1, 'comment' => 1,
+    'p' => 10, 
+    'ul' => 1, 
+    'ol' => 1, 
+    'dl' => 1,
+    'bq' => 1, 
+    'table' => 1, 
+    'code' => 1,
+    'img' => 1, 
+    'figure' => 1, 
+    'comment' => 1
 ]
 ```
 
