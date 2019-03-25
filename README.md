@@ -69,7 +69,7 @@ The default tag list is :
 ]
 ```
 
-**random**
+**random:**
 
 ```php
 /**
@@ -187,7 +187,7 @@ public static function random($count, $tags = null)
 </p>
 </details> 
 
-**document**
+**document:**
 
 ```php
 /**
@@ -363,7 +363,7 @@ public static function document($count, $tags = null)
 </p>
 </details> 
 
-**webpage**
+**webpage:**
 
 ```php
 /**
@@ -487,6 +487,29 @@ IpsumHtml also provide helpers to generate common complex HTML structures:
 public static function dl($count = null, $dtWords = null, $ddWords = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::dl();</code></summary>
+<p>
+
+```html
+<dl>
+    <dt>Dolores non voluptatum</dt>
+    <dd>Illo sequi dignissimos quos quo sapiente. Asperiores.</dd>
+    
+    <dt>Ut laboriosam</dt>
+    <dd>Consectetur ut nostrum natus est possimus accusamus. Non.</dd>
+    
+    <dt>Odit corporis tenetur asperiores</dt>
+    <dd>Magni voluptas voluptate molestiae officia impedit.</dd>
+    
+    <dt>Magnam ex occaecati accusamus</dt>
+    <dd>Labore minima commodi iusto placeat accusamus delectus. Id.</dd>
+</dl>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum "ul" node.
@@ -498,6 +521,22 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 public static function ul($count = null, $words = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::ul();</code></summary>
+<p>
+
+```html
+<ul>
+    <li>Voluptatem numquam exercitationem molestias harum quod sapiente. Voluptatem explicabo.</li>
+    <li>Ratione dolorem nisi reprehenderit praesentium harum maxime.</li>
+    <li>Voluptatem et blanditiis cum cumque quibusdam at.</li>
+    <li>Ratione consectetur modi quis nam vero saepe. Rerum.</li>
+</ul>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum "ol" node.
@@ -508,6 +547,21 @@ public static function ul($count = null, $words = null)
  */
 public static function ol($count = null, $words = null)
 ```
+
+<details>
+<summary>See results of <code>echo IpsumHtml::ol();</code></summary>
+<p>
+
+```html
+<ol>
+    <li>Sed dolores nostrum eum quos officiis. Doloremque tempora quo repellendus.</li>
+    <li>Consequatur explicabo similique optio temporibus voluptates. Ipsa ab.</li>
+    <li>Veritatis tempora enim provident expedita quo recusandae. Iure molestiae.</li>
+</ol>
+```
+
+</p>
+</details> 
 
 ```php
 /**
@@ -521,6 +575,23 @@ public static function ol($count = null, $words = null)
 public static function tr($cols = null, $th = false, $words = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::tr();</code></summary>
+<p>
+
+```html
+<tr>
+    <td>Quia qui ea esse</td>
+    <td>Quae magnam deserunt doloribus</td>
+    <td>Quos officia</td>
+    <td>Quaerat nihil cum</td>
+    <td>Sunt atque quidem quisquam</td>
+</tr>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum "thead" node containing a heading row.
@@ -531,6 +602,24 @@ public static function tr($cols = null, $th = false, $words = null)
  */
 public static function thead($cols = null, $words = null)
 ```
+
+<details>
+<summary>See results of <code>echo IpsumHtml::thead();</code></summary>
+<p>
+
+```html
+<thead>
+    <tr>
+        <th>Voluptatem illo repudiandae</th>
+        <th>Impedit nulla</th>
+        <th>Beatae sunt dignissimos</th>
+        <th>Ex voluptatum fuga</th>
+    </tr>
+</thead>
+```
+
+</p>
+</details> 
 
 ```php
 /**
@@ -544,6 +633,36 @@ public static function thead($cols = null, $words = null)
 public static function tbody($cols = null, $rows = null, $words = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::tbody();</code></summary>
+<p>
+
+```html
+<tbody>
+    <tr>
+        <td>Accusantium eos eveniet</td>
+        <td>Numquam nemo tempore</td>
+        <td>Blanditiis deleniti iste</td>
+        <td>Illo suscipit</td>
+    </tr>
+    <tr>
+        <td>Aliquid in est</td>
+        <td>Tempora quam cum voluptates</td>
+        <td>Dignissimos perspiciatis fuga libero</td>
+        <td>Nesciunt quam</td>
+    </tr>
+    <tr>
+        <td>Incidunt quod</td>
+        <td>Sequi minus</td>
+        <td>In quo facere</td>
+        <td>Vel cum</td>
+    </tr>
+</tbody>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum "table" node with header and content.
@@ -555,6 +674,42 @@ public static function tbody($cols = null, $rows = null, $words = null)
  */
 public static function table($cols = null, $rows = null, $words = null)
 ```
+
+<details>
+<summary>See results of <code>echo IpsumHtml::table();</code></summary>
+<p>
+
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Fugit harum</th>
+            <th>Quae dolore</th>
+            <th>Ab exercitationem reprehenderit necessitatibus</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Quasi dicta odio</td>
+            <td>Velit veniam error nulla</td>
+            <td>Consequuntur laboriosam harum quibusdam</td>
+        </tr>
+        <tr>
+            <td>Nemo molestiae</td>
+            <td>Veritatis incidunt natus sapiente</td>
+            <td>Dicta quos</td>
+        </tr>
+        <tr>
+            <td>Illo animi id</td>
+            <td>Odit quisquam</td>
+            <td>Magni dolorum asperiores</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+</p>
+</details> 
 
 ```php
 /**
@@ -568,6 +723,17 @@ public static function table($cols = null, $rows = null, $words = null)
 public static function img($width = 640, $height = 480, $grayscale = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::img();</code></summary>
+<p>
+
+```html
+<img src="https://picsum.photos/640/480/?image=467" alt="sequi tempora nisi iusto animi fuga porro"/>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum "figure" node thanks to https://picsum.photos/
@@ -580,6 +746,20 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 public static function figure($width = 640, $height = 480, $grayscale = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::figure();</code></summary>
+<p>
+
+```html
+<figure>
+    <img src="https://picsum.photos/640/480/?image=386" alt="explicabo aspernatur incidunt suscipit nulla earum sapiente"/>
+    <figcaption>explicabo aspernatur incidunt suscipit nulla earum sapiente</figcaption>
+</figure>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum code block ("pre > code").
@@ -590,6 +770,24 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 public static function code($count = null)
 ```
 
+<details>
+<summary>See results of <code>echo IpsumHtml::code();</code></summary>
+<p>
+
+```html
+<pre><code>&lt;bq&gt;
+ &lt;u&gt;Doloremque molestiae totam&lt;/u&gt; qui amet nisi expedita at. Velit minima rem deleniti
+ deserunt.&lt;br/&gt;
+ Explicabo qui ratione suscipit assumenda tempora laudantium occaecati rerum fugiat earum doloremque
+ incidunt ex esse rem occaecati vitae adipisci in fuga a dolores dolorem consectetur quis libero quo
+ doloremque deleniti quas harum cum facere numquam ullam perspiciatis omnis quo nulla &lt;b&gt;dicta dolor
+ reprehenderit debitis&lt;/b&gt;. Consectetur suscipit quos nobis repudiandae harum repudiandae.
+&lt;/bq&gt;</code></pre>
+```
+
+</p>
+</details> 
+
 ```php
 /**
  * Generate a Lorem Ipsum "comment" node.
@@ -599,6 +797,29 @@ public static function code($count = null)
  */
 public static function comment($inline = null)
 ```
+
+<details>
+<summary>See results of <code>echo IpsumHtml::comment();</code></summary>
+<p>
+
+```html
+<!--
+    alias ab et dicta sunt fugit quia numquam dolore aliquam veniam corporis voluptate iusto blanditiis
+    totam natus error similique deserunt dolorum expedita nam tempore porro quod assumenda quibusdam
+    saepe eveniet
+    
+    <figure>
+        <img src="https://picsum.photos/640/480/?image=131" alt="sequi suscipit rem sint fuga temporibus officiis"/>
+        <figcaption>sequi suscipit rem sint fuga temporibus officiis</figcaption>
+    </figure>
+    
+    ab veritatis vitae dicta sequi adipisci non quaerat ad veniam voluptas vel reprehenderit molestiae
+    iusto corrupti occaecati cupiditate mollitia libero repellendus hic
+-->
+```
+
+</p>
+</details> 
 
 ## Bgaze\IpsumHtml\Ipsum
 
