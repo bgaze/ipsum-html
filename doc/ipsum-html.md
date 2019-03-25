@@ -1,10 +1,7 @@
 # Bgaze\IpsumHtml\IpsumHtml
 
-This class offers statics methods to create HTML nodes populated with Lorem Ipsum text.
+This class offers statics methods to create HTML nodes populated with Lorem Ipsum text.  
 You can manipulate them fluently, and print minified or prettyfied.
-
-Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
-Completion is provided for most of common HTML content tags.
 
 ## Generators
 
@@ -23,7 +20,7 @@ The default tag list is:
 ]
 ```
 
-#### IpsumHtml::random
+### IpsumHtml::random
 
 ```php
 /**
@@ -138,11 +135,12 @@ public static function random($count, $tags = null)
 
 </p></details> 
 
-#### IpsumHtml::document
+### IpsumHtml::document
 
 ```php
 /**
- * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
+ * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised 
+ * with headers (h1-h6 nodes).
  * 
  * @param integer $count    The number of nodes to generate
  * @param null|array $tags  An optional array to define the tags to use
@@ -311,7 +309,7 @@ public static function document($count, $tags = null)
 
 </p></details> 
 
-#### IpsumHtml::webpage
+### IpsumHtml::webpage
 
 ```php
 /**
@@ -420,7 +418,7 @@ public static function webpage($count, $tags = null, $lang = 'en')
 
 IpsumHtml also provide helpers to generate common complex HTML structures:
 
-#### IpsumHtml::dl
+### IpsumHtml::dl
 
 ```php
 /**
@@ -454,7 +452,7 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 
 </p></details> 
 
-#### IpsumHtml::ul
+### IpsumHtml::ul
 
 ```php
 /**
@@ -480,7 +478,7 @@ public static function ul($count = null, $words = null)
 
 </p></details> 
 
-#### IpsumHtml::ol
+### IpsumHtml::ol
 
 ```php
 /**
@@ -505,7 +503,7 @@ public static function ol($count = null, $words = null)
 
 </p></details> 
 
-#### IpsumHtml::tr
+### IpsumHtml::tr
 
 ```php
 /**
@@ -533,7 +531,7 @@ public static function tr($cols = null, $th = false, $words = null)
 
 </p></details> 
 
-#### IpsumHtml::thead
+### IpsumHtml::thead
 
 ```php
 /**
@@ -561,7 +559,7 @@ public static function thead($cols = null, $words = null)
 
 </p></details> 
 
-#### IpsumHtml::tbody
+### IpsumHtml::tbody
 
 ```php
 /**
@@ -602,7 +600,7 @@ public static function tbody($cols = null, $rows = null, $words = null)
 
 </p></details> 
 
-#### IpsumHtml::table
+### IpsumHtml::table
 
 ```php
 /**
@@ -649,7 +647,7 @@ public static function table($cols = null, $rows = null, $words = null)
 
 </p></details> 
 
-#### IpsumHtml::img
+### IpsumHtml::img
 
 ```php
 /**
@@ -671,7 +669,7 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 
 </p></details> 
 
-#### IpsumHtml::figure
+### IpsumHtml::figure
 
 ```php
 /**
@@ -696,7 +694,7 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 
 </p></details> 
 
-#### IpsumHtml::code
+### IpsumHtml::code
 
 ```php
 /**
@@ -723,7 +721,7 @@ public static function code($count = null)
 
 </p></details> 
 
-#### IpsumHtml::comment
+### IpsumHtml::comment
 
 ```php
 /**
@@ -757,10 +755,12 @@ public static function comment($inline = null)
 
 ## Magically defined methods
 
-Some HTML tag methods are predefined on `IpsumHtml` class using `__callStatic`.  
+Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.
+
+Completion is provided for most of common HTML content tags.  
 Any undefined tag will be considered as a "large text element".
 
-#### 1 word elements
+### 1 word elements
 
 Apply to following tags: **var**, **abbr**, **sub**, **sup**.
 
@@ -776,7 +776,7 @@ Method signature is :
 public static function tagName($words = 1, $ucfirst = false, boolean $dot = false)
 ```
 
-#### Lowercased small text elements
+### Lowercased small text elements
 
 Apply to following tags: **a**, **em**, **strong**, **small**, **s**, **q**, **i**, **b**, **u**, **mark**, **span**.
 
@@ -792,7 +792,7 @@ Method signature is :
 public static function tagName($words = null, $ucfirst = false, boolean $dot = false)
 ```
 
-#### Capitalized small text elements
+### Capitalized small text elements
 
 Apply to following tags: **title**, **dt**, **caption**, **td**, **th**, **legend**, **label**.
 
@@ -808,7 +808,7 @@ Method signature is :
 public static function tagName($words = null, $ucfirst = true, boolean $dot = false)
 ```
 
-#### Medium text elements
+### Medium text elements
 
 Apply to following tags: **h1**, **h2**, **h3**, **h4**, **h5**, **h6**, **li**, **dd**, **figcaption**, **cite**, **dfn**, **samp**.
 
@@ -823,9 +823,9 @@ Method signature is :
 public static function tagName($words = null, $decorate = false)
 ```
 
-#### Large text elements
+### Large text elements
 
-Apply to any tag not listed before will be considered as a "large text element".
+Apply to any tag not listed before will be considered as a "large text element".  
 Completion is provided for following tags : **p**, **bq**.
 
 Method signature is :
