@@ -69,6 +69,8 @@ The default tag list is :
 ]
 ```
 
+**random**
+
 ```php
 /**
  * Generate randomly an array of Lorem Ipsum HTML nodes.
@@ -78,29 +80,6 @@ The default tag list is :
  * @return array
  */
 public static function random($count, $tags = null)
-```
-
-```php
-/**
- * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
- * 
- * @param integer $count    The number of nodes to generate
- * @param null|array $tags  An optional array to define the tags to use
- * @return array
- */
-public static function document($count, $tags = null)
-```
-
-```php
-/**
-* Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
-* 
-* @param integer $count    The number of nodes to generate
-* @param null|array $tags  An optional array to define the tags to use
-* @param string $lang      The lang attribute of the "html" node.
-* @return Bgaze\IpsumHtml\Nodes\Node
-*/
-public static function webpage($count, $tags = null, $lang = 'en')
 ```
 
 <details>
@@ -207,6 +186,19 @@ public static function webpage($count, $tags = null, $lang = 'en')
 
 </p>
 </details> 
+
+**document**
+
+```php
+/**
+ * Generate randomly an array of Lorem Ipsum HTML nodes hierarchically organised with headers (h1-h6 nodes).
+ * 
+ * @param integer $count    The number of nodes to generate
+ * @param null|array $tags  An optional array to define the tags to use
+ * @return array
+ */
+public static function document($count, $tags = null)
+```
 
 <details>
 <summary>See results of <code>echo implode("\n\n", IpsumHtml::document(20));</code></summary>
@@ -370,6 +362,20 @@ public static function webpage($count, $tags = null, $lang = 'en')
 
 </p>
 </details> 
+
+**webpage**
+
+```php
+/**
+* Generate a complete Lorem Ipsum webpage, hierarchically organised with headers (h1-h6 nodes).
+* 
+* @param integer $count    The number of nodes to generate
+* @param null|array $tags  An optional array to define the tags to use
+* @param string $lang      The lang attribute of the "html" node.
+* @return Bgaze\IpsumHtml\Nodes\Node
+*/
+public static function webpage($count, $tags = null, $lang = 'en')
+```
 
 <details>
 <summary>See results of <code>echo IpsumHtml::webpage(10);</code></summary>
