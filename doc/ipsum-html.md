@@ -21,11 +21,11 @@ You can manipulate them fluently, and print minified or prettyfied.
       * [IpsumHtml::code](#ipsumhtmlcode)
       * [IpsumHtml::comment](#ipsumhtmlcomment)
    * [Magically defined methods](#magically-defined-methods)
-      * [1 word elements](#1-word-elements)
-      * [Lowercased small text elements](#lowercased-small-text-elements)
-      * [Capitalized small text elements](#capitalized-small-text-elements)
-      * [Medium text elements](#medium-text-elements)
-      * [Large text elements](#large-text-elements)
+      * [1 word elements](#1-word-elements): var, abbr, sub, sup
+      * [Lowercased small text elements](#lowercased-small-text-elements): a, em, strong, small, s, q, i, b, u, mark, span
+      * [Capitalized small text elements](#capitalized-small-text-elements): title, dt, caption, td, th, legend, label
+      * [Medium text elements](#medium-text-elements): h1, h2, h3, h4, h5, h6, li, dd, figcaption, cite, dfn, samp
+      * [Large text elements](#large-text-elements): p, bq, any undefined tag
 
 ## Generators
 
@@ -848,7 +848,7 @@ public static function tagName($words = null, $decorate = false)
 ### Large text elements
 
 Apply to any tag not listed before will be considered as a "large text element".  
-Completion is provided for following tags : **p**, **bq**.
+Completion is provided for following tags: **p**, **bq**.
 
 Method signature is :
 
