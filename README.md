@@ -846,9 +846,10 @@ public static function comment($inline = null)
 ## Bgaze\IpsumHtml\Html
 
 This class offers statics methods to create HTML nodes that you can manipulate fluently, and print minified or prettyfied.  
-The node `__toString` method is an alias to the `prettify` method.  
 
-There are three types of nodes, handled by a dedicated class:
+There are three types of HTML nodes, handled by a dedicated class.  
+They can be manipulated fluently, and printed minified or prettyfied.  
+The node `__toString` method is an alias to the `prettify` method.  
 
 + **Bgaze\IpsumHtml\Nodes\PlainText**  
 PlainText node has no attributes, content is a string.  
@@ -857,36 +858,52 @@ Any element added to a node that is not ans instance of a node class will be tur
 Comment node has no attributes, content is an array of nodes.
 + **Bgaze\IpsumHtml\Nodes\Node**  
 Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.  
+
+`Html` class offers methods to instanciate easily this nodes.
+ 
 Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
 Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
 
-### Bgaze\IpsumHtml\Nodes\PlainText
+### PlainText nodes
 
-PlainText node has no attributes, content is a string.  
-Any element added to a node that is not ans instance of a node class will be turned into a PlainText node.
-
-You can create PlainTexts node with the `Html::txt` method:
+PlainTexts node can be created with the `Html::txt` method:
 
 ```php
-$txt = Html::txt('Ab illo aspernatur magnam cum at.')->append(' Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.');
-
-echo $txt->minify();
-echo "\n\n";
-echo $txt;
-echo "\n\n";
-echo $txt->prettify(1, 2, 50);
-
-/*
-Ab illo aspernatur magnam cum at. Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.
-
-Ab illo aspernatur magnam cum at.Sunt consequuntur numquam nisi reprehenderit distinctio fugiat
-aspernatur magnam cum at.
-
-  Ab illo aspernatur magnam cum at. Sunt
-  consequuntur numquam nisi reprehenderit distinctio
-  fugiat aspernatur magnam cum at.
-*/
+/**
+ * Create and returns a plain text node.
+ * 
+ * @param string $content
+ * @return Bgaze\IpsumHtml\Nodes\PlainText
+ */
+public static function txt($content = null)
 ```
+
+<details>
+<summary>Example</code></summary>
+<p>
+
+```html
+$txt = Html::txt('Ab illo aspernatur magnam cum at.')
+    ->append(' Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.');
+
+echo $txt->minify() . "\n\n";
+echo $txt . "\n\n";
+echo $txt->prettify(1, 2, 50);
+```
+
+result:
+
+>Ab illo aspernatur magnam cum at. Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.
+>
+>Ab illo aspernatur magnam cum at.Sunt consequuntur numquam nisi reprehenderit distinctio fugiat
+>aspernatur magnam cum at.
+>
+>  Ab illo aspernatur magnam cum at. Sunt
+>  consequuntur numquam nisi reprehenderit distinctio
+>  fugiat aspernatur magnam cum at.
+
+</p>
+</details> 
 
 ### Bgaze\IpsumHtml\Nodes\Comment
 
