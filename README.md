@@ -1,5 +1,6 @@
 # HtmlFaker
 
+
 A PHP utility that allows to generate Lorem Ipsum HTML.  
 It is usefull to generate fake HTML content, for instance when building a CMS app.
 
@@ -14,6 +15,7 @@ All this classes methods are statics.
 
 ## Note about code completion
 
+
 HtmlFaker does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.  
 Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
 
@@ -24,6 +26,7 @@ In Netbeans IDE, that I use, you can do that by checking "Also Non-Static Method
 
 ## Installation
 
+
 Simply install the library using composer :
 
 ```
@@ -32,6 +35,7 @@ composer install bgaze/html-faker
 
 
 ## Basic usage
+
 
 Import the `LoremHtml` class into your script, then use it statics methods to generate what you need.
 
@@ -50,6 +54,7 @@ echo LoremHtml::table(4, 10)->minify();
 
 
 ## Bgaze\HtmlFaker\Lorem
+
 
 This class generates the Lorem Ipsum text.  
 It offers three main methods :

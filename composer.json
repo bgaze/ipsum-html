@@ -1,5 +1,5 @@
 {
-    "name": "bgaze/html-faker",
+    "name": "bgaze/html-ipsum",
     "type": "library",
     "description": "A PHP utility that allows to generate Lorem Ipsum HTML",
     "keywords": [
