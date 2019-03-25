@@ -54,7 +54,9 @@ Completion is provided for most of common HTML content tags.
 
 ### Generators
 
-`IpsumHtml` class provides thre "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
+`IpsumHtml` class provides three "generator" methods, that allow to generate randomly a large amount of Lorem Ipsum HTML.
+
+**random($count, $tags = null)**: generates randomly an array of Lorem Ipsum HTML nodes.
 
 ```php
 echo implode("\n\n", IpsumHtml::random(20));
@@ -222,7 +224,8 @@ This class generates the Lorem Ipsum text. It offers three main methods :
 
 + **str:** generates a simple string of Lorem Ipsum.
 + **sentence:** generates a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
-+ **str:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.
++ **text:** generates a Lorem Ipsum text composed of distinct sentences and randomly decorated with HTML inline tags if requested.  
+Pass a boolean to enable/disable decoration, or an array of tags to define which decorations to use.
 
 ```php
 use Bgaze\IpsumHtml\Ipsum;
