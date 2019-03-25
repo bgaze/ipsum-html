@@ -149,7 +149,8 @@ echo $comment->prettify(1, 2, 50);
 
 **Bgaze\IpsumHtml\Nodes\Node:** has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.
 
-Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.
+Thanks to `__callStatic` magic, you can create any tag by using it's name as method on `Html` class.  
+Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
 
 There is two types of methods which signature is different :
 
@@ -185,7 +186,9 @@ echo $node->prettify(1, 2, 50);
     <li class="three">Three</li>
   </ul>
 */
+```
 
+```php
 $node = Html::input(['id' => 'input', 'type' => 'text']);
 echo $node->minify();
 echo "\n\n";
@@ -202,4 +205,3 @@ echo $node->prettify(1, 2, 50);
 */
 ```
 
-Completion is provided for all non obsoletes and non experimentals tags listed on [https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5)
