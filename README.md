@@ -882,7 +882,7 @@ public static function txt($content = null)
 <summary>Example</code></summary>
 <p>
 
-```html
+```php
 $txt = Html::txt('Ab illo aspernatur magnam cum at.')
     ->append(' Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.');
 
@@ -907,24 +907,37 @@ aspernatur magnam cum at.
 </p>
 </details> 
 
-### Bgaze\IpsumHtml\Nodes\Comment
+### Comment Node
 
-Comment node has no attributes, content is an array of nodes.
+Comment nodes can be created using the `Html::comment` method:
 
-You can create a Comment node with the `Html::comment` method:
+```php
+/**
+ * Create and returns a comment node.
+ * 
+ * @param mixed $content
+ * @return Bgaze\IpsumHtml\Nodes\Comment
+ */
+public static function comment($content = null)
+```
+
+<details>
+<summary>Example</code></summary>
+<p>
 
 ```php
 $comment = Html::comment('Ab illo aspernatur magnam cum at.')
         ->append(Html::p('Sunt consequuntur numquam nisi reprehenderit'))
         ->append('Distinctio fugiat aspernatur magnam cum at.');
 
-echo $comment->minify();
-echo "\n\n";
-echo $comment;
-echo "\n\n";
+echo $comment->minify() . "\n\n";
+echo $comment . "\n\n";
 echo $comment->prettify(1, 2, 50);
+```
 
-/*
+Result:
+
+```html
 <!-- Ab illo aspernatur magnam cum at.<p>Sunt consequuntur numquam nisi reprehenderit</p>Distinctio fugiat aspernatur magnam cum at. -->
 
 <!--
@@ -942,8 +955,10 @@ echo $comment->prettify(1, 2, 50);
     </p>
     Distinctio fugiat aspernatur magnam cum at.
   -->
- */
 ```
+
+</p>
+</details> 
 
 ### Bgaze\IpsumHtml\Nodes\Node
 
