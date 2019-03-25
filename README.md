@@ -891,16 +891,18 @@ echo $txt . "\n\n";
 echo $txt->prettify(1, 2, 50);
 ```
 
-result:
+Result:
 
->Ab illo aspernatur magnam cum at. Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.
->
->Ab illo aspernatur magnam cum at.Sunt consequuntur numquam nisi reprehenderit distinctio fugiat
->aspernatur magnam cum at.
->
->  Ab illo aspernatur magnam cum at. Sunt
->  consequuntur numquam nisi reprehenderit distinctio
->  fugiat aspernatur magnam cum at.
+```
+Ab illo aspernatur magnam cum at. Sunt consequuntur numquam nisi reprehenderit distinctio fugiat aspernatur magnam cum at.
+
+Ab illo aspernatur magnam cum at.Sunt consequuntur numquam nisi reprehenderit distinctio fugiat
+aspernatur magnam cum at.
+
+  Ab illo aspernatur magnam cum at. Sunt
+  consequuntur numquam nisi reprehenderit distinctio
+  fugiat aspernatur magnam cum at.
+```
 
 </p>
 </details> 
