@@ -444,7 +444,7 @@ class IpsumHtml {
         if ($grayscale) {
             $src .= 'g/';
         }
-        $src .= $width . '/' . $height . '/?random';
+        $src .= $width . '/' . $height . '/?image=' . rand(0, 1084);
 
         return Html::img(['src' => $src])->setAttribute('alt', Ipsum::str(rand(6, 10)));
     }
