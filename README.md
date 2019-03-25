@@ -24,7 +24,7 @@ then to configure the IDE to allow non-static methos after `::`.
 In Netbeans IDE, that I use, you can do that by checking "Also Non-Static Methods after ::" into "Tools > Options > Code Completion > PHP".
 
 
-## Installation
+## Installation
 
 
 Simply install the library using composer :
@@ -34,7 +34,7 @@ composer install bgaze/html-faker
 ```
 
 
-## Basic usage
+## Basic usage
 
 
 Import the `LoremHtml` class into your script, then use it statics methods to generate what you need.
@@ -53,7 +53,7 @@ echo LoremHtml::table(4, 10)->minify();
 ```
 
 
-## Bgaze\HtmlFaker\Lorem
+## Bgaze\HtmlFaker\Lorem
 
 
 This class generates the Lorem Ipsum text.  
