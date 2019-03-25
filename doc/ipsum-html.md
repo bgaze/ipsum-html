@@ -1,3 +1,5 @@
+[< Back](../README.md)
+
 # Bgaze\IpsumHtml\IpsumHtml
 
 This class offers statics methods to create HTML nodes populated with Lorem Ipsum text.  

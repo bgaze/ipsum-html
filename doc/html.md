@@ -1,3 +1,5 @@
+[< Back](../README.md)
+
 ## Bgaze\IpsumHtml\Html
 
 This class offers statics methods to create HTML nodes that you can manipulate fluently, and print minified or prettyfied.  
