@@ -245,9 +245,10 @@ class IpsumHtml {
         $document = [];
         $document[] = self::h1();
         $level = 1;
+        $last = 1;
 
-        foreach (self::random($count - 1, $tags) as $node) {
-            if (rand(0, 4) > 0) {
+        foreach (self::random($count - 1, $tags) as $n => $node) {
+            if ($n === $count - 2 || is_int($last) || rand(0, 2) > 0) {
                 $document[] = $node;
                 $last = ($node instanceof Nodes\Comment) ? 'comment' : $node->getTag();
                 continue;
@@ -259,8 +260,8 @@ class IpsumHtml {
                 $level--;
             }
 
-            $last = 'h' . $level;
-            $document[] = self::{$last}();
+            $last = $level;
+            $document[] = self::{'h' . $last}();
         }
 
         return $document;
