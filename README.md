@@ -475,6 +475,8 @@ public static function webpage($count, $tags = null, $lang = 'en')
 
 IpsumHtml also provide helpers to generate common complex HTML structures:
 
+**dl:**
+
 ```php
 /**
  * Generate a Lorem Ipsum "dl" node.
@@ -510,6 +512,8 @@ public static function dl($count = null, $dtWords = null, $ddWords = null)
 </p>
 </details> 
 
+**ul:**
+
 ```php
 /**
  * Generate a Lorem Ipsum "ul" node.
@@ -537,6 +541,8 @@ public static function ul($count = null, $words = null)
 </p>
 </details> 
 
+**ol:**
+
 ```php
 /**
  * Generate a Lorem Ipsum "ol" node.
@@ -562,6 +568,8 @@ public static function ol($count = null, $words = null)
 
 </p>
 </details> 
+
+**tr:**
 
 ```php
 /**
@@ -592,6 +600,8 @@ public static function tr($cols = null, $th = false, $words = null)
 </p>
 </details> 
 
+**thead:**
+
 ```php
 /**
  * Generate a Lorem Ipsum "thead" node containing a heading row.
@@ -620,6 +630,8 @@ public static function thead($cols = null, $words = null)
 
 </p>
 </details> 
+
+**tbody:**
 
 ```php
 /**
@@ -662,6 +674,8 @@ public static function tbody($cols = null, $rows = null, $words = null)
 
 </p>
 </details> 
+
+**table:**
 
 ```php
 /**
@@ -711,6 +725,8 @@ public static function table($cols = null, $rows = null, $words = null)
 </p>
 </details> 
 
+**img:**
+
 ```php
 /**
  * Generate a Lorem Ipsum "img" node thanks to https://picsum.photos/
@@ -733,6 +749,8 @@ public static function img($width = 640, $height = 480, $grayscale = null)
 
 </p>
 </details> 
+
+**figure:**
 
 ```php
 /**
@@ -759,6 +777,8 @@ public static function figure($width = 640, $height = 480, $grayscale = null)
 
 </p>
 </details> 
+
+**code:**
 
 ```php
 /**
@@ -787,6 +807,8 @@ public static function code($count = null)
 
 </p>
 </details> 
+
+**comment:**
 
 ```php
 /**
