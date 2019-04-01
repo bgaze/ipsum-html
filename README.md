@@ -44,18 +44,15 @@ IpsumHtml ships three main classes which all methods are statics:
 * **Bgaze\IpsumHtml\Html:** creates HTML nodes. They can be manipulated fluently, minified and prettyfied.
 * **Bgaze\IpsumHtml\Ipsum:** generates random Ipsum Ipsum text.
 
-There are three types of HTML nodes, handled by a dedicated class.  
-They can be manipulated fluently, and printed minified or prettyfied.  
+There are three types of HTML nodes, handled by a dedicated class:  
 
 * **Bgaze\IpsumHtml\Nodes\PlainText:** used to handle plain text sections of HTML structures.  
 * **Bgaze\IpsumHtml\Nodes\Comment:** used to handle the special HTML comment tag.
 * **Bgaze\IpsumHtml\Nodes\Node:** used to handle any other HTML tag.  
 
-You can find documentation for each class in a dedicated page:
+You can find documentation into following sections:
 
 * [Bgaze\IpsumHtml\IpsumHtml](doc/ipsum-html.md)
 * [Bgaze\IpsumHtml\Html](doc/html.md)
 * [Bgaze\IpsumHtml\Ipsum](doc/ipsum.md)
-* [Bgaze\IpsumHtml\Nodes\PlainText](doc/plain-text-node.md)
-* [Bgaze\IpsumHtml\Nodes\Comment](doc/comment-node.md)
-* [Bgaze\IpsumHtml\Nodes\Node](doc/standart-node.md)
+* [Nodes documentation](doc/nodes.md)

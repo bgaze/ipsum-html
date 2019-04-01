@@ -204,9 +204,9 @@ class Node extends Comment {
     /**
      * Compile node to a prettified string
      * 
-     * @param type $offset
-     * @param type $size
-     * @param type $wrap
+     * @param integer $offset   The number of indentations of the node
+     * @param integer $size     The number of space in an indentation level
+     * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
      * 
      * @return string
      */

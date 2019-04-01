@@ -63,7 +63,7 @@ class Comment extends PlainText {
     /**
      * Set the node content
      * 
-     * @param array $content
+     * @param mixed $content
      * 
      * @return $this
      */
@@ -119,9 +119,9 @@ class Comment extends PlainText {
     /**
      * Compile the node content to a prettified string
      * 
-     * @param type $offset
-     * @param type $size
-     * @param type $wrap
+     * @param integer $offset   The number of indentations of the node
+     * @param integer $size     The number of space in an indentation level
+     * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
      * 
      * @return string
      */
@@ -138,9 +138,9 @@ class Comment extends PlainText {
     /**
      * Compile node to a prettified string
      * 
-     * @param type $offset
-     * @param type $size
-     * @param type $wrap
+     * @param integer $offset   The number of indentations of the node
+     * @param integer $size     The number of space in an indentation level
+     * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
      * 
      * @return string
      */

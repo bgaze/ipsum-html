@@ -50,24 +50,32 @@ class PlainText {
     /**
      * Set the node content
      * 
-     * @param string $content
+     * @param mixed $content
      * 
      * @return $this
      */
     public function setContent($content) {
-        $this->content = "$content";
-        return $this;
+        $this->content = '';
+        return $this->append($content);
     }
 
     /**
      * Append content to the node
      * 
-     * @param string $content
+     * @param mixed $content
      * 
      * @return $this
      */
     public function append($content) {
-        $this->content .= $content;
+        if (is_array($content)) {
+            foreach ($content as $c) {
+                $this->append($c);
+            }
+            return $this;
+        }
+
+        $this->content .= is_a($content, PlainText::class) ? $content->minify() : $content;
+
         return $this;
     }
 
@@ -82,6 +90,10 @@ class PlainText {
 
     /**
      * Compile node to a prettified string
+     * 
+     * @param integer $offset   The number of indentations of the node
+     * @param integer $size     The number of space in an indentation level
+     * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
      * 
      * @return string
      */
