@@ -19,7 +19,7 @@ class PlainText {
     /**
      * The class constructor.
      * 
-     * @param string $content        The node content
+     * @param mixed $content        The node content : a "stringable" value, or an array of "stringable" values
      */
     public function __construct($content = null) {
         $this->content = '';
@@ -50,7 +50,7 @@ class PlainText {
     /**
      * Set the node content
      * 
-     * @param mixed $content
+     * @param mixed $content        The node content : a "stringable" value, or an array of "stringable" values
      * 
      * @return $this
      */
@@ -62,7 +62,7 @@ class PlainText {
     /**
      * Append content to the node
      * 
-     * @param mixed $content
+     * @param mixed $content        The node content : a "stringable" value, or an array of "stringable" values
      * 
      * @return $this
      */

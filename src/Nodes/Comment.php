@@ -21,7 +21,7 @@ class Comment extends PlainText {
     /**
      * The class constructor.
      * 
-     * @param mixed $content        The node content
+     * @param mixed $content        The node content : node, string, or an array of strings/nodes
      */
     public function __construct($content = null) {
         $this->content = [];
@@ -63,7 +63,7 @@ class Comment extends PlainText {
     /**
      * Set the node content
      * 
-     * @param mixed $content
+     * @param mixed $content        The node content : node, string, or an array of strings/nodes
      * 
      * @return $this
      */
@@ -75,7 +75,7 @@ class Comment extends PlainText {
     /**
      * Append content to the node
      * 
-     * @param mixed $content
+     * @param mixed $content        The node content : node, string, or an array of strings/nodes
      * 
      * @return $this
      */

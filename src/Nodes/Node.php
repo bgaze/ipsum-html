@@ -27,7 +27,7 @@ class Node extends Comment {
         'code', 'data', 'dd', 'del', 'dfn', 'dt', 'em', 'figcaption', 'h1',
         'h2', 'h3', 'h4', 'h5', 'h6', 'i', 'kbd', 'label', 'legend', 'li',
         'mark', 'option', 'pre', 'q', 'rp', 'rt', 's', 'samp', 'small', 'span',
-        'strong', 'sub', 'sup', 'td', 'th', 'time', 'title', 'u', 'var'
+        'strong', 'sub', 'sup', 'td', 'th', 'time', 'title', 'u', 'var', 'script'
     ];
 
     /**
@@ -55,7 +55,7 @@ class Node extends Comment {
      * The class constructor.
      * 
      * @param string $tag           The node tag
-     * @param mixed $content        The node content
+     * @param mixed $content        The node content : node, string, or an array of strings/nodes
      */
     public function __construct($tag, $content = null) {
         $this->void = in_array($tag, self::VOID_ELEMENTS);
@@ -93,7 +93,7 @@ class Node extends Comment {
      * @param string $tag
      * 
      * @return $this
-     * @throws \Exception
+     * @throws \Exception   $tag MUST match /^[a-zA-Z]([a-zA-Z0-9])*$/
      */
     public function setTag($tag) {
         if (!preg_match('/^[a-zA-Z]([a-zA-Z0-9])*$/', $tag)) {
@@ -159,7 +159,7 @@ class Node extends Comment {
     /**
      * Append child or children to the node
      * 
-     * @param mixed $content
+     * @param mixed $content        The node content : node, string, or an array of strings/nodes
      * 
      * @return $this
      */
@@ -173,6 +173,8 @@ class Node extends Comment {
 
     /**
      * Compile node attributes to a string.
+     * 
+     * @return string
      */
     protected function compileAttributes() {
         $attributes = '';
