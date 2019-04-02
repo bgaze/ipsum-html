@@ -2,7 +2,7 @@
 
 IpsumHtml is a PHP utility that allows to generate Lorem Ipsum HTML 5.  
 
-> The HTML5 reference used to build this lib is [https://developer.mozilla.org/en-US/docs/Web/HTML/Element]().
+> The HTML5 reference used to build this lib is [https://developer.mozilla.org/en-US/docs/Web/HTML/Element]().  
 > No support for any older version of HTML is planned.
 
 ## Installation
