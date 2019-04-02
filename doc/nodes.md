@@ -2,6 +2,10 @@
 
 # Nodes documentation
 
+* [Bgaze\IpsumHtml\Nodes\PlainText](#bgazeipsumhtmlnodesplaintext)
+* [Bgaze\IpsumHtml\Nodes\Comment](#bgazeipsumhtmlnodescomment)
+* [Bgaze\IpsumHtml\Nodes\Node](#bgazeipsumhtmlnodesnode)
+
 ## Nodes handling.
 
 All the nodes provide methods to use them fluently and to compile them to string, formatted.
@@ -274,7 +278,7 @@ The inline status is automatically set when instanciating the node based on this
 
 Except for void elements, that are always inline, the inline status can be changed using **setInline** method.
 
-### Available methods :
+### Available methods
 
 **isVoid:**
 
