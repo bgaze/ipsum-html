@@ -111,7 +111,7 @@ public function prettify($offset = 0, $size = 4, $wrap = 100)
 
 ## Bgaze\IpsumHtml\Nodes\Comment
 
-Comment node extends PlainText node.
+Comment node extends `Bgaze\IpsumHtml\Nodes\PlainText` node.
 
 It has no attributes, its content is an array of nodes.  
 Any element added to a node that is not an instance of a node class will be turned into a PlainText node.
@@ -238,7 +238,7 @@ public function prettify($offset = 0, $size = 4, $wrap = 100)
 
 ## Bgaze\IpsumHtml\Nodes\Node
 
-Node extends Comment class.
+Node extends `Bgaze\IpsumHtml\Nodes\Comment` class.
 
 Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.  
 Any element added to a node that is not an instance of a node class will be turned into a PlainText node.
