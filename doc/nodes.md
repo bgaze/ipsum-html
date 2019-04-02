@@ -15,54 +15,6 @@ This method is only available into **Bgaze\IpsumHtml\Nodes\Node** class.
 * **minify:** compile the node to a minified string.
 * **prettify:** compile the node to a prettified string.
 
-**Examples:**
-
-```php
-use Bgaze\IpsumHtml\Nodes\PlainText;
-use Bgaze\IpsumHtml\Nodes\Comment;
-use Bgaze\IpsumHtml\Nodes\Node;
-
-echo (new PlainText())
-        ->append('Consectetur magnam rem accusamus ')
-        ->append(new Node('b', 'sunt suscipit quos est'))
-        ->append(' iste quis vel unde quo possimus pariatur')
-        . "\n\n";
-
-echo (new Node('select'))
-        ->setAttribute('id', 'select')
-        ->append((new Node('option', 'Option 1'))->setAttribute('value', 'option1'))
-        ->append((new Node('option', 'Option 2'))->setAttribute('value', 'option2'))
-        . "\n\n";
-
-echo (new Node('link'))->setAttributes(['href' => 'my/stylesheet/file.css', 'rel' => 'stylesheet']) . "\n\n";
-
-echo new Comment([
-    'Here is the generated select HTML:',
-    '',
-    new Node('p', 'Consectetur magnam rem accusamus sunt suscipit quos est iste quis vel unde quo possimus pariatur.')
-]);
-```
-
-```html
-Consectetur magnam rem accusamus <b>sunt suscipit quos est</b> iste quis vel unde quo possimus
-pariatur
-
-<select id="select">
-    <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-</select>
-
-<link href="my/stylesheet/file.css" rel="stylesheet"/>
-
-<!--
-    Here is the generated select HTML:
-    
-    <p>
-        Consectetur magnam rem accusamus sunt suscipit quos est iste quis vel unde quo possimus pariatur.
-    </p>
--->
-```
-
 ## Bgaze\IpsumHtml\Nodes\PlainText
 
 PlainText node has no attributes and its content is a string.  
@@ -301,7 +253,26 @@ public function __construct($tag, $content = null)
 
 ### Void nodes
 
+HTML void elements are self closing tags, such as `link` or `input`.  
+They have no content and only accept attributes: any content related method will have no effect.
+
+Void elements are inline, and this status cannot be changed : a void element will always be printed on one line.
+
+The void status is automatically set when instanciating the node based on this hardcoded list:  
+**area**, **base**, **br**, **col**, **embed**, **hr**, **img**, **input**, **link**, **meta**, **param**, **source**, **track**, **wbr**
+
 ### Inline nodes
+
+Inline elements will be printed on one line.  
+
+The inline status is automatically set when instanciating the node based on this hardcoded list:  
+**a**, **abbr**, **acronym**, **b**, **bdi**, **bdo**, **button**, **caption**, **cite**,
+**code**, **data**, **dd**, **del**, **dfn**, **dt**, **em**, **figcaption**, **h1**,
+**h2**, **h3**, **h4**, **h5**, **h6**, **i**, **kbd**, **label**, **legend**, **li**,
+**mark**, **option**, **pre**, **q**, **rp**, **rt**, **s**, **samp**, **small**, **span**,
+**strong**, **sub**, **sup**, **td**, **th**, **time**, **title**, **u**, **var**, **script**
+
+Except for void elements, that are always inline, the inline status can be changed using **setInline** method.
 
 ### Available methods :
 

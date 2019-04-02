@@ -59,7 +59,7 @@ class Node extends Comment {
      */
     public function __construct($tag, $content = null) {
         $this->void = in_array($tag, self::VOID_ELEMENTS);
-        $this->inline = in_array($tag, self::INLINE_ELEMENTS);
+        $this->inline = ($this->void || in_array($tag, self::INLINE_ELEMENTS));
         $this->content = [];
         $this->attributes = [];
 
