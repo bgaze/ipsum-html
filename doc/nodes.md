@@ -28,7 +28,7 @@ It's constructor signature is :
 
 ```php
 /**
- * @param mixed $content        The node content : a "stringable" value, or an array of "stringable" values
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
  */
 public function __construct($content = null)
 ```
@@ -65,7 +65,7 @@ Set the node content.
 
 ```php
 /**
- * @param mixed $content        The node content : a "stringable" value, or an array of "stringable" values
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
  * @return $this
  */
 public function setContent($content)
@@ -77,7 +77,7 @@ Append content to the node.
 
 ```php
 /**
- * @param mixed $content        The node content : a "stringable" value, or an array of "stringable" values
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
  * @return $this
  */
 public function append($content) 
