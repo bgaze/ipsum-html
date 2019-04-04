@@ -6,10 +6,10 @@ This class generates the Lorem Ipsum text. It offers three main methods:
 
 **str:**
 
+Generate a simple string of Lorem Ipsum.
+
 ```php
 /**
- * Generate a simple string of Lorem Ipsum.
- * 
  * @param integer $words    The number of words into the string
  * @return string
  */
@@ -18,11 +18,10 @@ public static function str($words)
 
 **sentence:**
 
+Generate a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
+
 ```php
 /**
- * Generate a simple string of Lorem Ipsum with first letter capitalized
- * and trailing dot if requested.
- * 
  * @param integer $words    The number of words into the string
  * @param boolean $dot      Wether to include a trailing dot.
  * @return string
@@ -32,10 +31,10 @@ public static function sentence($words, $dot = true)
 
 **text:**
 
+Generate a Lorem Ipsum text composed of distinct sentences.
+
 ```php
 /**
- * Generate a Lorem Ipsum text composed of distinct sentences.
- * 
  * @param integer $words    The number of words into the string
  * @param mixed $decorate   Wether to decorate the string with inline html tags
  *                          Accepts boolean or tag array
