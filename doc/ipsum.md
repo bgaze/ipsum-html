@@ -5,7 +5,7 @@
 This class generates the Lorem Ipsum text.  
 It offers three main methods:
 
-**str:**
+### str
 
 Generate a simple string of Lorem Ipsum.
 
@@ -17,7 +17,19 @@ Generate a simple string of Lorem Ipsum.
 public static function str($words)
 ```
 
-**sentence:**
+**Example:**
+
+```php
+use Bgaze\IpsumHtml\Ipsum;
+
+echo Ipsum::str(5);
+```
+
+This code will generate following texts:
+
+> voluptatem sunt magnam commodi laborum
+
+### sentence
 
 Generate a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
 
@@ -30,7 +42,24 @@ Generate a simple string of Lorem Ipsum with first letter capitalized and traili
 public static function sentence($words, $dot = true)
 ```
 
-**text:**
+**Examples:**
+
+```php
+use Bgaze\IpsumHtml\Ipsum;
+
+echo implode('<br/><br/>', [
+    Ipsum::sentence(5),
+    Ipsum::sentence(4, false)
+]);
+```
+
+This code will generate following texts:
+
+> Veniam voluptatum repellendus a delectus.
+>
+> Perferendis explicabo atque possimus
+
+### text
 
 Generate a Lorem Ipsum text composed of distinct sentences.
 
@@ -51,9 +80,6 @@ public static function text($words, $decorate = false)
 use Bgaze\IpsumHtml\Ipsum;
 
 echo implode('<br/><br/>', [
-    Ipsum::str(5),
-    Ipsum::sentence(5),
-    Ipsum::sentence(4, false),
     Ipsum::text(50),
     Ipsum::text(50, true),
     Ipsum::text(50, ['a', 'strong'])
@@ -62,12 +88,6 @@ echo implode('<br/><br/>', [
 
 This code will generate following texts:
 
-> voluptatem sunt magnam commodi laborum
-> 
-> Veniam voluptatum repellendus a delectus.
->
-> Perferendis explicabo atque possimus
->
 > Fugit dolor quis eum nihil atque est dolorum expedita cum illum a. Ipsa quae quia qui sequi tempora laboriosam molestias est placeat temporibus voluptates. Quasi dicta fugit eos tempora minima corporis rem excepturi cupiditate fuga libero cum placeat repellat. Consectetur minima rem quos iste impedit quod repellendus accusamus voluptates hic.
 >
 > <b>Eos sequi laboriosam</b> alias nostrum autem porro at repudiandae <abbr>quia incidunt</abbr> odit numquam enim quo quibusdam amet iure deleniti perspiciatis placeat asperiores fugit odio molestias tempore placeat voluptates <sup>vitae fugit dolorem aliquam</sup>. Quae dicta sequi fugiat consequatur dicta nemo est maxime at ut nam libero quisquam assumenda pariatur. Beatae optio.
