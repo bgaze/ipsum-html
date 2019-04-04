@@ -17,7 +17,7 @@ Generate a simple string of Lorem Ipsum.
 public static function str($words)
 ```
 
-**Example:**
+Example:
 
 ```php
 use Bgaze\IpsumHtml\Ipsum;
@@ -25,7 +25,7 @@ use Bgaze\IpsumHtml\Ipsum;
 echo Ipsum::str(5);
 ```
 
-This code will generate following texts:
+Result:
 
 > voluptatem sunt magnam commodi laborum
 
@@ -42,7 +42,7 @@ Generate a simple string of Lorem Ipsum with first letter capitalized and traili
 public static function sentence($words, $dot = true)
 ```
 
-**Examples:**
+Examples:
 
 ```php
 use Bgaze\IpsumHtml\Ipsum;
@@ -53,7 +53,7 @@ echo implode('<br/><br/>', [
 ]);
 ```
 
-This code will generate following texts:
+Result:
 
 > Veniam voluptatum repellendus a delectus.
 >
@@ -63,30 +63,31 @@ This code will generate following texts:
 
 Generate a Lorem Ipsum text composed of distinct sentences.
 
+The default decoration list (`$tag === true`) :  
+`['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']`
+
 ```php
 /**
- * @param integer $words    The number of words into the string
- * @param mixed $decorate   Wether to decorate the string with inline html tags
- *                          Accepts boolean or tag array
- *                          Default tags: ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']
+ * @param integer $words            The number of words into the string
+ * @param boolean|array $decorate   Wether to decorate the string with inline html tags
  * @return string
  */
 public static function text($words, $decorate = false)
 ```
 
-**Examples:**
+Examples:
 
 ```php
 use Bgaze\IpsumHtml\Ipsum;
 
-echo implode('<br/><br/>', [
+echo implode("\n\n", [
     Ipsum::text(50),
     Ipsum::text(50, true),
     Ipsum::text(50, ['a', 'strong'])
 ]);
 ```
 
-This code will generate following texts:
+Result:
 
 > Fugit dolor quis eum nihil atque est dolorum expedita cum illum a. Ipsa quae quia qui sequi tempora laboriosam molestias est placeat temporibus voluptates. Quasi dicta fugit eos tempora minima corporis rem excepturi cupiditate fuga libero cum placeat repellat. Consectetur minima rem quos iste impedit quod repellendus accusamus voluptates hic.
 >
