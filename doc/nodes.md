@@ -23,7 +23,7 @@ This method is only available into **Bgaze\IpsumHtml\Nodes\Node** class.
 PlainText node has no attributes and its content is a string.  
 Any node added to a PlainText node will be minified and appened to its content.
 
-It's constructor signature is :
+**Constructor signature:**
 
 ```php
 /**
@@ -31,8 +31,6 @@ It's constructor signature is :
  */
 public function __construct($content = null)
 ```
-
-Here are available methods :
 
 **isInline:**
 
@@ -115,7 +113,7 @@ Comment node extends `Bgaze\IpsumHtml\Nodes\PlainText` node.
 It has no attributes, its content is an array of nodes.  
 Any element added to a node that is not an instance of a node class will be turned into a PlainText node.
 
-It's constructor signature is :
+**Constructor signature:**
 
 ```php
 /**
@@ -123,8 +121,6 @@ It's constructor signature is :
  */
 public function __construct($content = null)
 ```
-
-Here are available methods :
 
 **isInline:**
 
@@ -242,7 +238,7 @@ Node extends `Bgaze\IpsumHtml\Nodes\Comment` class.
 Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.  
 Any element added to a node that is not an instance of a node class will be turned into a PlainText node.
 
-Node's constructor signature is :
+### Constructor signature
 
 ```php
 /**
