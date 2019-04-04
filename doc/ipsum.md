@@ -63,7 +63,7 @@ Result:
 
 Generate a Lorem Ipsum text composed of distinct sentences.
 
-The default decoration list (`$tag === true`) :  
+The default decorations list is:  
 `['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']`
 
 ```php
