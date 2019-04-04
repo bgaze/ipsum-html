@@ -8,14 +8,13 @@
 
 ## Nodes handling.
 
-All the nodes provide methods to use them fluently and to compile them to string, formatted.
-
-The mains methods to keep in mind, once the node is instanciated, are :
+All the nodes provide a fluent syntax.  
+Once the node is instanciated, the mains methods to keep in mind are :
 
 * **append:** append content to the node (accepts scalar, node or array of scalar/nodes).  
-This method has not effect on void (self-closing) tags.
+> This method has not effect on void (self-closing) tags.
 * **setAttribute:** add an attribute to the node.  
-This method is only available into **Bgaze\IpsumHtml\Nodes\Node** class.
+> This method is only available into **Bgaze\IpsumHtml\Nodes\Node** class.
 * **minify:** compile the node to a minified string.
 * **prettify:** compile the node to a prettified string.
 
