@@ -84,9 +84,7 @@ echo $node->prettify(1, 2, 50);
 
 #### Other elements
 
-They have attributes and content.
-
-The methods signature is :
+They have attributes and content. The methods signature is :
 
 ```php
 /**
