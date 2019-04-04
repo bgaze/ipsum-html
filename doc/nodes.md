@@ -253,7 +253,7 @@ public function __construct($tag, $content = null)
 ### Void nodes
 
 HTML void elements are self closing tags, such as `link` or `input`.  
-They have no content and only accept attributes: any content related method will have no effect.
+They have no content and only accept attributes: __any content related method will have no effect__.
 
 Void elements are inline, and this status cannot be changed : a void element will always be printed on one line.
 
