@@ -793,7 +793,7 @@ Any undefined tag will be considered as a "large text element".
 
 ### 1 word elements
 
-Apply to following tags: **var**, **abbr**, **sub**, **sup**.
+Apply to: **var**, **abbr**, **sub**, **sup**.
 
 Method signature is :
 
@@ -809,7 +809,7 @@ public static function tagName($words = 1, $ucfirst = false, boolean $dot = fals
 
 ### Lowercased small text elements
 
-Apply to following tags: **a**, **em**, **strong**, **small**, **s**, **q**, **i**, **b**, **u**, **mark**, **span**.
+Apply to: **a**, **em**, **strong**, **small**, **s**, **q**, **i**, **b**, **u**, **mark**, **span**.
 
 Method signature is :
 
@@ -825,7 +825,7 @@ public static function tagName($words = null, $ucfirst = false, boolean $dot = f
 
 ### Capitalized small text elements
 
-Apply to following tags: **title**, **dt**, **caption**, **td**, **th**, **legend**, **label**.
+Apply to: **title**, **dt**, **caption**, **td**, **th**, **legend**, **label**.
 
 Method signature is :
 
@@ -841,7 +841,7 @@ public static function tagName($words = null, $ucfirst = true, boolean $dot = fa
 
 ### Medium text elements
 
-Apply to following tags: **h1**, **h2**, **h3**, **h4**, **h5**, **h6**, **li**, **dd**, **figcaption**, **cite**, **dfn**, **samp**.
+Apply to: **h1**, **h2**, **h3**, **h4**, **h5**, **h6**, **li**, **dd**, **figcaption**, **cite**, **dfn**, **samp**.
 
 Method signature is :
 
@@ -857,7 +857,7 @@ public static function tagName($words = null, $decorate = false)
 ### Large text elements
 
 Apply to any tag not listed before will be considered as a "large text element".  
-Completion is provided for following tags: **p**, **bq**.
+Completion is provided for: **p**, **bq**.
 
 Method signature is :
 

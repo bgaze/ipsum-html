@@ -63,9 +63,6 @@ Result:
 
 Generate a Lorem Ipsum text composed of distinct sentences.
 
-The default decorations list is:  
-`['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']`
-
 ```php
 /**
  * @param integer $words            The number of words into the string
@@ -74,6 +71,9 @@ The default decorations list is:
  */
 public static function text($words, $decorate = false)
 ```
+
+The default decorations list is:  
+`['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']`
 
 Examples:
 

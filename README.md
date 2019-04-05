@@ -15,7 +15,7 @@ composer require bgaze/ipsum-html
 
 ## Basic usage
 
-To quickly generate Lorme Ipsum HTML, import the `IpsumHtml` class into your script, 
+To quickly generate Lorem Ipsum HTML, import the `IpsumHtml` class into your script, 
 then use it statics methods to generate what you need.
 
 ```php

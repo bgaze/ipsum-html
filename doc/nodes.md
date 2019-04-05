@@ -2,9 +2,9 @@
 
 # Nodes documentation
 
+* [Bgaze\IpsumHtml\Nodes\Node](#bgazeipsumhtmlnodesnode)
 * [Bgaze\IpsumHtml\Nodes\PlainText](#bgazeipsumhtmlnodesplaintext)
 * [Bgaze\IpsumHtml\Nodes\Comment](#bgazeipsumhtmlnodescomment)
-* [Bgaze\IpsumHtml\Nodes\Node](#bgazeipsumhtmlnodesnode)
 
 ## Nodes handling.
 
@@ -12,11 +12,186 @@ All the nodes provide a fluent syntax.
 Once the node is instanciated, the mains methods to keep in mind are :
 
 * **append:** append content to the node (accepts scalar, node or array of scalar/nodes).  
-This method has not effect on void (self-closing) tags.
+*This method has not effect on void (self-closing) tags.*
 * **setAttribute:** add an attribute to the node.  
-This method is only available into **Bgaze\IpsumHtml\Nodes\Node** class.
+*This method is only available into **Bgaze\IpsumHtml\Nodes\Node** class.*
 * **minify:** compile the node to a minified string.
 * **prettify:** compile the node to a prettified string.
+
+## Bgaze\IpsumHtml\Nodes\Node
+
+Node extends `Bgaze\IpsumHtml\Nodes\Comment` class.
+
+Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.  
+Any element added to a node that is not an instance of a node class will be turned into a PlainText node.
+
+### Constructor signature
+
+```php
+/**
+ * The class constructor.
+ * 
+ * @param string $tag           The node tag
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
+ */
+public function __construct($tag, $content = null)
+```
+
+### Void nodes
+
+HTML void elements are self closing tags, such as `link` or `input`.  
+They have no content and only accept attributes: __any content related method will have no effect__.
+
+Void elements are inline, and this status cannot be changed : a void element will always be printed on one line.
+
+The void status is automatically set when instanciating the node based on this hardcoded list:  
+**area**, **base**, **br**, **col**, **embed**, **hr**, **img**, **input**, **link**, **meta**, **param**, **source**, **track**, **wbr**
+
+### Inline nodes
+
+Inline elements will be printed on one line.  
+
+The inline status is automatically set when instanciating the node based on this hardcoded list:  
+**a**, **abbr**, **acronym**, **b**, **bdi**, **bdo**, **button**, **caption**, **cite**,
+**code**, **data**, **dd**, **del**, **dfn**, **dt**, **em**, **figcaption**, **h1**,
+**h2**, **h3**, **h4**, **h5**, **h6**, **i**, **kbd**, **label**, **legend**, **li**,
+**mark**, **option**, **pre**, **q**, **rp**, **rt**, **s**, **samp**, **small**, **span**,
+**strong**, **sub**, **sup**, **td**, **th**, **time**, **title**, **u**, **var**, **script**
+
+Except for void elements, that are always inline, the inline status can be changed using **setInline** method.
+
+### Available methods
+
+**isVoid:**
+
+Is the node a void element (self closing tag)?
+
+```php
+/**
+ * @return boolean
+ */
+public function isVoid() 
+```
+
+**getTag:**
+
+Get the node tag.
+
+```php
+/**
+ * @return string
+ */
+public function getTag() 
+```
+
+**setTag:**
+
+Set the node tag.
+
+```php
+/**
+ * @param string $tag
+ * @return $this
+ * @throws \Exception   $tag MUST match /^[a-zA-Z]([a-zA-Z0-9])*$/
+ */
+public function setTag($tag)
+```
+
+**getAttributes:**
+
+Get the node attributes.
+
+```php
+/**
+ * @return array
+ */
+public function getAttributes()
+```
+
+**setAttributes:**
+
+Set the node attributes.
+
+```php
+/**
+ * @param array $attributes
+ * @return $this
+ */
+public function setAttributes(array $attributes) 
+```
+
+**setAttribute:**
+
+Set an attribute value.
+
+```php
+/**
+ * @param string $key
+ * @param string $value
+ * @return $this
+ */
+public function setAttribute($key, $value) 
+```
+
+**getAttribute:**
+
+Get an attribute value.
+
+```php
+/**
+ * @param string $key
+ * @return string|null
+ */
+public function getAttribute($key)
+```
+
+**append:**
+
+Append child or children to the node.
+
+```php
+/**
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
+ * @return $this
+ */
+public function append($content)
+```
+
+**compileAttributes:**
+
+Compile node attributes to a string.
+
+```php
+/**
+ * @return string
+ */
+protected function compileAttributes() 
+```
+
+**minify:**
+
+Compile node to a minified string.
+
+```php
+/**
+ * @return string
+ */
+public function minify()
+```
+
+**prettify:**
+
+Compile node to a prettified string.
+
+```php
+/**
+ * @param integer $offset   The number of indentations of the node
+ * @param integer $size     The number of space in an indentation level
+ * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
+ * @return string
+ */
+public function prettify($offset = 0, $size = 4, $wrap = 100) 
+```
 
 ## Bgaze\IpsumHtml\Nodes\PlainText
 
@@ -215,181 +390,6 @@ Compile the node content to a prettified string.
  * @return string
  */
 public function prettifyContent($offset = 0, $size = 4, $wrap = 100)
-```
-
-**prettify:**
-
-Compile node to a prettified string.
-
-```php
-/**
- * @param integer $offset   The number of indentations of the node
- * @param integer $size     The number of space in an indentation level
- * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
- * @return string
- */
-public function prettify($offset = 0, $size = 4, $wrap = 100) 
-```
-
-## Bgaze\IpsumHtml\Nodes\Node
-
-Node extends `Bgaze\IpsumHtml\Nodes\Comment` class.
-
-Node instance has attributes, content is an array of nodes except for void elements (self closing tags) that have no content.  
-Any element added to a node that is not an instance of a node class will be turned into a PlainText node.
-
-### Constructor signature
-
-```php
-/**
- * The class constructor.
- * 
- * @param string $tag           The node tag
- * @param mixed $content        The node content : node, string, or an array of strings/nodes
- */
-public function __construct($tag, $content = null)
-```
-
-### Void nodes
-
-HTML void elements are self closing tags, such as `link` or `input`.  
-They have no content and only accept attributes: __any content related method will have no effect__.
-
-Void elements are inline, and this status cannot be changed : a void element will always be printed on one line.
-
-The void status is automatically set when instanciating the node based on this hardcoded list:  
-**area**, **base**, **br**, **col**, **embed**, **hr**, **img**, **input**, **link**, **meta**, **param**, **source**, **track**, **wbr**
-
-### Inline nodes
-
-Inline elements will be printed on one line.  
-
-The inline status is automatically set when instanciating the node based on this hardcoded list:  
-**a**, **abbr**, **acronym**, **b**, **bdi**, **bdo**, **button**, **caption**, **cite**,
-**code**, **data**, **dd**, **del**, **dfn**, **dt**, **em**, **figcaption**, **h1**,
-**h2**, **h3**, **h4**, **h5**, **h6**, **i**, **kbd**, **label**, **legend**, **li**,
-**mark**, **option**, **pre**, **q**, **rp**, **rt**, **s**, **samp**, **small**, **span**,
-**strong**, **sub**, **sup**, **td**, **th**, **time**, **title**, **u**, **var**, **script**
-
-Except for void elements, that are always inline, the inline status can be changed using **setInline** method.
-
-### Available methods
-
-**isVoid:**
-
-Is the node a void element (self closing tag)?
-
-```php
-/**
- * @return boolean
- */
-public function isVoid() 
-```
-
-**getTag:**
-
-Get the node tag.
-
-```php
-/**
- * @return string
- */
-public function getTag() 
-```
-
-**setTag:**
-
-Set the node tag.
-
-```php
-/**
- * @param string $tag
- * @return $this
- * @throws \Exception   $tag MUST match /^[a-zA-Z]([a-zA-Z0-9])*$/
- */
-public function setTag($tag)
-```
-
-**getAttributes:**
-
-Get the node attributes.
-
-```php
-/**
- * @return array
- */
-public function getAttributes()
-```
-
-**setAttributes:**
-
-Set the node attributes.
-
-```php
-/**
- * @param array $attributes
- * @return $this
- */
-public function setAttributes(array $attributes) 
-```
-
-**setAttribute:**
-
-Set an attribute value.
-
-```php
-/**
- * @param string $key
- * @param string $value
- * @return $this
- */
-public function setAttribute($key, $value) 
-```
-
-**getAttribute:**
-
-Get an attribute value.
-
-```php
-/**
- * @param string $key
- * @return string|null
- */
-public function getAttribute($key)
-```
-
-**append:**
-
-Append child or children to the node.
-
-```php
-/**
- * @param mixed $content        The node content : node, string, or an array of strings/nodes
- * @return $this
- */
-public function append($content)
-```
-
-**compileAttributes:**
-
-Compile node attributes to a string.
-
-```php
-/**
- * @return string
- */
-protected function compileAttributes() 
-```
-
-**minify:**
-
-Compile node to a minified string.
-
-```php
-/**
- * @return string
- */
-public function minify()
 ```
 
 **prettify:**
