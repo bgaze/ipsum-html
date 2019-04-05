@@ -1,12 +1,12 @@
 {
     "name": "bgaze/ipsum-html",
     "type": "library",
-    "description": "A PHP utility that allows to generate Lorem Ipsum HTML",
+    "description": "A PHP utility that allows to generate Lorem Ipsum HTML 5",
     "keywords": [
         "faker",
         "lorem",
         "ipsum",
-        "html",
+        "html5",
         "php"
     ],
     "license": "MIT",
