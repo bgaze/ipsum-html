@@ -3,8 +3,8 @@
 # Nodes documentation
 
 * [Bgaze\IpsumHtml\Nodes\Node](#bgazeipsumhtmlnodesnode)
-* [Bgaze\IpsumHtml\Nodes\PlainText](#bgazeipsumhtmlnodesplaintext)
 * [Bgaze\IpsumHtml\Nodes\Comment](#bgazeipsumhtmlnodescomment)
+* [Bgaze\IpsumHtml\Nodes\PlainText](#bgazeipsumhtmlnodesplaintext)
 
 ## Nodes handling.
 
@@ -193,94 +193,6 @@ Compile node to a prettified string.
 public function prettify($offset = 0, $size = 4, $wrap = 100) 
 ```
 
-## Bgaze\IpsumHtml\Nodes\PlainText
-
-PlainText node has no attributes and its content is a string.  
-Any node added to a PlainText node will be minified and appened to its content.
-
-**Constructor signature:**
-
-```php
-/**
- * @param mixed $content        The node content : node, string, or an array of strings/nodes
- */
-public function __construct($content = null)
-```
-
-**isInline:**
-
-Is the node an inline element?
-
-> Always return `true` for PlainText nodes.
-
-```php
-/**
- * @return boolean
- */
-public function isInline()
-```
-
-**getContent:**
-
-Get the node content.
-
-```php
-/**
- * @return string
- */
-public function getContent() 
-```
-
-**setContent:**
-
-Set the node content.
-
-```php
-/**
- * @param mixed $content        The node content : node, string, or an array of strings/nodes
- * @return $this
- */
-public function setContent($content)
-```
-
-**append:**
-
-Append content to the node.
-
-```php
-/**
- * @param mixed $content        The node content : node, string, or an array of strings/nodes
- * @return $this
- */
-public function append($content) 
-```
-
-**minify:**
-
-Compile node to a minified string.
-
-```php
-/**
- * Compile node to a minified string
- * @return string
- */
-public function minify()
-```
-
-**prettify:**
-
-Compile node to a prettified string.
-
-```php
-/**
- * @param integer $offset   The number of indentations of the node
- * @param integer $size     The number of space in an indentation level
- * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
- * @return string
- */
-public function prettify($offset = 0, $size = 4, $wrap = 100)
-```
-
 ## Bgaze\IpsumHtml\Nodes\Comment
 
 Comment node extends `Bgaze\IpsumHtml\Nodes\PlainText` node.
@@ -404,4 +316,92 @@ Compile node to a prettified string.
  * @return string
  */
 public function prettify($offset = 0, $size = 4, $wrap = 100) 
+```
+
+## Bgaze\IpsumHtml\Nodes\PlainText
+
+PlainText node has no attributes and its content is a string.  
+Any node added to a PlainText node will be minified and appened to its content.
+
+**Constructor signature:**
+
+```php
+/**
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
+ */
+public function __construct($content = null)
+```
+
+**isInline:**
+
+Is the node an inline element?
+
+> Always return `true` for PlainText nodes.
+
+```php
+/**
+ * @return boolean
+ */
+public function isInline()
+```
+
+**getContent:**
+
+Get the node content.
+
+```php
+/**
+ * @return string
+ */
+public function getContent() 
+```
+
+**setContent:**
+
+Set the node content.
+
+```php
+/**
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
+ * @return $this
+ */
+public function setContent($content)
+```
+
+**append:**
+
+Append content to the node.
+
+```php
+/**
+ * @param mixed $content        The node content : node, string, or an array of strings/nodes
+ * @return $this
+ */
+public function append($content) 
+```
+
+**minify:**
+
+Compile node to a minified string.
+
+```php
+/**
+ * Compile node to a minified string
+ * @return string
+ */
+public function minify()
+```
+
+**prettify:**
+
+Compile node to a prettified string.
+
+```php
+/**
+ * @param integer $offset   The number of indentations of the node
+ * @param integer $size     The number of space in an indentation level
+ * @param integer $wrap     Wrap text lines to not exceed specified length (indentation excluded) 
+ * @return string
+ */
+public function prettify($offset = 0, $size = 4, $wrap = 100)
 ```
