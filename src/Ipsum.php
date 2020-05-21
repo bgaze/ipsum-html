@@ -2,7 +2,6 @@
 
 namespace Bgaze\IpsumHtml;
 
-use Bgaze\IpsumHtml\Html;
 use Bgaze\IpsumHtml\Nodes\Node;
 
 /**
@@ -13,7 +12,7 @@ use Bgaze\IpsumHtml\Nodes\Node;
 class Ipsum {
 
     /**
-     * The list of words used to generate Lorem Ipsum.
+     * The list of words used to generate Lorem Ipsum
      */
     const WORDS = [
         'alias', 'consequatur', 'aut', 'perferendis', 'sit', 'voluptatem',
@@ -77,11 +76,10 @@ class Ipsum {
     }
 
     /**
-     * Generate a simple string of Lorem Ipsum with first letter capitalized
-     * and trailing dot if requested.
+     * Generate a simple string of Lorem Ipsum with first letter capitalized and trailing dot if requested.
      * 
      * @param integer $words    The number of words into the string
-     * @param boolean $dot      Wether to include a trailing dot.
+     * @param boolean $dot      Whether to include a trailing dot
      * @return string
      */
     public static function sentence($words, $dot = true) {
@@ -98,9 +96,8 @@ class Ipsum {
      * Generate a Lorem Ipsum text composed of distinct sentences.
      * 
      * @param integer $words    The number of words into the string
-     * @param mixed $decorate   Wether to decorate the string with inline html tags
-     *                          Accepts boolean or tag array.
-     *                          Default tags: ['var', 'abbr', 'sub', 'sup', 'a', 'em', 'strong', 'small', 's', 'q', 'i', 'b', 'u', 'mark', 'br']
+     * @param boolean|array $decorate   Whether to decorate the string with inline html tags
+     *
      * @return string
      */
     public static function text($words, $decorate = false) {
@@ -132,8 +129,7 @@ class Ipsum {
      * 
      * @param integer $words    The number of words into the text
      * @param array $decorate   The tags to use to decorate the text
-     *                          Defaults: ['b', 'u', 'i', 'a', 'code']
-     * @return type
+     * @return string
      */
     public static function decoratedText($words, array $decorate = []) {
         $text = [];

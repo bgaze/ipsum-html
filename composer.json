@@ -1,7 +1,7 @@
 {
     "name": "bgaze/ipsum-html",
     "type": "library",
-    "description": "A PHP utility that allows to generate Lorem Ipsum HTML 5",
+    "description": "A PHP utility to generate Lorem Ipsum HTML 5",
     "keywords": [
         "faker",
         "lorem",
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^5.3.3 || ^7.0"
+        "php": ">=7.0"
     },
     "autoload": {
         "psr-4": {

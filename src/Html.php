@@ -2,150 +2,144 @@
 
 namespace Bgaze\IpsumHtml;
 
-use Bgaze\IpsumHtml\Nodes\PlainText;
 use Bgaze\IpsumHtml\Nodes\Comment;
 use Bgaze\IpsumHtml\Nodes\Node;
+use Bgaze\IpsumHtml\Nodes\PlainText;
 
 /**
- * This class offers static helpers to generate and use fluently PlainText, 
- * Comment and Node instance.
- *
- * It offers completion for all the HTML5 elements listed on that are not obsoletes or experimentals:
+ * This class offers static helpers to generate and use fluently PlainText, Comment and Node instance.
+ * It offers completion for all non obsoletes or experimental HTML5 elements listed on
  * https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5/Liste_des_%C3%A9l%C3%A9ments_HTML5
- * 
- * NOTE:
- * -----
- * The phpDocumentor "method" tag is not well handled by many editors when using the "static" modifier.
- * That why I've declared this class methods as non static.
- * In Netbeans IDE, you can adjust your options by checking "Also Non-Static Methods after ::" 
- * into "Tools > Options > Code Completion > PHP".
- * 
+ *
  * @author bgaze <benjamin@bgaze.fr>
- * 
+ *
  * VOIDS ELEMENTS
  * --------------
- * @method \Bgaze\IpsumHtml\Nodes\Node area(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'area' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node base(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'base' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node br(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'br' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node col(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'col' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node embed(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'embed' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node hr(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'hr' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node img(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'img' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node input(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'input' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node link(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'link' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node meta(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'meta' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node param(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'param' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node source(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'source' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node track(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'track' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node wbr(array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'wbr' HTML node.
- * 
- * STANDART ELEMENTS
+ * @method static Node area(array $attributes = []) Create a 'area' HTML node.
+ * @method static Node base(array $attributes = []) Create a 'base' HTML node.
+ * @method static Node br(array $attributes = []) Create a 'br' HTML node.
+ * @method static Node col(array $attributes = []) Create a 'col' HTML node.
+ * @method static Node embed(array $attributes = []) Create a 'embed' HTML node.
+ * @method static Node hr(array $attributes = []) Create a 'hr' HTML node.
+ * @method static Node img(array $attributes = []) Create a 'img' HTML node.
+ * @method static Node input(array $attributes = []) Create a 'input' HTML node.
+ * @method static Node link(array $attributes = []) Create a 'link' HTML node.
+ * @method static Node meta(array $attributes = []) Create a 'meta' HTML node.
+ * @method static Node param(array $attributes = []) Create a 'param' HTML node.
+ * @method static Node source(array $attributes = []) Create a 'source' HTML node.
+ * @method static Node track(array $attributes = []) Create a 'track' HTML node.
+ * @method static Node wbr(array $attributes = []) Create a 'wbr' HTML node.
+ *
+ * STANDARD ELEMENTS
  * -----------------
- * @method \Bgaze\IpsumHtml\Nodes\Node abbr(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'abbr' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node address(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'address' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node article(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'article' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node aside(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'aside' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node audio(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'audio' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node b(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'b' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node bdi(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'bdi' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node bdo(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'bdo' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node blockquote(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'blockquote' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node body(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'body' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node button(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'button' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node canvas(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'canvas' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node caption(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'caption' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node cite(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'cite' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node code(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'code' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node colgroup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'colgroup' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node data(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'data' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node datalist(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'datalist' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node dd(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dd' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node del(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'del' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node details(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'details' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node dfn(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dfn' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node div(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'div' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node dl(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dl' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node dt(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'dt' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node em(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'em' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node fieldset(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'fieldset' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node figcaption(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'figcaption' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node figure(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'figure' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node footer(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'footer' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node form(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'form' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node h1(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h1' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node h2(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h2' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node h3(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h3' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node h4(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h4' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node h5(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h5' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node h6(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'h6' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node head(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'head' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node header(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'header' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node hgroup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'hgroup' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node html(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'html' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node i(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'i' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node iframe(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'iframe' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node ins(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ins' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node kbd(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'kbd' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node label(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'label' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node legend(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'legend' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node li(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'li' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node map(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'map' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node mark(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'mark' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node meter(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'meter' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node nav(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'nav' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node noscript(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'noscript' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node object(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'object' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node ol(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ol' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node optgroup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'optgroup' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node option(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'option' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node output(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'output' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node p(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'p' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node pre(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'pre' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node progress(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'progress' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node q(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'q' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node rp(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'rp' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node rt(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'rt' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node ruby(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ruby' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node s(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 's' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node samp(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'samp' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node script(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'script' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node section(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'section' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node select(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'select' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node small(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'small' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node span(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'span' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node strong(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'strong' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node style(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'style' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node sub(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'sub' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node summary(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'summary' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node sup(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'sup' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node svg(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'svg' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node table(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'table' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node tbody(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'tbody' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node td(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'td' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node textarea(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'textarea' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node tfoot(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'tfoot' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node th(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'th' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node thead(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'thead' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node time(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'time' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node title(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'title' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node tr(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'tr' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node u(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'u' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node ul(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'ul' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node var(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'var' HTML node.
- * @method \Bgaze\IpsumHtml\Nodes\Node video(mixed $content = null The content of the node: string/node/array, array $attributes = [] An associative array of attributes: ['attribute name' => 'attribute value']) Create a 'video' HTML node.
+ * @method static Node abbr(mixed $content = null, array $attributes = []) Create a 'abbr' HTML node.
+ * @method static Node address(mixed $content = null, array $attributes = []) Create a 'address' HTML node.
+ * @method static Node article(mixed $content = null, array $attributes = []) Create a 'article' HTML node.
+ * @method static Node aside(mixed $content = null, array $attributes = []) Create a 'aside' HTML node.
+ * @method static Node audio(mixed $content = null, array $attributes = []) Create a 'audio' HTML node.
+ * @method static Node b(mixed $content = null, array $attributes = []) Create a 'b' HTML node.
+ * @method static Node bdi(mixed $content = null, array $attributes = []) Create a 'bdi' HTML node.
+ * @method static Node bdo(mixed $content = null, array $attributes = []) Create a 'bdo' HTML node.
+ * @method static Node blockquote(mixed $content = null, array $attributes = []) Create a 'blockquote' HTML node.
+ * @method static Node body(mixed $content = null, array $attributes = []) Create a 'body' HTML node.
+ * @method static Node button(mixed $content = null, array $attributes = []) Create a 'button' HTML node.
+ * @method static Node canvas(mixed $content = null, array $attributes = []) Create a 'canvas' HTML node.
+ * @method static Node caption(mixed $content = null, array $attributes = []) Create a 'caption' HTML node.
+ * @method static Node cite(mixed $content = null, array $attributes = []) Create a 'cite' HTML node.
+ * @method static Node code(mixed $content = null, array $attributes = []) Create a 'code' HTML node.
+ * @method static Node colgroup(mixed $content = null, array $attributes = []) Create a 'colgroup' HTML node.
+ * @method static Node data(mixed $content = null, array $attributes = []) Create a 'data' HTML node.
+ * @method static Node datalist(mixed $content = null, array $attributes = []) Create a 'datalist' HTML node.
+ * @method static Node dd(mixed $content = null, array $attributes = []) Create a 'dd' HTML node.
+ * @method static Node del(mixed $content = null, array $attributes = []) Create a 'del' HTML node.
+ * @method static Node details(mixed $content = null, array $attributes = []) Create a 'details' HTML node.
+ * @method static Node dfn(mixed $content = null, array $attributes = []) Create a 'dfn' HTML node.
+ * @method static Node div(mixed $content = null, array $attributes = []) Create a 'div' HTML node.
+ * @method static Node dl(mixed $content = null, array $attributes = []) Create a 'dl' HTML node.
+ * @method static Node dt(mixed $content = null, array $attributes = []) Create a 'dt' HTML node.
+ * @method static Node em(mixed $content = null, array $attributes = []) Create a 'em' HTML node.
+ * @method static Node fieldset(mixed $content = null, array $attributes = []) Create a 'fieldset' HTML node.
+ * @method static Node figcaption(mixed $content = null, array $attributes = []) Create a 'figcaption' HTML node.
+ * @method static Node figure(mixed $content = null, array $attributes = []) Create a 'figure' HTML node.
+ * @method static Node footer(mixed $content = null, array $attributes = []) Create a 'footer' HTML node.
+ * @method static Node form(mixed $content = null, array $attributes = []) Create a 'form' HTML node.
+ * @method static Node h1(mixed $content = null, array $attributes = []) Create a 'h1' HTML node.
+ * @method static Node h2(mixed $content = null, array $attributes = []) Create a 'h2' HTML node.
+ * @method static Node h3(mixed $content = null, array $attributes = []) Create a 'h3' HTML node.
+ * @method static Node h4(mixed $content = null, array $attributes = []) Create a 'h4' HTML node.
+ * @method static Node h5(mixed $content = null, array $attributes = []) Create a 'h5' HTML node.
+ * @method static Node h6(mixed $content = null, array $attributes = []) Create a 'h6' HTML node.
+ * @method static Node head(mixed $content = null, array $attributes = []) Create a 'head' HTML node.
+ * @method static Node header(mixed $content = null, array $attributes = []) Create a 'header' HTML node.
+ * @method static Node hgroup(mixed $content = null, array $attributes = []) Create a 'hgroup' HTML node.
+ * @method static Node html(mixed $content = null, array $attributes = []) Create a 'html' HTML node.
+ * @method static Node i(mixed $content = null, array $attributes = []) Create a 'i' HTML node.
+ * @method static Node iframe(mixed $content = null, array $attributes = []) Create a 'iframe' HTML node.
+ * @method static Node ins(mixed $content = null, array $attributes = []) Create a 'ins' HTML node.
+ * @method static Node kbd(mixed $content = null, array $attributes = []) Create a 'kbd' HTML node.
+ * @method static Node label(mixed $content = null, array $attributes = []) Create a 'label' HTML node.
+ * @method static Node legend(mixed $content = null, array $attributes = []) Create a 'legend' HTML node.
+ * @method static Node li(mixed $content = null, array $attributes = []) Create a 'li' HTML node.
+ * @method static Node map(mixed $content = null, array $attributes = []) Create a 'map' HTML node.
+ * @method static Node mark(mixed $content = null, array $attributes = []) Create a 'mark' HTML node.
+ * @method static Node meter(mixed $content = null, array $attributes = []) Create a 'meter' HTML node.
+ * @method static Node nav(mixed $content = null, array $attributes = []) Create a 'nav' HTML node.
+ * @method static Node noscript(mixed $content = null, array $attributes = []) Create a 'noscript' HTML node.
+ * @method static Node object(mixed $content = null, array $attributes = []) Create a 'object' HTML node.
+ * @method static Node ol(mixed $content = null, array $attributes = []) Create a 'ol' HTML node.
+ * @method static Node optgroup(mixed $content = null, array $attributes = []) Create a 'optgroup' HTML node.
+ * @method static Node option(mixed $content = null, array $attributes = []) Create a 'option' HTML node.
+ * @method static Node output(mixed $content = null, array $attributes = []) Create a 'output' HTML node.
+ * @method static Node p(mixed $content = null, array $attributes = []) Create a 'p' HTML node.
+ * @method static Node pre(mixed $content = null, array $attributes = []) Create a 'pre' HTML node.
+ * @method static Node progress(mixed $content = null, array $attributes = []) Create a 'progress' HTML node.
+ * @method static Node q(mixed $content = null, array $attributes = []) Create a 'q' HTML node.
+ * @method static Node rp(mixed $content = null, array $attributes = []) Create a 'rp' HTML node.
+ * @method static Node rt(mixed $content = null, array $attributes = []) Create a 'rt' HTML node.
+ * @method static Node ruby(mixed $content = null, array $attributes = []) Create a 'ruby' HTML node.
+ * @method static Node s(mixed $content = null, array $attributes = []) Create a 's' HTML node.
+ * @method static Node samp(mixed $content = null, array $attributes = []) Create a 'samp' HTML node.
+ * @method static Node script(mixed $content = null, array $attributes = []) Create a 'script' HTML node.
+ * @method static Node section(mixed $content = null, array $attributes = []) Create a 'section' HTML node.
+ * @method static Node select(mixed $content = null, array $attributes = []) Create a 'select' HTML node.
+ * @method static Node small(mixed $content = null, array $attributes = []) Create a 'small' HTML node.
+ * @method static Node span(mixed $content = null, array $attributes = []) Create a 'span' HTML node.
+ * @method static Node strong(mixed $content = null, array $attributes = []) Create a 'strong' HTML node.
+ * @method static Node style(mixed $content = null, array $attributes = []) Create a 'style' HTML node.
+ * @method static Node sub(mixed $content = null, array $attributes = []) Create a 'sub' HTML node.
+ * @method static Node summary(mixed $content = null, array $attributes = []) Create a 'summary' HTML node.
+ * @method static Node sup(mixed $content = null, array $attributes = []) Create a 'sup' HTML node.
+ * @method static Node svg(mixed $content = null, array $attributes = []) Create a 'svg' HTML node.
+ * @method static Node table(mixed $content = null, array $attributes = []) Create a 'table' HTML node.
+ * @method static Node tbody(mixed $content = null, array $attributes = []) Create a 'tbody' HTML node.
+ * @method static Node td(mixed $content = null, array $attributes = []) Create a 'td' HTML node.
+ * @method static Node textarea(mixed $content = null, array $attributes = []) Create a 'textarea' HTML node.
+ * @method static Node tfoot(mixed $content = null, array $attributes = []) Create a 'tfoot' HTML node.
+ * @method static Node th(mixed $content = null, array $attributes = []) Create a 'th' HTML node.
+ * @method static Node thead(mixed $content = null, array $attributes = []) Create a 'thead' HTML node.
+ * @method static Node time(mixed $content = null, array $attributes = []) Create a 'time' HTML node.
+ * @method static Node title(mixed $content = null, array $attributes = []) Create a 'title' HTML node.
+ * @method static Node tr(mixed $content = null, array $attributes = []) Create a 'tr' HTML node.
+ * @method static Node u(mixed $content = null, array $attributes = []) Create a 'u' HTML node.
+ * @method static Node ul(mixed $content = null, array $attributes = []) Create a 'ul' HTML node.
+ * @method static Node var(mixed $content = null, array $attributes = []) Create a 'var' HTML node.
+ * @method static Node video(mixed $content = null, array $attributes = []) Create a 'video' HTML node.
  */
-class Html {
+class Html
+{
     /**
-     * Generate a HTML node using his tag as function name.
-     * 
+     * Generate a HTML node using tag as function name.
+     *
      * Signature for void elements is : tag(array $attributes = [])
      * Signature for other elements is : tag(mixed $content = null, array $attributes = [])
-     * 
-     * @param type $name
-     * @param type $arguments
-     * @return Bgaze\IpsumHtml\Nodes\Node
+     *
+     * @param  string  $name
+     * @param  array  $arguments
+     *
+     * @return Node
      */
-    public static function __callStatic($name, $arguments) {
+    public static function __callStatic($name, $arguments)
+    {
         $node = new Node($name);
 
         if ($node->isVoid()) {
@@ -166,35 +160,40 @@ class Html {
         return $node;
     }
 
+
     /**
      * Create and returns a plain text node.
-     * 
-     * @param string $content
-     * @return Bgaze\IpsumHtml\Nodes\PlainText
+     *
+     * @param  string  $content
+     * @return PlainText
      */
-    public static function txt($content = null) {
+    public static function txt($content = null)
+    {
         return new PlainText($content);
     }
 
+
     /**
      * Create and returns a comment node.
-     * 
-     * @param mixed $content
-     * @return Bgaze\IpsumHtml\Nodes\Comment
+     *
+     * @param  mixed  $content
+     * @return Comment
      */
-    public static function comment($content = null) {
+    public static function comment($content = null)
+    {
         return new Comment($content);
     }
 
+
     /**
-     * Create and returns a 'a' node.
-     * If href is not provided, set it to '#'.
-     * 
-     * @param mixed $content
-     * @param array $attributes
-     * @return Bgaze\IpsumHtml\Nodes\Node
+     * Create and returns a 'a' node. If href is not provided, set it to '#'.
+     *
+     * @param  mixed  $content
+     * @param  array  $attributes
+     * @return Node
      */
-    public static function a($content = null, array $attributes = []) {
+    public static function a($content = null, array $attributes = [])
+    {
         $node = new Node('a', $content);
         $node->setAttributes($attributes);
         if (empty($node->getAttribute('href'))) {
