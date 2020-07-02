@@ -33,14 +33,6 @@ echo IpsumHtml::table(4, 10)->minify();
 
 ## Documentation
 
-> **Note about code completion**  
-> IpsumHtml does an heavy usage of PHP `__callStatic` method, so using phpDocumentor is necessary to provide code completion.
-> Sadly, the phpDocumentor `@method` tag isn't well handled by many editors when using the `static` modifier.
-> 
-> A workaround, used in this lib, is to declared static methods as non-static into phpDocumentor blocks, 
-> then to configure the IDE to allow non-static methods after `::`.  
-> In Netbeans IDE, you can do that by checking `Also Non-Static Methods after ::` into `Tools > Options > Code Completion > PHP`.
-
 IpsumHtml ships three main classes which all methods are statics:
 
 * **Bgaze\IpsumHtml\IpsumHtml:** creates HTML nodes randomly populated with Lorem Ipsum text.
